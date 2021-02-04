@@ -1,0 +1,42 @@
+﻿<UserControl x:Class="Chart.ChartPanel"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:Chart"
+             mc:Ignorable="d" 
+             d:DesignHeight="900" d:DesignWidth="1600">
+    <Grid>
+        <Canvas Name="chartCanvas" Margin="1">
+            <Line x:Name="x_axis" Stroke="Black" StrokeThickness="3" X1="100" Y1="750" X2="1400" Y2="750" StrokeStartLineCap="Round"/>
+            <Line x:Name="y_axis" Stroke="Black" StrokeThickness="3" X1="100" Y1="750" X2="100" Y2="30" StrokeStartLineCap="Round"/>
+            <Path x:Name="x_axisArrow" Fill="Black">
+                <Path.Data>
+                    <PathGeometry>
+                        <PathFigure StartPoint="1400,746" IsClosed="True">
+                            <LineSegment Point="1400,754"/>
+                            <LineSegment Point="1410,750"/>
+                        </PathFigure>
+                    </PathGeometry>
+                </Path.Data>
+            </Path>
+            <Path x:Name="y_axisArrow" Fill="Black">
+                <Path.Data>
+                    <PathGeometry>
+                        <PathFigure StartPoint="96,30" IsClosed="True">
+                            <LineSegment Point="104,30"/>
+                            <LineSegment Point="100,20"/>
+                        </PathFigure>
+                    </PathGeometry>
+                </Path.Data>
+            </Path>
+
+            <TextBlock x:Name="x_label" Text="X" Canvas.Left="1410" Canvas.Top="760"
+                       FontFamily="Arial" FontStyle="Italic" FontSize="20"/>
+            <TextBlock x:Name="y_label" Text="Y" Canvas.Left="40" Canvas.Top="5"
+                       FontFamily="Arial" FontStyle="Italic" FontSize="20"/>
+            <TextBlock x:Name="o_label" Text="o" Canvas.Left="75" Canvas.Top="760"
+                       FontFamily="Arial" FontStyle="Italic" FontSize="20"/>
+        </Canvas>
+    </Grid>
+</UserControl>
