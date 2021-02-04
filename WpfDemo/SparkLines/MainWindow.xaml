@@ -1,0 +1,19 @@
+﻿<Window x:Class="SparkLines.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:SparkLines"
+        mc:Ignorable="d"
+   Title="MainWindow" Height="700" Width="900">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="750"/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+        <local:WhiteSparkLine x:Name="WaveLine" Grid.Column="0"/>
+        <StackPanel Grid.Column="1" Orientation="Vertical">
+            <Button Name="btnStart" Content="开始" Height="40" Margin="3"/>
+        </StackPanel>
+    </Grid>
+</Window>
