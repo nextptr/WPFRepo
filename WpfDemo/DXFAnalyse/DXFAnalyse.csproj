@@ -122,13 +122,13 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\Common\Common\Common.csproj">
+      <Project>{6929adf7-96f4-46bb-9392-afca7cab79dc}</Project>
+      <Name>Common</Name>
+    </ProjectReference>
     <ProjectReference Include="..\DXFComponent\DXFComponent.csproj">
       <Project>{0813320b-9274-4c63-a7a4-3fd166e3c2de}</Project>
       <Name>DXFComponent</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\ParameterManager\ParameterManager.csproj">
-      <Project>{a3d7dd32-5198-4702-80eb-a971507eec1d}</Project>
-      <Name>ParameterManager</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

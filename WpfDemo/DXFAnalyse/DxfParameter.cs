@@ -1,11 +1,9 @@
-﻿using DXFComponent;
-using ParameterManager;
+﻿using Common;
+using Common.Parameter;
+using DXFComponent;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
 
 namespace DXFAnalyse
@@ -22,12 +20,12 @@ namespace DXFAnalyse
         public string RecipeName
         {
             get { return _recipeName; }
-            set { if (_recipeName == value) { return; } _recipeName = value; RaisePropertyChanged("RecipeName"); }
+            set { if (_recipeName == value) { return; } _recipeName = value; OnPropertyChanged("RecipeName"); }
         }
         public string RecipeDate
         {
             get { return _recipeDate; }
-            set { if (_recipeDate == value) { return; } _recipeDate = value; RaisePropertyChanged("RecipeDate"); }
+            set { if (_recipeDate == value) { return; } _recipeDate = value; OnPropertyChanged("RecipeDate"); }
         }
         public List<PATH> RecipePath
         {
@@ -183,7 +181,7 @@ namespace DXFAnalyse
             set
             {
                 datas = value;
-                RaisePropertyChanged(nameof(Datas));
+                OnPropertyChanged(nameof(Datas));
             }
         }
 

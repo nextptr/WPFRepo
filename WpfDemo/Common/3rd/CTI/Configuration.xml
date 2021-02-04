@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Configuration>
+	<!-- Set the path where the hardware configuration files can be found -->
+	<HardwareConfigurationPath>HardwareConfiguration</HardwareConfigurationPath>
+	<EnableEC1000>true</EnableEC1000>
+	<EnableSC500>false</EnableSC500>
+	<EnableLightningII>false</EnableLightningII>
+	<EnableSMC>true</EnableSMC>
+</Configuration>

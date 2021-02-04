@@ -30,6 +30,5 @@ namespace ParameterManager
                 return _G_ParameterPath;
             }
         }
-
     }
 }

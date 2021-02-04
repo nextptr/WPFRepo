@@ -1,0 +1,102 @@
+﻿<UserControl x:Class="DrawingBoard.DrawingControl.DrawingPanel"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:DrawingBoard.DrawingControl"
+             xmlns:primitive="clr-namespace:DrawingBoard.Primitive"
+             mc:Ignorable="d" 
+             d:DesignHeight="450" d:DesignWidth="800">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="Auto"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+        <ToolBarTray Orientation="Vertical">
+            <ToolBar>
+                <RadioButton Name="btnPointer" IsChecked="True">
+                    <RadioButton.Content>
+                        <Image Source="/DrawingBoard;Component/Image/pointer.png" Width="16" Height="16"/>
+                    </RadioButton.Content>
+                </RadioButton>
+                <RadioButton Name="btnDot">
+                    <RadioButton.Content>
+                        <Image Source="/DrawingBoard;Component/Image/dot.png" Width="16" Height="16"/>
+                    </RadioButton.Content>
+                </RadioButton>
+                <RadioButton Name="btnLine">
+                    <RadioButton.Content>
+                        <Image Source="/DrawingBoard;Component/Image/line.png" Width="16" Height="16"/>
+                    </RadioButton.Content>
+                </RadioButton>
+                <RadioButton Name="btnRectangle">
+                    <RadioButton.Content>
+                        <Image Source="/DrawingBoard;Component/Image/rectangle.png" Width="16" Height="16"/>
+                    </RadioButton.Content>
+                </RadioButton>
+                <RadioButton Name="btnCircle">
+                    <RadioButton.Content>
+                        <Image Source="/DrawingBoard;Component/Image/circle.png" Width="16" Height="16"/>
+                    </RadioButton.Content>
+                </RadioButton>
+                <RadioButton Name="btnPolyLine">
+                    <RadioButton.Content>
+                        <Image Source="/DrawingBoard;Component/Image/polyLine.bmp" Width="16" Height="16"/>
+                    </RadioButton.Content>
+                </RadioButton>
+                <Separator Height="1"/>
+                <RadioButton Name="btnPan">
+                    <RadioButton.Content>
+                        <Image Source="/DrawingBoard;Component/Image/pan.png" Width="16" Height="16"/>
+                    </RadioButton.Content>
+                </RadioButton>
+                <Button Name="btnShowField" ToolTip="显示全部打标区域">
+                    <Button.Content>
+                        <Image Source="/DrawingBoard;Component/Image/fit.png" Width="16" Height="16"/>
+                    </Button.Content>
+                </Button>
+                <Button Name="btnShowAxis" ToolTip="显示坐标">
+                    <Button.Content>
+                        <Image Source="/DrawingBoard;Component/Image/grid.png" Width="16" Height="16"/>
+                    </Button.Content>
+                </Button>
+                <Separator Height="1"/>
+                <Button Name="btnGenerateGrid" ToolTip="生成网格">
+                    <Button.Content>
+                        <Image Source="/DrawingBoard;Component/Image/grid.png" Width="16" Height="16"/>
+                    </Button.Content>
+                </Button>
+                <Button Name="btnGenerateCross" ToolTip="生成十字">
+                    <Button.Content>
+                        <Image Source="/DrawingBoard;Component/Image/grid.png" Width="16" Height="16"/>
+                    </Button.Content>
+                </Button>
+            </ToolBar>
+        </ToolBarTray>
+        <Grid Name="grid" Grid.Column="1" Background="LightBlue" ClipToBounds="True">
+            <local:CartesianCanvas x:Name="canvas" Background="Transparent">
+                <local:CartesianCanvas.RenderTransform>
+                    <TransformGroup>
+                        <ScaleTransform x:Name="scale" ScaleX="1" ScaleY="1"/>
+                        <TranslateTransform x:Name="translate"/>
+                    </TransformGroup>
+                </local:CartesianCanvas.RenderTransform>
+                <primitive:Axis StrokeThickness="0.5" Stroke="Gray" Scale="{Binding ElementName=scale,Path=ScaleX}"/>
+            </local:CartesianCanvas>
+            <local:ZoomableCanvas x:Name="rootCanvas" IsHitTestVisible="False"  Background="Transparent"/>
+            <Canvas Name="topCanvas">
+                <Rectangle Name="rectSelection" Fill="Blue" Opacity="0.1" Visibility="Hidden"/>
+            </Canvas>
+            <Canvas Margin="0" Name="CanvasRoot" MouseWheel="CanvasMain_MouseWheel" >
+                <Viewbox Canvas.Left="200" Canvas.Top="120" Height="300" Name="ViewBoxMain" Width="400" Stretch="UniformToFill"  >
+                    <Canvas Height="300" Width="400" Name="CanvasMain" 
+                        MouseWheel="CanvasMain_MouseWheel"
+                        MouseMove="CanvasMain_MouseMove"
+                        MouseDown="CanvasMain_MouseDown"
+                        MouseUp="CanvasMain_MouseUp">
+                    </Canvas>
+                </Viewbox>
+            </Canvas>
+        </Grid>
+    </Grid>
+</UserControl>

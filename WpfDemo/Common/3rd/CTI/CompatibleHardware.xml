@@ -1,0 +1,25 @@
+<CompatibleHardware>
+		<!-- Compatible version can be specified as exact version, range of versions or version with wildcards.
+			Multiple entries are also supported.
+			Component name can be "Fpga" or "ScriptEngine"
+			Examples :
+			<Component name="Fpga" version="260130129" /> - Exact version
+			<Component name="Fpga" version="260110101-270130101" /> - Range of versions
+			<Component name="Fpga" version="260*" /> - version with wildcards. 
+			<Component name="ScriptEngine" version="1.5.0.18-1.5.0.19" />	- Script Engine with range of versions
+		-->
+	<EC1000>
+		<Component name="Fpga" version="28*" />
+		<Component name="Fpga" version="29*" />
+		<Component name="ScriptEngine" version="2.1.*.*" />
+		<Component name="ScriptEngine" version="2.2.*.*" />
+	</EC1000>
+	<SMC>
+		<Component name="Fpga" version="31*" />
+		<Component name="Fpga" version="32*" />
+		<Component name="Fpga" version="33*" />
+        <Component name="ScriptEngine" version="2.1.*.*" />
+        <Component name="ScriptEngine" version="2.2.*.*" />
+        <Component name="ScriptEngine" version="2.3.*.*" />
+	</SMC>
+</CompatibleHardware>

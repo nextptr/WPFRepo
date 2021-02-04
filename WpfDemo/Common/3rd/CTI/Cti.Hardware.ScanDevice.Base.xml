@@ -1,0 +1,1664 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Cti.Hardware.ScanDevice.Base</name>
+    </assembly>
+    <members>
+        <member name="T:Cti.Hardware.ScanDevice.Base.ArcTextAlign">
+            <summary>
+            Defines the alignment of text with respect to its arc
+            </summary>
+        </member>
+        <member name="T:Cti.Hardware.ScanDevice.Base.BarcodeType">
+            <summary>
+            Define the types of barcodes
+            </summary>
+        </member>
+        <member name="T:Cti.Hardware.ScanDevice.Base.BarcodeHatchStyle">
+            <summary>
+            Defines the barcode hatch style
+            </summary>
+        </member>
+        <member name="T:Cti.Hardware.ScanDevice.Base.DataMatrixFormat">
+            <summary>
+            Defines the datamatrix format
+            </summary>
+        </member>
+        <member name="T:Cti.Hardware.ScanDevice.Base.DataMatrixSize">
+            <summary>
+            Defines the size of the datamatrix
+            </summary>
+        </member>
+        <member name="T:Cti.Hardware.ScanDevice.Base.QRCodeSize">
+            <summary>
+            Define the types of qrcode sizes
+            </summary>
+        </member>
+        <member name="T:Cti.Hardware.ScanDevice.Base.QRCodeErrorCorrectionLevel">
+            <summary>
+            Define the types of error correction levels used in qrcode
+            </summary>
+        </member>
+        <member name="T:Cti.Hardware.ScanDevice.Base.QRCodeEncodingMode">
+            <summary>
+            Define the types of encoding modes used in qrcode
+            </summary>
+        </member>
+        <member name="T:Cti.Hardware.ScanDevice.Base.QRCodeMaskPattern">
+            <summary>
+            Define the types of mask patterns used in qrcode
+            </summary>
+        </member>
+        <member name="T:Cti.Hardware.ScanDevice.Base.MicroQRCodeSize">
+            <summary>
+            Define the types of MicroQRCode sizes
+            </summary>
+        </member>
+        <member name="T:Cti.Hardware.ScanDevice.Base.MicroQRCodeMaskPattern">
+            <summary>
+            Define the types of mask patterns used in MicroQRCode
+            </summary>
+        </member>
+        <member name="T:Cti.Hardware.ScanDevice.Base.MicroQRCodeEncodingMode">
+            <summary>
+            Define the types of encoding modes used in MicroQRCode
+            </summary>
+        </member>
+        <member name="T:Cti.Hardware.ScanDevice.Base.MicroQRCodeErrorCorrectionLevel">
+            <summary>
+            Define the types of error correction levels used in MicroQRCode
+            </summary>
+        </member>
+        <member name="T:Cti.Hardware.ScanDevice.Base.Pdf417ErrorCorrectionLevel">
+            <summary>
+            Define the types of error correction levels used in PDF417
+            </summary>
+        </member>
+        <member name="T:Cti.Hardware.ScanDevice.Base.Pdf417CompactionMode">
+            <summary>
+            Define the types of compaction modes used in PDF417
+            </summary>
+        </member>
+        <member name="T:Cti.Hardware.ScanDevice.Base.MacroPdf417ErrorCorrectionLevel">
+            <summary>
+            Define the types of error correction levels used in MacroPDF417
+            </summary>
+        </member>
+        <member name="T:Cti.Hardware.ScanDevice.Base.MacroPdf417CompactionMode">
+            <summary>
+            Define the types of compaction modes used in MacroPDF417
+            </summary>
+        </member>
+        <member name="T:Cti.Hardware.ScanDevice.Base.BarcodeHatchPatternType">
+            <summary>
+            Defines the hatch patern which is use to draw the barcode
+            </summary>
+        </member>
+        <member name="T:Cti.Hardware.ScanDevice.Base.BarcodeHatchPattern">
+            <summary>
+            Provides methods to initialize and manipulate instances of BarcodeHatchPattern
+            </summary>
+        </member>
+        <member name="M:Cti.Hardware.ScanDevice.Base.BarcodeHatchPattern.CreateLineHatchPattern(System.Single,System.Boolean,System.Boolean)">
+            <summary>
+            Creates a line hatch pattern 
+            </summary>
+            <param name="lineSpace">spcace between two hatch lines</param>
+            <param name="vertical">the direction which the  hatch is drawn, if true - vertical, if false - horizontal</param>
+            <param name="serpentine">value indicating whether the hatch is drawn in serpentine manner</param>
+            <returns>A line hatch pattern created from above parameters</returns>
+        </member>
+        <member name="M:Cti.Hardware.ScanDevice.Base.BarcodeHatchPattern.CreateHelixHatchPattern(System.Single)">
+            <summary>
+            Creates a helix hatch pattern
+            </summary>
+            <param name="lineSpace">space between two hatch lines</param>
+            <returns>A helix hatch pattern created by above parameters</returns>
+        </member>
+        <member name="M:Cti.Hardware.ScanDevice.Base.BarcodeHatchPattern.CreateDotHatchPattern(System.Int32)">
+            <summary>
+            Creates a dot hatch pattern
+            </summary>
+            <param name="dotDuration">duration in which laser head is stayed on the perticular dot (location)</param>
+            <returns>A dot hatch pattern </returns>
+        </member>
+        <member name="M:Cti.Hardware.ScanDevice.Base.BarcodeHatchPattern.CreateCircleHatchPattern(System.Single)">
+            <summary>
+            Creates a helix hatch pattern
+            </summary>
+            <param name="circleRadius">radius of the circle</param>
+            <returns>A circle hatch pattern created by above parameters</returns>
+        </member>
+        <member name="M:Cti.Hardware.ScanDevice.Base.BarcodeHatchPattern.#ctor">
+            <summary>
+            Initialize a new instance of barcode hatch pattern
+            </summary>
+        </member>
+        <member name="M:Cti.Hardware.ScanDevice.Base.BarcodeHatchPattern.Serialize(System.IO.BinaryWriter)">
+            <summary>
+            Serialize the instance of BarcodeHatchPattern as a byte stream using the BinaryWriter
+            </summary>
+            <param name="writer">Used to write as binary</param>
+        </member>
+        <member name="M:Cti.Hardware.ScanDevice.Base.BarcodeHatchPattern.Deserialize(System.IO.BinaryReader)">
+            <summary>
+            Deserialize the instance of BarcodeHatchPatternType from a byte stream using the BinaryReader.
+            </summary>
+            <param name="reader">Used to read primitive data types from the stream</param>
+        </member>
+        <member name="P:Cti.Hardware.ScanDevice.Base.BarcodeHatchPattern.BarcodeHatchPatternType">
+            <summary>
+            Returns the hatch pattern type
+            </summary>
+        </member>
+        <member name="T:Cti.Hardware.ScanDevice.Base.LineBarcodeHatchPattern">
+            <summary>
+            Provides methods to initialize and manipulate linear barcode hatch patterns
+            </summary>
+        </member>
+        <member name="M:Cti.Hardware.ScanDevice.Base.LineBarcodeHatchPattern.#ctor">
+            <summary>
+            Initializes a new instance of LineBarcodeHatchPattern
+            </summary>
+        </member>
+        <member name="M:Cti.Hardware.ScanDevice.Base.LineBarcodeHatchPattern.Deserialize(System.IO.BinaryReader)">
+            <summary>
+            Deserialize the instance of LineBarcodeHatchPattern from a byte stream using the BinaryReader.
+            </summary>
+            <param name="reader">Used to read primitive data types from the stream</param>
+        </member>
+        <member name="M:Cti.Hardware.ScanDevice.Base.LineBarcodeHatchPattern.Serialize(System.IO.BinaryWriter)">
+            <summary>
+            Serialize the instance of LineBarcodeHatchPattern as a byte stream using the BinaryWriter
+            </summary>
+            <param name="writer">Used to write as binary</param>
+        </member>
+        <member name="P:Cti.Hardware.ScanDevice.Base.LineBarcodeHatchPattern.LineSpace">
+            <summary>
+            Gets or sets the line space of the instance of LineBarcodeHatchPattern
+            </summary>
+        </member>
+        <member name="P:Cti.Hardware.ScanDevice.Base.LineBarcodeHatchPattern.Serpentine">
+            <summary>
+            Gets or sets serpentine property of the instance of LineBarcodeHatchPattern
+            </summary>
+        </member>
+        <member name="P:Cti.Hardware.ScanDevice.Base.LineBarcodeHatchPattern.Vertical">
+            <summary>
+            Gets or sets vertical property of the instance of LineBarcodeHatchPattern
+            </summary>
+        </member>
+        <member name="P:Cti.Hardware.ScanDevice.Base.LineBarcodeHatchPattern.BarcodeHatchPatternType">
+            <summary>
+            Gets the hatch pattern type of the instance of LineBarcodeHatchPattern
+            </summary>
+        </member>
+        <member name="T:Cti.Hardware.ScanDevice.Base.HelixBarcodeHatchPattern">
+            <summary>
+            Provides methods to initialize and manipulate helix barcode hatch patterns
+            </summary>
+        </member>
+        <member name="M:Cti.Hardware.ScanDevice.Base.HelixBarcodeHatchPattern.#ctor">
+            <summary>
+            Initializes an instance of HelixBarcodeHatchPattern 
+            </summary>
+        </member>
+        <member name="M:Cti.Hardware.ScanDevice.Base.HelixBarcodeHatchPattern.Deserialize(System.IO.BinaryReader)">
+            <summary>
+            Deserialize the instance of HelixBarcodeHatchPattern from a byte stream using the BinaryReader.
+            </summary>
+            <param name="reader">Used to read primitive data types from the stream</param>
+        </member>
+        <member name="M:Cti.Hardware.ScanDevice.Base.HelixBarcodeHatchPattern.Serialize(System.IO.BinaryWriter)">
+            <summary>
+            Serialize the instance of HelixBarcodeHatchPattern as a byte stream using the BinaryWriter
+            </summary>
+            <param name="writer">Used to write as binary</param>
+        </member>
+        <member name="P:Cti.Hardware.ScanDevice.Base.HelixBarcodeHatchPattern.LineSpace">
+            <summary>
+            Gets or sets the line space 
+            </summary>
+        </member>
+        <member name="P:Cti.Hardware.ScanDevice.Base.HelixBarcodeHatchPattern.BarcodeHatchPatternType">
+            <summary>
+            Gets the hatch pattern type
+            </summary>
+        </member>
+        <member name="T:Cti.Hardware.ScanDevice.Base.DotBarcodeHatchPattern">
+            <summary>
+            Provides methods for creating and manipulating dot barcode hatch patterns
+            </summary>
+        </member>
+        <member name="M:Cti.Hardware.ScanDevice.Base.DotBarcodeHatchPattern.#ctor">
+            <summary>
+            Initializes a new instance of DotBarcodeHatchPattern object 
+            </summary>
+        </member>
+        <member name="M:Cti.Hardware.ScanDevice.Base.DotBarcodeHatchPattern.Deserialize(System.IO.BinaryReader)">
+            <summary>
+            Deserialize the instance of DotBarcodeHatchPattern from a byte stream using the BinaryReader.
+            </summary>
+            <param name="reader">Used to read primitive data types from the stream</param>
+        </member>
+        <member name="M:Cti.Hardware.ScanDevice.Base.DotBarcodeHatchPattern.Serialize(System.IO.BinaryWriter)">
+            <summary>
+            Serialize the instance of DotBarcodeHatchPattern as a byte stream using the BinaryWriter
+            </summary>
+            <param name="writer">Used to write as binary</param>
+        </member>
+        <member name="P:Cti.Hardware.ScanDevice.Base.DotBarcodeHatchPattern.DotDuration">
+            <summary>
+            Gets or sets the dot duration
+            </summary>
+        </member>
+        <member name="P:Cti.Hardware.ScanDevice.Base.DotBarcodeHatchPattern.BarcodeHatchPatternType">
+            <summary>
+            Gets the hatch pattern type
+            </summary>
+        </member>
+        <member name="T:Cti.Hardware.ScanDevice.Base.CircleBarcodeHatchPattern">
+            <summary>
+            Provides methods to initialize and manipulate circle barcode hatch patterns
+            </summary>
+        </member>
+        <member name="M:Cti.Hardware.ScanDevice.Base.CircleBarcodeHatchPattern.#ctor">
+            <summary>
+            Initializes an instance of HelixBarcodeHatchPattern 
+            </summary>
+        </member>
+        <member name="M:Cti.Hardware.ScanDevice.Base.CircleBarcodeHatchPattern.Deserialize(System.IO.BinaryReader)">
+            <summary>
+            Deserialize the instance of CircleBarcodeHatchPattern from a byte stream using the BinaryReader.
+            </summary>
+            <param name="reader">Used to read primitive data types from the stream</param>
+        </member>
+        <member name="M:Cti.Hardware.ScanDevice.Base.CircleBarcodeHatchPattern.Serialize(System.IO.BinaryWriter)">
+            <summary>
+            Serialize the instance of CircleBarcodeHatchPattern as a byte stream using the BinaryWriter
+            </summary>
+            <param name="writer">Used to write as binary</param>
+        </member>
+        <member name="P:Cti.Hardware.ScanDevice.Base.CircleBarcodeHatchPattern.CircleRadius">
+            <summary>
+            Gets or sets the radius of a circle
+            </summary>
+        </member>
+        <member name="P:Cti.Hardware.ScanDevice.Base.CircleBarcodeHatchPattern.BarcodeHatchPatternType">
+            <summary>
+            Gets the hatch pattern type
+            </summary>
+        </member>
+        <member name="M:Cti.Hardware.ScanDevice.Base.DotCircleBarcodeHatchPattern.#ctor">
+            <summary>
+            Initializes an instance of HelixBarcodeHatchPattern 
+            </summary>
+        </member>
+        <member name="M:Cti.Hardware.ScanDevice.Base.DotCircleBarcodeHatchPattern.Deserialize(System.IO.BinaryReader)">
+            <summary>
+            Deserialize the instance of CircleBarcodeHatchPattern from a byte stream using the BinaryReader.
+            </summary>
+            <param name="reader">Used to read primitive data types from the stream</param>
+        </member>
+        <member name="M:Cti.Hardware.ScanDevice.Base.DotCircleBarcodeHatchPattern.Serialize(System.IO.BinaryWriter)">
+            <summary>
+            Serialize the instance of CircleBarcodeHatchPattern as a byte stream using the BinaryWriter
+            </summary>
+            <param name="writer">Used to write as binary</param>
+        </member>
+        <member name="P:Cti.Hardware.ScanDevice.Base.DotCircleBarcodeHatchPattern.DotDuration">
+            <summary>
+            Gets or sets the dot duration
+            </summary>
+        </member>
+        <member name="P:Cti.Hardware.ScanDevice.Base.DotCircleBarcodeHatchPattern.CircleRadius">
+            <summary>
+            Gets or sets the radius of a circle
+            </summary>
+        </member>
+        <member name="P:Cti.Hardware.ScanDevice.Base.DotCircleBarcodeHatchPattern.BarcodeHatchPatternType">
+            <summary>
+            Gets the hatch pattern type
+            </summary>
+        </member>
+        <member name="T:Cti.Hardware.ScanDevice.Base.CutterCompensationDirection">
+            <summary>
+            Direction of the cutter compensation need to be apply
+            </summary>
+        </member>
+        <member name="F:Cti.Hardware.ScanDevice.Base.CutterCompensationDirection.Inner">
+            <summary>
+            Inside of the shape
+            </summary>
+        </member>
+        <member name="F:Cti.Hardware.ScanDevice.Base.CutterCompensationDirection.Outer">
+            <summary>
+            Outside of the shape
+            </summary>
+        </member>
+        <member name="T:Cti.Hardware.ScanDevice.Base.DeviceConfigurationData">
+            <summary>
+            Description of DeviceConfigurationData.
+            </summary>
+        </member>
+        <member name="M:Cti.Hardware.ScanDevice.Base.DeviceConfigurationData.#ctor">
+            <summary>
+            Initialize a new instance of DeviceConfigurationData with defalut x,y and zfactor values
+            </summary>
+        </member>
+        <member name="P:Cti.Hardware.ScanDevice.Base.DeviceConfigurationData.ZFactor">
+            <summary>
+            Nummber of bits per millimeter in z direction
+            </summary>
+        </member>
+        <member name="P:Cti.Hardware.ScanDevice.Base.DeviceConfigurationData.XFactor">
+            <summary>
+            Nummber of bits per millimeter in x direction
+            </summary>
+        </member>
+        <member name="P:Cti.Hardware.ScanDevice.Base.DeviceConfigurationData.YFactor">
+            <summary>
+            Nummber of bits per millimeter in y direction
+            </summary>
+        </member>
+        <member name="P:Cti.Hardware.ScanDevice.Base.DeviceConfigurationData.ZAxisMaxValue">
+            <summary>
+            Maximum value along z axis
+            </summary>
+        </member>
+        <member name="P:Cti.Hardware.ScanDevice.Base.DeviceConfigurationData.ZAxisMinValue">
+            <summary>
+            Minimum value along z axis
+            </summary>
+        </member>
+        <member name="P:Cti.Hardware.ScanDevice.Base.DeviceConfigurationData.MMToActuatorSpace">
+            <summary>
+            Millimeter to Actuator space transformation
+            </summary>
+        </member>
+        <member name="P:Cti.Hardware.ScanDevice.Base.DeviceConfigurationData.HeadParameters">
+            <summary>
+            Defines laser head parameters
+            </summary>
+        </member>
+        <member name="T:Cti.Hardware.ScanDevice.Base.MMToActuatorSpaceTransform">
+            <summary>
+            Description of Millimeter to actuatir space transformation
+            </summary>
+        </member>
+        <member name="P:Cti.Hardware.ScanDevice.Base.MMToActuatorSpaceTransform.XX">
+            <summary>
+            XX component of the transformation matrix
+            </summary>
+        </member>
+        <member name="P:Cti.Hardware.ScanDevice.Base.MMToActuatorSpaceTransform.YX">
+            <summary>
+            YX component of the transformation matrix
+            </summary>
+        </member>
+        <member name="P:Cti.Hardware.ScanDevice.Base.MMToActuatorSpaceTransform.ZX">
+            <summary>
+            ZX component of the transformation matrix
+            </summary>
+        </member>
+        <member name="P:Cti.Hardware.ScanDevice.Base.MMToActuatorSpaceTransform.DX">
+            <summary>
+            DX component of the transformation matrix
+            </summary>
+        </member>
+        <member name="P:Cti.Hardware.ScanDevice.Base.MMToActuatorSpaceTransform.XY">
+            <summary>
+            XY component of the transformation matrix
+            </summary>
+        </member>
+        <member name="P:Cti.Hardware.ScanDevice.Base.MMToActuatorSpaceTransform.YY">
+            <summary>
+            YY component of the transformation matrix
+            </summary>
+        </member>
+        <member name="P:Cti.Hardware.ScanDevice.Base.MMToActuatorSpaceTransform.ZY">
+            <summary>
+            ZY component of the transformation matrix
+            </summary>
+        </member>
+        <member name="P:Cti.Hardware.ScanDevice.Base.MMToActuatorSpaceTransform.DY">
+            <summary>
+            DY component of the transformation matrix
+            </summary>
+        </member>
+        <member name="P:Cti.Hardware.ScanDevice.Base.MMToActuatorSpaceTransform.XZ">
+            <summary>
+            XZ component of the transformation matrix
+            </summary>
+        </member>
+        <member name="P:Cti.Hardware.ScanDevice.Base.MMToActuatorSpaceTransform.YZ">
+            <summary>
+            YZ component of the transformation matrix
+            </summary>
+        </member>
+        <member name="P:Cti.Hardware.ScanDevice.Base.MMToActuatorSpaceTransform.ZZ">
+            <summary>
+            ZZ component of the transformation matrix
+            </summary>
+        </member>
+        <member name="P:Cti.Hardware.ScanDevice.Base.MMToActuatorSpaceTransform.DZ">
+            <summary>
+            DZ component of the transformation matrix
+            </summary>
+        </member>
+        <member name="T:Cti.Hardware.ScanDevice.Base.HeadParameters">
+            <summary>
+            Description of Laser Head parameters
+            </summary>
+        </member>
+        <member name="P:Cti.Hardware.ScanDevice.Base.HeadParameters.XGalvoMechanicalHalfAngleDeg">
+            <summary>
+            Mechanical half angle of X-Galvo in degrees
+            </summary>
+        </member>
+        <member name="P:Cti.Hardware.ScanDevice.Base.HeadParameters.YGalvoMechanicalHalfAngleDeg">
+            <summary>
+            Mechanical half angle of Y-Galvo in degrees
+            </summary>
+        </member>
+        <member name="P:Cti.Hardware.ScanDevice.Base.HeadParameters.XToYMirrorDistMM">
+            <summary>
+            Distance from X to Y mirror in millimeters
+            </summary>
+        </member>
+        <member name="P:Cti.Hardware.ScanDevice.Base.HeadParameters.YMirrorToRefSurfaceDistMM">
+            <summary>
+            Distance from Y mirror to reference surface in millimeters
+            </summary>
+        </member>
+        <member name="P:Cti.Hardware.ScanDevice.Base.HeadParameters.RefSurfaceToWorkSurfaceDistMM">
+            <summary>
+            Distance from reference surface to work surface in millimeters
+            </summary>
+        </member>
+        <member name="P:Cti.Hardware.ScanDevice.Base.HeadParameters.LensFocalLengthMM">
+            <summary>
+            Focul length of the lense in millimeters
+            </summary>
+        </member>
+        <member name="P:Cti.Hardware.ScanDevice.Base.HeadParameters.LensMaxMechanicalHalfAngleDeg">
+            <summary>
+            Maximum mechanical half angle of the lense in millimeters
+            </summary>
+        </member>
+        <member name="P:Cti.Hardware.ScanDevice.Base.HeadParameters.XMirrorToObjectiveDistMM">
+            <summary>
+            Distance from X-mirror to objective in millimeters
+            </summary>
+        </member>
+        <member name="P:Cti.Hardware.ScanDevice.Base.HeadParameters.E1E2SpacingMM">
+            <summary>
+            E1E2 spacing in millimeters
+            </summary>
+        </member>
+        <member name="P:Cti.Hardware.ScanDevice.Base.HeadParameters.DfmPositionFromHomeMM">
+            <summary>
+            Position of the Dfm from home in milimeters
+            </summary>
+        </member>
+        <member name="T:Cti.Hardware.ScanDevice.Base.DeviceStatusCategories">
+            <summary>
+            Device statuses are categorized such that user can filter a specific type of status for events.
+            </summary>
+        </member>
+        <member name="T:Cti.Hardware.ScanDevice.Base.DigitalIOPin">
+            <summary>
+            Description of DigitalIOPin.
+            </summary>
+        </member>
+        <member name="M:Cti.Hardware.ScanDevice.Base.DigitalIOPin.#ctor(System.String,System.String,System.Int32,System.Boolean)">
+            <summary>
+            Initialize a new instance of digital io pin
+            </summary>
+            <param name="category">Catagory of the io pin</param>
+            <param name="pinName">Name of the digital io pin</param>
+            <param name="pinNumber">Pin number of the digital io pin</param>
+            <param name="pinValue">Pin value of the digital io pin</param>
+        </member>
+        <member name="P:Cti.Hardware.ScanDevice.Base.DigitalIOPin.PinValue">
+            <summary>
+            Gets the value of digital io pin
+            </summary>
+        </member>
+        <member name="P:Cti.Hardware.ScanDevice.Base.DigitalIOPin.Category">
+            <summary>
+            Gets the catagory to which the digital io pin belongs to
+            </summary>
+        </member>
+        <member name="P:Cti.Hardware.ScanDevice.Base.DigitalIOPin.PinName">
+            <summary>
+            Gets the name of the IO pin
+            </summary>
+        </member>
+        <member name="P:Cti.Hardware.ScanDevice.Base.DigitalIOPin.PinNumber">
+            <summary>
+            Gets the pin number of the digital io pin
+            </summary>
+        </member>
+        <member name="T:Cti.Hardware.ScanDevice.Base.DigitalIOPinsCollection">
+            <summary>
+            List of digital io pins
+            </summary>
+        </member>
+        <member name="M:Cti.Hardware.ScanDevice.Base.DigitalIOPinsCollection.#ctor(System.String[],System.String[],System.Int32[],System.Boolean[])">
+            <summary>
+            Initializes a new instance of digital io pins collection
+            </summary>
+            <param name="categories">Array of pin categories</param>
+            <param name="pinNames">Array of pin names</param>
+            <param name="pinNumbers">Arrya of pin numbers</param>
+            <param name="pinValues">Arrya of values of pins</param>
+        </member>
+        <member name="M:Cti.Hardware.ScanDevice.Base.DigitalIOPinsCollection.GetEnumerator">
+            <summary>
+            Returns an System.Collections.IEnumerator for the instance of DigitalIOPinsCollection
+            </summary>
+            <returns>An System.Collections.IEnumerator for the instance of DigitalIOPinsCollection.</returns>
+        </member>
+        <member name="M:Cti.Hardware.ScanDevice.Base.DigitalIOPinsCollection.Clone">
+            <summary>
+            Clones the DigitalIOPinsCollection
+            </summary>
+            <returns>cloned instance of DigitalIOPinsCollection</returns>
+        </member>
+        <member name="M:Cti.Hardware.ScanDevice.Base.DigitalIOPinsCollection.IsEqual(Cti.Hardware.ScanDevice.Base.DigitalIOPinsCollection)">
+            <summary>
+            Returns true if two instances of DigitalIOPinsCollections are equal
+            </summary>
+            <param name="digitalIOPins"></param>
+            <returns>true if two instances of DigitalIOPinsCollections collections are equal</returns>
+        </member>
+        <member name="M:Cti.Hardware.ScanDevice.Base.DigitalIOPinsCollection.CopyTo(System.Array,System.Int32)">
+            <summary>
+            Copies all the elements of the current instance of DigitalIOPinsCollection to the
+            specified DigitalIOPinsCollection starting at the specified destination index. 
+            </summary>
+            <param name="array">Destination of the elements copied from the current instance of DigitalIOPinsCollection</param>
+            <param name="index">Represents the index in array at which copying begins.</param>
+        </member>
+        <member name="P:Cti.Hardware.ScanDevice.Base.DigitalIOPinsCollection.Count">
+            <summary>
+            Gets the total number of elements in DigitalIOPinsCollection.
+            </summary>
+        </member>
+        <member name="T:Cti.Hardware.ScanDevice.Base.DistanceUnit">
+            <summary>
+            Defines units used to measure distance
+            </summary>
+        </member>
+        <member name="F:Cti.Hardware.ScanDevice.Base.DistanceUnit.Inches">
+            <summary>
+            Distance unit Inches
+            </summary>
+        </member>
+        <member name="F:Cti.Hardware.ScanDevice.Base.DistanceUnit.Millimeters">
+            <summary>
+            Distance unit millimeters
+            </summary>
+        </member>
+        <member name="T:Cti.Hardware.ScanDevice.Base.HatchPattern">
+            <summary>
+            Base class for all the hatch patterns.
+            </summary>
+        </member>
+        <member name="P:Cti.Hardware.ScanDevice.Base.HatchPattern.Style">
+            <summary>
+            Gets Hatching Style
+            </summary>
+        </member>
+        <member name="T:Cti.Hardware.ScanDevice.Base.HatchPatternHelix">
+            <summary>
+            Represents the offset hatch pattern
+            </summary>
+        </member>
+        <member name="P:Cti.Hardware.ScanDevice.Base.HatchPatternHelix.OffsetAlgorithm">
+            <summary>
+            Gets or sets Offset Algorithm of the Hatch Pattern.
+            </summary>.
+        </member>
+        <member name="P:Cti.Hardware.ScanDevice.Base.HatchPatternHelix.CornerStyle">
+            <summary>
+            Gets or sets hatch corner Style of the Hatch Pattern.
+            </summary>
+        </member>
+        <member name="P:Cti.Hardware.ScanDevice.Base.HatchPatternHelix.HelixGap">
+            <summary>
+            Gets or sets offset gap of the Hatch Pattern.
+            </summary>
+        </member>
+        <member name="P:Cti.Hardware.ScanDevice.Base.HatchPatternHelix.HelixStyle">
+            <summary>
+            Gets or sets offset style of the Hatch Pattern
+            </summary>
+        </member>
+        <member name="P:Cti.Hardware.ScanDevice.Base.HatchPatternHelix.Style">
+            <summary>
+            Gets hatching Style of the Hatch Pattern
+            </summary>
+        </member>
+        <member name="P:Cti.Hardware.ScanDevice.Base.HatchPatternHelix.ApplySmoothing">
+            <summary>
+            Gets or sets appling of smoothness while creating the Hatch Pattern.
+            </summary>
+        </member>
+        <member name="T:Cti.Hardware.ScanDevice.Base.HatchPatternLine">
+            <summary>
+            Represents the line hatch pattern. 
+            </summary>
+        </member>
+        <member name="P:Cti.Hardware.ScanDevice.Base.HatchPatternLine.Style">
+            <summary>
+            Gets Hatching Style
+            </summary>
+        </member>
+        <member name="P:Cti.Hardware.ScanDevice.Base.HatchPatternLine.BorderGap">
+            <summary>
+            Gap between the hatch and the original border.
+            </summary>
+        </member>
+        <member name="P:Cti.Hardware.ScanDevice.Base.HatchPatternLine.LineStyle">
+            <summary>
+            Gets or sets the line style of the hatch pattern
+            </summary>
+        </member>
+        <member name="P:Cti.Hardware.ScanDevice.Base.HatchPatternLine.WithOffset">
+            <summary>
+            Gets or sets the property which determine whether the hatch is drown with an offset
+            </summary>
+        </member>
+        <member name="P:Cti.Hardware.ScanDevice.Base.HatchPatternLine.BorderGapDirection">
+            <summary>
+            Gets or sets the direction of the border gap 
+            </summary>
+        </member>
+        <member name="P:Cti.Hardware.ScanDevice.Base.HatchPatternLine.CornerStyle">
+            <summary>
+            Gets or sets hatch corner Style of the Hatch Pattern.
+            </summary>
+        </member>
+        <member name="P:Cti.Hardware.ScanDevice.Base.HatchPatternLine.Spacing">
+            <summary>
+            Gets or sets the spacing between lines 
+            </summary>
+        </member>
+        <member name="P:Cti.Hardware.ScanDevice.Base.HatchPatternLine.Angle">
+            <summary>
+            Gets or sets the hatch angle
+            </summary>
+        </member>
+        <member name="P:Cti.Hardware.ScanDevice.Base.HatchPatternLine.BaseX">
+            <summary>
+            Gets or sets the base point X coordinate
+            </summary>
+        </member>
+        <member name="P:Cti.Hardware.ScanDevice.Base.HatchPatternLine.BaseY">
+            <summary>
+            Gets or sets the base point Y coordinate
+            </summary>
+        </member>
+        <member name="P:Cti.Hardware.ScanDevice.Base.HatchPatternLine.OffsetAlgorithm">
+            <summary>
+            Gets or sets the offset algorithm of the hatch
+            </summary>
+        </member>
+        <member name="P:Cti.Hardware.ScanDevice.Base.HatchPatternLine.ApplySmoothing">
+            <summary>
+            Gets or sets appling of smoothness while creating the Hatch Pattern.
+            </summary>
+        </member>
+        <member name="T:Cti.Hardware.ScanDevice.Base.HatchPatternOffset">
+            <summary>
+            Represents the offset hatch pattern
+            </summary>
+        </member>
+        <member name="P:Cti.Hardware.ScanDevice.Base.HatchPatternOffset.OffsetAlgorithm">
+            <summary>
+            Gets or sets Offset Algorithm of the Hatch Pattern.
+            </summary>.
+        </member>
+        <member name="P:Cti.Hardware.ScanDevice.Base.HatchPatternOffset.CornerStyle">
+            <summary>
+            Gets or sets hatch corner Style of the Hatch Pattern.
+            </summary>
+        </member>
+        <member name="P:Cti.Hardware.ScanDevice.Base.HatchPatternOffset.OffsetGap">
+            <summary>
+            Gets or sets offset gap of the Hatch Pattern.
+            </summary>
+        </member>
+        <member name="P:Cti.Hardware.ScanDevice.Base.HatchPatternOffset.OffsetStyle">
+            <summary>
+            Gets or sets offset style of the Hatch Pattern
+            </summary>
+        </member>
+        <member name="P:Cti.Hardware.ScanDevice.Base.HatchPatternOffset.ApplySmoothing">
+            <summary>
+            Gets or sets appling of smoothness while creating the Hatch Pattern.
+            </summary>
+        </member>
+        <member name="P:Cti.Hardware.ScanDevice.Base.HatchPatternOffset.Style">
+            <summary>
+            Gets hatching Style of the Hatch Pattern
+            </summary>
+        </member>
+        <member name="T:Cti.Hardware.ScanDevice.Base.HatchPatternOffsetInOut">
+            <summary>
+            Represents the offset in, out pattern. Can keep the number of offsets inward and outward.
+            </summary>
+        </member>
+        <member name="P:Cti.Hardware.ScanDevice.Base.HatchPatternOffsetInOut.Style">
+            <summary>
+            Gets Hatching Style
+            </summary>
+        </member>
+        <member name="P:Cti.Hardware.ScanDevice.Base.HatchPatternOffsetInOut.InsideOffsetGap">
+            <summary>
+            Gets or sets inside offset gap of the Hatch Pattern.
+            </summary>
+        </member>
+        <member name="P:Cti.Hardware.ScanDevice.Base.HatchPatternOffsetInOut.InsideOffsetCount">
+            <summary>
+            Gets or sets inside offset count of the Hatch Pattern.
+            </summary>
+        </member>
+        <member name="P:Cti.Hardware.ScanDevice.Base.HatchPatternOffsetInOut.OutsideOffsetGap">
+            <summary>
+            Gets or sets outside offset gap of the Hatch Pattern.
+            </summary>
+        </member>
+        <member name="P:Cti.Hardware.ScanDevice.Base.HatchPatternOffsetInOut.OutsideOffsetCount">
+            <summary>
+            Gets or sets outside offset count of the Hatch Pattern.
+            </summary>
+        </member>
+        <member name="P:Cti.Hardware.ScanDevice.Base.HatchPatternOffsetInOut.OffsetAlgorithm">
+            <summary>
+            Gets or sets Offset Algorithm of the Hatch Pattern.
+            </summary>.
+        </member>
+        <member name="P:Cti.Hardware.ScanDevice.Base.HatchPatternOffsetInOut.CornerStyle">
+            <summary>
+            Gets or sets hatch corner Style of the Hatch Pattern.
+            </summary>
+        </member>
+        <member name="P:Cti.Hardware.ScanDevice.Base.HatchPatternOffsetInOut.ApplySmoothing">
+            <summary>
+            Gets or sets appling of smoothness while creating the Hatch Pattern.
+            </summary>
+        </member>
+        <member name="T:Cti.Hardware.ScanDevice.Base.LaserParameters">
+            <summary>
+            Provides functions to initialize and manipulate instances of LaserParameters
+            </summary>
+        </member>
+        <member name="M:Cti.Hardware.ScanDevice.Base.LaserParameters.Clone">
+            <summary>
+            Clones the instance of LaserParameters
+            </summary>
+            <returns>Clone of the instance of LaserParameters</returns>
+        </member>
+        <member name="M:Cti.Hardware.ScanDevice.Base.LaserParameters.#ctor">
+            <summary>
+            Initialize an instance of LaserParameters
+            </summary>
+        </member>
+        <member name="P:Cti.Hardware.ScanDevice.Base.LaserParameters.VariableName">
+            <summary>
+            Gets or sets the variable name
+            </summary>
+        </member>
+        <member name="P:Cti.Hardware.ScanDevice.Base.LaserParameters.RepeatCount">
+            <summary>
+            Gets or sets the number of repetitions
+            </summary>
+        </member>
+        <member name="P:Cti.Hardware.ScanDevice.Base.LaserParameters.ModulationFrequency">
+            <summary>
+            Gets or sets the modulation frequency
+            </summary>
+        </member>
+        <member name="P:Cti.Hardware.ScanDevice.Base.LaserParameters.ChannelTwoDutyCycle">
+            <summary>
+            Gets or sets the duty cycle of channel two
+            </summary>
+        </member>
+        <member name="P:Cti.Hardware.ScanDevice.Base.LaserParameters.ChannelOneDutyCycle">
+            <summary>
+            Gets or sets the duty cycle of channel one
+            </summary>
+        </member>
+        <member name="P:Cti.Hardware.ScanDevice.Base.LaserParameters.WobbleOverlapPercentage">
+            <summary>
+            Gets or sets the wobble overlap percentage
+            </summary>
+        </member>
+        <member name="P:Cti.Hardware.ScanDevice.Base.LaserParameters.WobbleThickness">
+            <summary>
+            Gets or sets the wobble thickness 
+            </summary>
+        </member>
+        <member name="P:Cti.Hardware.ScanDevice.Base.LaserParameters.MarkingPowerPercentage">
+            <summary>
+            Gets or sets the power percentage of the marking
+            </summary>
+        </member>
+        <member name="P:Cti.Hardware.ScanDevice.Base.LaserParameters.JumpSpeed">
+            <summary>
+            Gets or sets the jump speed 
+            </summary>
+        </member>
+        <member name="P:Cti.Hardware.ScanDevice.Base.LaserParameters.MarkingSpeed">
+            <summary>
+            Gets or sets the marking speed
+            </summary>
+        </member>
+        <member name="P:Cti.Hardware.ScanDevice.Base.LaserParameters.JumpDelay">
+            <summary>
+            Gets or sets the jump delay
+            </summary>
+        </member>
+        <member name="P:Cti.Hardware.ScanDevice.Base.LaserParameters.LaserOnDelay">
+            <summary>
+            Gets or sets the laser on delay
+            </summary>
+        </member>
+        <member name="P:Cti.Hardware.ScanDevice.Base.LaserParameters.LaserOffDelay">
+            <summary>
+            Gets or sets the laser off delay
+            </summary>
+        </member>
+        <member name="P:Cti.Hardware.ScanDevice.Base.LaserParameters.MarkDelay">
+            <summary>
+            Gets or sets the mark delay
+            </summary>
+        </member>
+        <member name="P:Cti.Hardware.ScanDevice.Base.LaserParameters.PolyDelay">
+            <summary>
+            Gets or sets the poly delay
+            </summary>
+        </member>
+        <member name="P:Cti.Hardware.ScanDevice.Base.LaserParameters.PipelineDelay">
+            <summary>
+            Gets or sets the laser pipeline delay
+            </summary>
+        </member>
+        <member name="P:Cti.Hardware.ScanDevice.Base.LaserParameters.PulseWaveform">
+            <summary>
+            Gets or sets the pulse waveform
+            </summary>
+        </member>
+        <member name="P:Cti.Hardware.ScanDevice.Base.LaserParameters.VelocityCompensationMode">
+            <summary>
+            Gets or sets the velocity compensation mode. This is used to compensate power variations at beginning and end of line.
+            </summary>
+            <value>
+            The velocity compensation mode.
+            </value>
+        </member>
+        <member name="P:Cti.Hardware.ScanDevice.Base.LaserParameters.VelocityCompensationLimit">
+            <summary>
+            Gets or sets sets the limit of the compensation that will be done in terms of percentage of the maximum possible value.  Compensation will be applied proportional to the calculated vector velocity of the mirror.
+            </summary>
+            <value>
+            The velocity compensation limit.
+            </value>
+        </member>
+        <member name="P:Cti.Hardware.ScanDevice.Base.LaserParameters.VelocityCompensationAggressiveness">
+            <summary>
+            Gets or sets how aggressively the system will compensate for velocity changes.  The higher the number, the quicker the change will be applied. This number directly correlates to the tuning bandwidth of the galvo servos.
+            </summary>
+            <value>
+            The velocity compensation aggressiveness.
+            </value>
+        </member>
+        <member name="T:Cti.Hardware.ScanDevice.Base.HatchingStyle">
+            <summary>
+            Hatch styles available
+            </summary>
+        </member>
+        <member name="F:Cti.Hardware.ScanDevice.Base.HatchingStyle.None">
+            <summary>
+            No hatch Style.
+            </summary>
+        </member>
+        <member name="F:Cti.Hardware.ScanDevice.Base.HatchingStyle.Line">
+            <summary>
+            Line hatch.
+            </summary>
+        </member>
+        <member name="F:Cti.Hardware.ScanDevice.Base.HatchingStyle.OffsetFill">
+            <summary>
+            Offset fill hatch.
+            </summary>
+        </member>
+        <member name="F:Cti.Hardware.ScanDevice.Base.HatchingStyle.OffsetInOut">
+            <summary>
+            Offset in out hatch.
+            </summary>
+        </member>
+        <member name="F:Cti.Hardware.ScanDevice.Base.HatchingStyle.Helix">
+            <summary>
+            Helix hatch.
+            </summary>
+        </member>
+        <member name="T:Cti.Hardware.ScanDevice.Base.HatchLineBorderGapDirection">
+            <summary>
+            The border gap direction in line hatching
+            </summary>
+        </member>
+        <member name="F:Cti.Hardware.ScanDevice.Base.HatchLineBorderGapDirection.Inward">
+            <summary>
+            Inward border gap direction
+            </summary>
+        </member>
+        <member name="F:Cti.Hardware.ScanDevice.Base.HatchLineBorderGapDirection.Outward">
+            <summary>
+            Outward border gap direction
+            </summary>
+        </member>
+        <member name="T:Cti.Hardware.ScanDevice.Base.HatchLineStyle">
+            <summary>
+            Styles for line hatching
+            Adding/Delete style from this enum consider where it use
+            When loading these styles to combo boxes use the same order as they were define in this enum ('HatchLineStyle')
+            If not reading the combo box selected item idex and cast to 'HatchLineStyle' not give correct style
+            </summary>
+        </member>
+        <member name="F:Cti.Hardware.ScanDevice.Base.HatchLineStyle.Unidirectional">
+            <summary>
+            Unidirectional line Style.
+            </summary>
+        </member>
+        <member name="F:Cti.Hardware.ScanDevice.Base.HatchLineStyle.DoubleFill">
+            <summary>
+            Double fill line Style.
+            </summary>
+        </member>
+        <member name="F:Cti.Hardware.ScanDevice.Base.HatchLineStyle.Serpentine">
+            <summary>
+            serpent line Style.
+            </summary>
+        </member>
+        <member name="F:Cti.Hardware.ScanDevice.Base.HatchLineStyle.SerpentineConnected">
+            <summary>
+            serpent connected line Style.
+            </summary>
+        </member>
+        <member name="F:Cti.Hardware.ScanDevice.Base.HatchLineStyle.Hatch2Times">
+            <summary>
+            Hatch 2 times.
+            </summary>
+        </member>
+        <member name="F:Cti.Hardware.ScanDevice.Base.HatchLineStyle.Hatch3Times">
+            <summary>
+            Hatch 3 times.
+            </summary>
+        </member>
+        <member name="T:Cti.Hardware.ScanDevice.Base.HatchCornerStyle">
+            <summary>
+            Style to use at corners less than 90 in offsetting
+            </summary>
+        </member>
+        <member name="F:Cti.Hardware.ScanDevice.Base.HatchCornerStyle.Sharp">
+            <summary>
+            Sharp corners
+            </summary>
+        </member>
+        <member name="F:Cti.Hardware.ScanDevice.Base.HatchCornerStyle.SmoothWithLines">
+            <summary>
+            Corners smooth with lines
+            </summary>
+        </member>
+        <member name="F:Cti.Hardware.ScanDevice.Base.HatchCornerStyle.SmoothWithArcs">
+            <summary>
+            Corners smooth with arcs
+            </summary>
+        </member>
+        <member name="T:Cti.Hardware.ScanDevice.Base.HatchOffsetStyle">
+            <summary>
+            The direction of offsets in offset hatching
+            </summary>
+        </member>
+        <member name="F:Cti.Hardware.ScanDevice.Base.HatchOffsetStyle.OutToInward">
+            <summary>
+            Start from outside, go inward direction
+            </summary>
+        </member>
+        <member name="F:Cti.Hardware.ScanDevice.Base.HatchOffsetStyle.InwardToOut">
+            <summary>
+            Start from inside, go outward direction
+            </summary>
+        </member>
+        <member name="T:Cti.Hardware.ScanDevice.Base.HatchOffsetAlgorithm">
+            <summary>
+            Hatching algorithms available
+            </summary>
+        </member>
+        <member name="F:Cti.Hardware.ScanDevice.Base.HatchOffsetAlgorithm.DirectOffset">
+            <summary>
+            Direct Offset algorithm
+            </summary>
+        </member>
+        <member name="F:Cti.Hardware.ScanDevice.Base.HatchOffsetAlgorithm.InterferenceIndex">
+            <summary>
+            Interference Index algorithm
+            </summary>
+        </member>
+        <member name="T:Cti.Hardware.ScanDevice.Base.HelixStyle">
+            <summary>
+            Helix styles for helix hatching
+            </summary>
+        </member>
+        <member name="F:Cti.Hardware.ScanDevice.Base.HelixStyle.OutToInward">
+            <summary>
+            Start from outside, go inward direction
+            </summary>
+        </member>
+        <member name="F:Cti.Hardware.ScanDevice.Base.HelixStyle.InwardToOut">
+            <summary>
+            Start from inside, go outward direction
+            </summary>
+        </member>
+        <member name="T:Cti.Hardware.ScanDevice.Base.IScanImageRenderer">
+            <summary>
+            Description of IScanImageRenderer.
+            </summary>
+        </member>
+        <member name="M:Cti.Hardware.ScanDevice.Base.IScanImageRenderer.AddDot(System.Single,System.Single,System.Single,System.Int32)">
+            <summary>
+            Adds dot for rendering 
+            </summary>
+            <param name="x">X coordinate</param>
+            <param name="y">Y coordinate</param>
+            <param name="z">Z coordinate</param>
+            <param name="durationOfStay">Duration of the laser to be turned on.</param>
+        </member>
+        <member name="M:Cti.Hardware.ScanDevice.Base.IScanImageRenderer.AddLine(System.Single,System.Single,System.Single,System.Single,System.Single,System.Single)">
+            <summary>
+            Adds line for rendering 
+            </summary>
+            <param name="startX">X coordinate of the start location</param>
+            <param name="startY">Y coordinate of the start location</param>
+            <param name="startZ">Z coordinate of the start location</param>
+            <param name="endX">X coordinate of the end location</param>
+            <param name="endY">Y coordinate of the end location</param>
+            <param name="endZ">Z coordinate of the end location</param>
+        </member>
+        <member name="M:Cti.Hardware.ScanDevice.Base.IScanImageRenderer.AddArc(System.Single,System.Single,System.Single,System.Single,System.Single,System.Single)">
+            <summary>
+            Adds an arc for rendering 
+            </summary>
+            <param name="centerX">X coordinate of the center of the arc</param>
+            <param name="centerY">Y coordinate of the center of the arc</param>
+            <param name="centerZ">Z coordinate of the center of the arc</param>
+            <param name="radius">Radius of the arc</param>
+            <param name="startAngle">Start angle of the arc</param>
+            <param name="sweepAngle">End angle of the arc</param>
+        </member>
+        <member name="M:Cti.Hardware.ScanDevice.Base.IScanImageRenderer.AddPolyline(System.Collections.Generic.IEnumerable{Cti.Hardware.ScanDevice.Base.Point3D},System.Boolean)">
+            <summary>
+            Adds an polyline for rendering 
+            </summary>
+            <param name="vertices">Vertice list in the polyline</param>
+            <param name="closed">Weather the polyline in closed or open</param>
+        </member>
+        <member name="P:Cti.Hardware.ScanDevice.Base.IScanImageRenderer.DistanceUnit">
+            <summary>
+            Gets the unit which measures the distance
+            </summary>
+        </member>
+        <member name="T:Cti.Hardware.ScanDevice.Base.IScannable">
+            <summary>
+            Description of IScannable.
+            </summary>
+        </member>
+        <member name="M:Cti.Hardware.ScanDevice.Base.IScannable.Render(Cti.Hardware.ScanDevice.Base.IScanImageRenderer)">
+            <summary>
+            Renders provided instance of IScanImageRenderer
+            </summary>
+            <param name="scanImageRenderer">Instance of IScanImageRenderer to be rendered</param>
+        </member>
+        <member name="T:Cti.Hardware.ScanDevice.Base.LocalizingResources">
+            <summary>
+              A strongly-typed resource class, for looking up localized strings, etc.
+            </summary>
+        </member>
+        <member name="P:Cti.Hardware.ScanDevice.Base.LocalizingResources.ResourceManager">
+            <summary>
+              Returns the cached ResourceManager instance used by this class.
+            </summary>
+        </member>
+        <member name="P:Cti.Hardware.ScanDevice.Base.LocalizingResources.Culture">
+            <summary>
+              Overrides the current thread's CurrentUICulture property for all
+              resource lookups using this strongly typed resource class.
+            </summary>
+        </member>
+        <member name="P:Cti.Hardware.ScanDevice.Base.LocalizingResources.ExceptionData_DigitalIOPinsCollection_PinNamesAndCatagoriesNotMathcing">
+            <summary>
+              Looks up a localized string similar to Length of &apos;pinNames&apos; and &apos;categories&apos; should be equal.
+            </summary>
+        </member>
+        <member name="P:Cti.Hardware.ScanDevice.Base.LocalizingResources.ExceptionData_DigitalIOPinsCollection_PinNumbersAndCatagoriesNotMathcing">
+            <summary>
+              Looks up a localized string similar to Length of &apos;pinNumbers&apos; and &apos;categories&apos; should be equal.
+            </summary>
+        </member>
+        <member name="P:Cti.Hardware.ScanDevice.Base.LocalizingResources.ExceptionData_DigitalIOPinsCollection_PinValuesAndCatagoriesNotMathcing">
+            <summary>
+              Looks up a localized string similar to Length of &apos;pinValues&apos; and &apos;categories&apos; should be equal.
+            </summary>
+        </member>
+        <member name="P:Cti.Hardware.ScanDevice.Base.LocalizingResources.ExceptionData_PinNames">
+            <summary>
+              Looks up a localized string similar to pinNames.
+            </summary>
+        </member>
+        <member name="P:Cti.Hardware.ScanDevice.Base.LocalizingResources.ExceptionData_PinNumbers">
+            <summary>
+              Looks up a localized string similar to pinNumbers.
+            </summary>
+        </member>
+        <member name="P:Cti.Hardware.ScanDevice.Base.LocalizingResources.ExceptionData_PinValues">
+            <summary>
+              Looks up a localized string similar to pinValues.
+            </summary>
+        </member>
+        <member name="T:Cti.Hardware.ScanDevice.Base.MarkingOrder">
+            <summary>
+            The output of hatching the shape
+            </summary>
+        </member>
+        <member name="T:Cti.Hardware.ScanDevice.Base.PixelModulation">
+            <summary>
+            Defines the mode of PixelModulation.
+            </summary>
+        </member>
+        <member name="T:Cti.Hardware.ScanDevice.Base.Point3D">
+            <summary>
+            Description of Point3D.
+            </summary>
+        </member>
+        <member name="M:Cti.Hardware.ScanDevice.Base.Point3D.#ctor">
+            <summary>
+            Initialize a new instance of Point3D
+            </summary>
+        </member>
+        <member name="M:Cti.Hardware.ScanDevice.Base.Point3D.#ctor(System.Single,System.Single,System.Single)">
+            <summary>
+            Initialize a new instance of Point3D with following parameters
+            </summary>
+            <param name="x">X coordinate of the point</param>
+            <param name="y">Y coordinate of the point</param>
+            <param name="z">Z coordinate of the point</param>
+        </member>
+        <member name="M:Cti.Hardware.ScanDevice.Base.Point3D.Copy(Cti.Hardware.ScanDevice.Base.Point3D)">
+            <summary>
+            Copies the properties of source Point3D to this Point3D instance
+            </summary>
+            <param name="source">source Point3D where properties are copied from</param>
+        </member>
+        <member name="M:Cti.Hardware.ScanDevice.Base.Point3D.Copy(System.Single,System.Single,System.Single)">
+            <summary>
+            Copies x, y, z coordinate values to this Point3D instance
+            </summary>
+            <param name="xVal">value of X coordinate</param>
+            <param name="yVal">value of Y coordinate</param>
+            <param name="zVal">value of Z coordinate</param>
+        </member>
+        <member name="M:Cti.Hardware.ScanDevice.Base.Point3D.Rotate(System.Single)">
+            <summary>
+            Rotates the point by the given angle in counter clockwise direction.
+            (0,0) is taken as the reference point.
+            </summary>
+            <param name="angle">Rotation angle in radians</param>
+        </member>
+        <member name="M:Cti.Hardware.ScanDevice.Base.Point3D.Rotate(System.Single,System.Single)">
+            <summary>
+            Rotates the point using the given sin and cos values. 
+            (0,0) is taken as the reference point.
+            </summary>
+            <param name="sinValue">Sin value of the rotation angle</param>
+            <param name="cosValue">Cos value of the rotation angle</param>
+        </member>
+        <member name="M:Cti.Hardware.ScanDevice.Base.Point3D.Rotate(System.Single,Cti.Hardware.ScanDevice.Base.Point3D)">
+            <summary>
+            Rotates the point relative to the reference point by the given angle. 
+            </summary>
+            <param name="angle">Rotation angle in radians</param>
+            <param name="refPoint">Rotation reference point</param>
+        </member>
+        <member name="M:Cti.Hardware.ScanDevice.Base.Point3D.DistanceTo(Cti.Hardware.ScanDevice.Base.Point3D)">
+            <summary>
+            Gets the distance from the point to the given point
+            </summary>
+            <param name="point">The point to which the distance is being measured</param>
+            <returns>Distance between two points</returns>
+        </member>
+        <member name="M:Cti.Hardware.ScanDevice.Base.Point3D.EqualXY(Cti.Hardware.ScanDevice.Base.Point3D)">
+            <summary>
+            Returns true if two Point3D objects are equal
+            </summary>
+            <param name="point">Matched point</param>
+            <returns>True if two points are equal</returns>
+        </member>
+        <member name="M:Cti.Hardware.ScanDevice.Base.Point3D.ToString">
+            <summary>
+            Converts coordinates of this instance to its equivalent string representation.
+            </summary>
+            <returns>String representation of the coordinates</returns>
+        </member>
+        <member name="P:Cti.Hardware.ScanDevice.Base.Point3D.X">
+            <summary>
+            Gets or sets the X coordinate of the point
+            </summary>
+        </member>
+        <member name="P:Cti.Hardware.ScanDevice.Base.Point3D.Y">
+            <summary>
+            Gets or sets the Y coordinate of the point
+            </summary>
+        </member>
+        <member name="P:Cti.Hardware.ScanDevice.Base.Point3D.Z">
+            <summary>
+            Gets or sets the Z coordinate of the point
+            </summary>
+        </member>
+        <member name="T:Cti.Hardware.ScanDevice.Base.PowerPort">
+            <summary>
+            The port in which the analog voltage output is 
+            available when a raster image scanning is done
+            </summary>
+        </member>
+        <member name="T:Cti.Hardware.ScanDevice.Base.PreviewInfo">
+            <summary>
+            Holds information related to job previewing.
+            </summary>
+        </member>
+        <member name="M:Cti.Hardware.ScanDevice.Base.PreviewInfo.#ctor">
+            <summary>
+            Instantiate an instance of PreviewInfo
+            </summary>
+        </member>
+        <member name="M:Cti.Hardware.ScanDevice.Base.PreviewInfo.Deserialize(System.IO.BinaryReader)">
+            <summary>
+            Deserialize the instance of PreviewInfo from a byte stream using the BinaryReader.
+            </summary>
+            <param name="reader">Used to read primitive data types from the stream</param>
+        </member>
+        <member name="M:Cti.Hardware.ScanDevice.Base.PreviewInfo.Serialize(System.IO.BinaryWriter)">
+            <summary>
+            Serialize the instance of PreviewInfo as a byte stream using the BinaryWriter
+            </summary>
+            <param name="writer">Used to write as binary</param>
+        </member>
+        <member name="P:Cti.Hardware.ScanDevice.Base.PreviewInfo.Enabled">
+            <summary>
+            Decides whether to preview the job or not
+            </summary>
+        </member>
+        <member name="P:Cti.Hardware.ScanDevice.Base.PreviewInfo.UseSpeedOverride">
+            <summary>
+            Decides whether to use the speed specified in PreviewInfo for previewing
+            </summary>
+        </member>
+        <member name="P:Cti.Hardware.ScanDevice.Base.PreviewInfo.Speed">
+            <summary>
+            Speed to be used if PreviewInfo.UseSpeedOverride is true
+            </summary>
+        </member>
+        <member name="T:Cti.Hardware.ScanDevice.Base.RasterScanningDirection">
+            <summary>
+            Description of RasterScanningDirection.
+            </summary>
+        </member>
+        <member name="T:Cti.Hardware.ScanDevice.Base.PixelScanningDirection">
+            <summary>
+            Define the types of PixelScanningDirection
+            </summary>
+        </member>
+        <member name="F:Cti.Hardware.ScanDevice.Base.PixelScanningDirection.Forward">
+            <summary>
+            Left to right if RasterScanningDirection = TopToBottom/BottomToTop, 
+            Top to bottom if RasterScanningDirection = LeftToRight/RightToLeft.
+            </summary>
+        </member>
+        <member name="F:Cti.Hardware.ScanDevice.Base.PixelScanningDirection.Backward">
+            <summary>
+            Right to left if RasterScanningDirection = TopToBottom/BottomToTop, 
+            Bottom to top if RasterScanningDirection = LeftToRight/RightToLeft.
+            </summary>
+        </member>
+        <member name="F:Cti.Hardware.ScanDevice.Base.PixelScanningDirection.Serpentine">
+            <summary>
+            Each line scans in alternate directions
+            </summary>
+        </member>
+        <member name="T:Cti.Hardware.ScanDevice.Base.ScanningScriptChunk">
+            <summary>
+            Provides methods to initialize and manipulate instances of ScanningScriptChunk
+            </summary>
+        </member>
+        <member name="M:Cti.Hardware.ScanDevice.Base.ScanningScriptChunk.#ctor">
+            <summary>
+            Initializes a new instance of ScanningScriptChunk
+            </summary>
+        </member>
+        <member name="M:Cti.Hardware.ScanDevice.Base.ScanningScriptChunk.#ctor(System.String,System.String)">
+            <summary>
+            Initializes a new instance of ScanningScriptChunk
+            </summary>
+            <param name="name">Name of the instance of ScanningScriptChunk</param>
+            <param name="script">Script content of the instance of ScanningScriptChunk</param>
+        </member>
+        <member name="M:Cti.Hardware.ScanDevice.Base.ScanningScriptChunk.SerializeScriptChunk(System.IO.BinaryWriter)">
+            <summary>
+            Serialize the instance of ScanningScriptChunk as a byte stream using the BinaryWriter
+            </summary>
+            <param name="writer">Used to write as binary</param>
+        </member>
+        <member name="M:Cti.Hardware.ScanDevice.Base.ScanningScriptChunk.Deserialize(System.IO.BinaryReader)">
+            <summary>
+            Deserialize the instance of ScanningScriptChunk from a byte stream using the BinaryReader.
+            </summary>
+            <param name="reader">Used to read primitive data types from the stream</param>
+        </member>
+        <member name="M:Cti.Hardware.ScanDevice.Base.ScanningScriptChunk.Serialize(System.IO.BinaryWriter)">
+            <summary>
+            Serialize the instance of ScanningScriptChunk as a byte stream using the BinaryWriter
+            </summary>
+            <param name="writer">Used to write as binary</param>
+        </member>
+        <member name="M:Cti.Hardware.ScanDevice.Base.ScanningScriptChunk.IsSerializable">
+            <summary>
+            Returns true if the instance of ScanningScriptChunk can be serialized 
+            </summary>
+            <returns>true if the instance of ScanningScriptChunk can be serialized </returns>
+        </member>
+        <member name="P:Cti.Hardware.ScanDevice.Base.ScanningScriptChunk.Script">
+            <summary>
+            Gets or sets the script content of the ScanningScriptChunk
+            </summary>
+        </member>
+        <member name="P:Cti.Hardware.ScanDevice.Base.ScanningScriptChunk.Name">
+            <summary>
+            Gets or sets the name of the ScanningScriptChunk
+            </summary>
+        </member>
+        <member name="T:Cti.Hardware.ScanDevice.Base.ScriptFieldAttribute">
+            <summary>
+            Provides methods to initialize and manipulate instances of ScriptFieldAttribute
+            This class is for the internal purpose
+            </summary>
+        </member>
+        <member name="M:Cti.Hardware.ScanDevice.Base.ScriptFieldAttribute.#ctor(System.String)">
+            <summary>
+            Initializes a new instance of ScriptFieldAttribute
+            </summary>
+            <param name="name">Name of the instance of ScriptFieldAttribute</param>
+        </member>
+        <member name="M:Cti.Hardware.ScanDevice.Base.ScriptFieldAttribute.GetName(System.Enum)">
+            <summary>
+            Returns the name of the instance of the ScriptFieldAttribute
+            </summary>
+            <param name="enumeration">type of the enumeration</param>
+            <returns>Name of the instance of the ScriptFieldAttribute</returns>
+        </member>
+        <member name="P:Cti.Hardware.ScanDevice.Base.ScriptFieldAttribute.Name">
+            <summary>
+            Gets the name of an instance of ScriptFieldAttribute
+            </summary>
+        </member>
+        <member name="T:Cti.Hardware.ScanDevice.Base.ScriptMessage">
+            <summary>
+            Provides methods to initialize and manipulate instances of ScriptMessage
+            </summary>
+        </member>
+        <member name="P:Cti.Hardware.ScanDevice.Base.ScriptMessage.ScriptMessageType">
+            <summary>
+            Gets the type of the script message.
+            </summary>
+            <value>
+            The type of the script message.
+            </value>
+        </member>
+        <member name="T:Cti.Hardware.ScanDevice.Base.ScanningCompletionState">
+            <summary>
+            Provides methods to initialize and manipulate instances of ScanningCompletionState
+            </summary>
+        </member>
+        <member name="M:Cti.Hardware.ScanDevice.Base.ScanningCompletionState.#ctor">
+            <summary>
+            Initialize an instances of ScanningCompletionState
+            </summary>
+        </member>
+        <member name="P:Cti.Hardware.ScanDevice.Base.ScanningCompletionState.SetLaserOn">
+            <summary>
+            Get or set whether to turn the laser on at the end of the job. 
+            This will work only if ScanningCompletionState.DisableLaser is false
+            </summary>
+        </member>
+        <member name="P:Cti.Hardware.ScanDevice.Base.ScanningCompletionState.BeamHomeEnabled">
+            <summary>
+            Gets or sets whether beam homing enabled at the end of the job
+            </summary>
+        </member>
+        <member name="P:Cti.Hardware.ScanDevice.Base.ScanningCompletionState.BeamHomePosition">
+            <summary>
+            Gets or sets the beam homing position
+            </summary>
+        </member>
+        <member name="P:Cti.Hardware.ScanDevice.Base.ScanningCompletionState.DisableLaser">
+            <summary>
+            Gets or sets whether the laser is disabled at the end of the job
+            </summary>
+        </member>
+        <member name="T:Cti.Hardware.ScanDevice.Base.ScanningStartingState">
+            <summary>
+            Provides methods to initialize and manipulate instances of ScanningStartingState
+            </summary>
+        </member>
+        <member name="M:Cti.Hardware.ScanDevice.Base.ScanningStartingState.#ctor">
+            <summary>
+            Initializes a new instance of ScanningStartingState
+            </summary>
+        </member>
+        <member name="M:Cti.Hardware.ScanDevice.Base.ScanningStartingState.Serialize(System.IO.BinaryWriter)">
+            <summary>
+            Serialize the instance of ScanningStartingState as a byte stream using the BinaryWriter
+            </summary>
+            <param name="writer">Used to write as binary</param>
+        </member>
+        <member name="M:Cti.Hardware.ScanDevice.Base.ScanningStartingState.Deserialize(System.IO.BinaryReader)">
+            <summary>
+            Deserialize the instance of ScanningStartingState from a byte stream using the BinaryReader.
+            </summary>
+            <param name="reader">Used to read primitive data types from the stream</param>
+        </member>
+        <member name="P:Cti.Hardware.ScanDevice.Base.ScanningStartingState.ResetLaserOn">
+            <summary>
+            Resets laser on if true. (Turns off laser if turned on in last job)
+            </summary>
+        </member>
+        <member name="T:Cti.Hardware.ScanDevice.Base.ScriptCommandEventArgs">
+            <summary>
+            Provides methods to initialize and manipulate instances of ScriptCommandEventArgs
+            </summary>
+        </member>
+        <member name="M:Cti.Hardware.ScanDevice.Base.ScriptCommandEventArgs.#ctor(System.String,System.String[])">
+            <summary>
+            Initializes a new instance of ScriptCommandEventArgs
+            </summary>
+        </member>
+        <member name="P:Cti.Hardware.ScanDevice.Base.ScriptCommandEventArgs.Command">
+            <summary>
+            Gets the command text of instance of ScriptCommandEventArgs
+            </summary>
+        </member>
+        <member name="P:Cti.Hardware.ScanDevice.Base.ScriptCommandEventArgs.Args">
+            <summary>
+            Gets the arguments of instance of ScriptCommandEventArgs
+            </summary>
+        </member>
+        <member name="T:Cti.Hardware.ScanDevice.Base.ScriptMessageEventArgs">
+            <summary>
+            Provides methods to initialize and manipulate instances of ScriptMessageEventArgs
+            </summary>
+        </member>
+        <member name="M:Cti.Hardware.ScanDevice.Base.ScriptMessageEventArgs.#ctor(Cti.Hardware.ScanDevice.Base.ScriptMessage)">
+            <summary>
+            Initialize a new instance of ScriptMessageEventArgs
+            </summary>
+            <param name="scriptMessage">Script message to be passed as argument</param>
+        </member>
+        <member name="P:Cti.Hardware.ScanDevice.Base.ScriptMessageEventArgs.ScriptMessage">
+            <summary>
+            Gets or sets the script message 
+            </summary>
+        </member>
+        <member name="T:Cti.Hardware.ScanDevice.Base.ScriptMessageType">
+            <summary>
+            Defines the type of the script message
+            </summary>
+        </member>
+        <member name="T:Cti.Hardware.ScanDevice.Base.SkippingColorRange">
+            <summary>
+            Provides methods to initialize and manipulate instances of ScanningStartingState
+            </summary>
+        </member>
+        <member name="M:Cti.Hardware.ScanDevice.Base.SkippingColorRange.#ctor">
+            <summary>
+            Initializes a new instance of LineBarcodeHatchPattern
+            </summary>
+        </member>
+        <member name="P:Cti.Hardware.ScanDevice.Base.SkippingColorRange.LowValue">
+            <summary>
+            Gets or sets the lower limit of the color range to be skipped
+            </summary>
+        </member>
+        <member name="P:Cti.Hardware.ScanDevice.Base.SkippingColorRange.HighValue">
+            <summary>
+            Gets or sets the upper limit of the color range to be skipped
+            </summary>
+        </member>
+        <member name="T:Cti.Hardware.ScanDevice.Base.StorageLocation">
+            <summary>
+            Provides methods to initialize and manipulate instances of StorageLocation
+            </summary>
+        </member>
+        <member name="T:Cti.Hardware.ScanDevice.Base.StoredScanDocumentEntry">
+            <summary>
+            Describes the stored scan document on the device
+            </summary>
+        </member>
+        <member name="M:Cti.Hardware.ScanDevice.Base.StoredScanDocumentEntry.#ctor(System.String,Cti.Hardware.ScanDevice.Base.StorageLocation)">
+            <summary>
+            Initializes StoredScanDocumentEntry with the specified values.
+            </summary>
+            <param name="fileName">File name of the stored scan document</param>
+            <param name="storageLocation">Storage location of the stored scan document</param>
+        </member>
+        <member name="P:Cti.Hardware.ScanDevice.Base.StoredScanDocumentEntry.FileName">
+            <summary>
+            File name of the stored scan document.
+            </summary>
+        </member>
+        <member name="P:Cti.Hardware.ScanDevice.Base.StoredScanDocumentEntry.StorageLocation">
+            <summary>
+            Storage location of the stored scan document
+            </summary>
+        </member>
+        <member name="T:Cti.Hardware.ScanDevice.Base.ScriptStackFrame">
+            <summary>
+            Initialize a new instance of ScriptStackFrame. 
+            This stack frame will contain the stack trace during an error
+            </summary>
+        </member>
+        <member name="M:Cti.Hardware.ScanDevice.Base.ScriptStackFrame.#ctor">
+            <summary>
+            Initialize a new instance of CallingStackFrame
+            This stack frame will contain the stack trace during an error
+            </summary>
+        </member>
+        <member name="M:Cti.Hardware.ScanDevice.Base.ScriptStackFrame.#ctor(System.String,System.String,System.Int32)">
+            <summary>
+            Initialize a new instance of CallingStackFrame
+            This stack frame will contain the stack trace during an error
+            </summary>
+            <param name="chunkName">Name of the script chunk in which the error has occurred</param>
+            <param name="functionName">Name of the function in which the error has occurred</param>
+            <param name="lineNumber">Line number in which the error has occurred</param>
+        </member>
+        <member name="P:Cti.Hardware.ScanDevice.Base.ScriptStackFrame.LineNumber">
+            <summary>
+            Gets or sets the line number where the script error has occurred
+            </summary>
+        </member>
+        <member name="P:Cti.Hardware.ScanDevice.Base.ScriptStackFrame.ChunkName">
+            <summary>
+            Gets or sets the name of the script chunk where the script error has occurred
+            </summary>
+        </member>
+        <member name="P:Cti.Hardware.ScanDevice.Base.ScriptStackFrame.FunctionName">
+            <summary>
+            Gets or sets the function name in which the script error has occurred
+            </summary>
+        </member>
+        <member name="T:Cti.Hardware.ScanDevice.Base.UnicodeRange">
+            <summary>
+            Description of EmbedRange.
+            </summary>
+        </member>
+        <member name="M:Cti.Hardware.ScanDevice.Base.UnicodeRange.#ctor">
+            <summary>
+            Initialize a new instance of UnicodeRange
+            </summary>
+        </member>
+        <member name="M:Cti.Hardware.ScanDevice.Base.UnicodeRange.#ctor(System.Char,System.Char)">
+            <summary>
+            Initialize a new instance of UnicodeRange with following parameters
+            </summary>
+            <param name="startingCharacter">starting character of the range</param>
+            <param name="endingCharacter">ending character of the range</param>
+        </member>
+        <member name="P:Cti.Hardware.ScanDevice.Base.UnicodeRange.StartingCharacter">
+            <summary>
+            Gets or sets the starting charater of the unicode range
+            </summary>
+        </member>
+        <member name="P:Cti.Hardware.ScanDevice.Base.UnicodeRange.EndingCharacter">
+            <summary>
+            Gets or sets the ending charater of the unicode range
+            </summary>
+        </member>
+        <member name="T:Cti.Hardware.ScanDevice.Base.VelocityCompensationMode">
+            <summary>
+            Mode of velocity compensation operation
+            </summary>
+        </member>
+        <member name="F:Cti.Hardware.ScanDevice.Base.VelocityCompensationMode.Disabled">
+            <summary>
+            Mode Disabled disables velocity compensation.
+            </summary>
+        </member>
+        <member name="F:Cti.Hardware.ScanDevice.Base.VelocityCompensationMode.DutyCycle">
+            <summary>
+            Mode DutyCycle permits dynamic scaling of the pulse width from the normal job setting down to a settable percentage value of maximum power.
+            </summary>
+        </member>
+        <member name="F:Cti.Hardware.ScanDevice.Base.VelocityCompensationMode.Frequency">
+            <summary>
+            Mode Frequency permits changing the average power by dynamically changing the pulse frequency while maintaining a constant pulse width.
+            </summary>
+        </member>
+        <member name="F:Cti.Hardware.ScanDevice.Base.VelocityCompensationMode.Power">
+            <summary>
+            The power controls the analog or digital laser power setting proportional to the velocity. 
+            </summary>
+        </member>
+    </members>
+</doc>
