@@ -21,6 +21,10 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "数据序列化", "数据�
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ParameterManager", "ParameterManager\ParameterManager.csproj", "{A3D7DD32-5198-4702-80EB-A971507EEC1D}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "GDI图像绘制", "GDI图像绘制", "{3F3F7216-7FB3-48A3-BD6F-8188013D4151}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GDIDrawing", "GDIDrawing\GDIDrawing.csproj", "{F64C9946-0FDA-4E4B-8FE4-D85B498B917D}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -77,6 +81,14 @@ Global
 		{A3D7DD32-5198-4702-80EB-A971507EEC1D}.Release|Any CPU.Build.0 = Release|Any CPU
 		{A3D7DD32-5198-4702-80EB-A971507EEC1D}.Release|x64.ActiveCfg = Release|x64
 		{A3D7DD32-5198-4702-80EB-A971507EEC1D}.Release|x64.Build.0 = Release|x64
+		{F64C9946-0FDA-4E4B-8FE4-D85B498B917D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F64C9946-0FDA-4E4B-8FE4-D85B498B917D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F64C9946-0FDA-4E4B-8FE4-D85B498B917D}.Debug|x64.ActiveCfg = Debug|x64
+		{F64C9946-0FDA-4E4B-8FE4-D85B498B917D}.Debug|x64.Build.0 = Debug|x64
+		{F64C9946-0FDA-4E4B-8FE4-D85B498B917D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F64C9946-0FDA-4E4B-8FE4-D85B498B917D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F64C9946-0FDA-4E4B-8FE4-D85B498B917D}.Release|x64.ActiveCfg = Release|Any CPU
+		{F64C9946-0FDA-4E4B-8FE4-D85B498B917D}.Release|x64.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -87,6 +99,7 @@ Global
 		{7254FC14-7DD1-4634-A922-72138390B6C4} = {33B12656-60DD-472D-A247-86591623AC8D}
 		{0813320B-9274-4C63-A7A4-3FD166E3C2DE} = {33B12656-60DD-472D-A247-86591623AC8D}
 		{A3D7DD32-5198-4702-80EB-A971507EEC1D} = {66022775-D407-448A-9634-3069C86CDD9C}
+		{F64C9946-0FDA-4E4B-8FE4-D85B498B917D} = {3F3F7216-7FB3-48A3-BD6F-8188013D4151}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {88B71059-CDA1-4785-93B7-89A3C10C0AB0}
