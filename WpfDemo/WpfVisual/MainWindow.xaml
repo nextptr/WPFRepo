@@ -1,0 +1,23 @@
+﻿<Window x:Class="WpfVisual.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:WpfVisual"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="900" Width="1500">
+    <TabControl>
+        <TabItem>
+            <TabItem.Header>
+                <Label Content="Visual及命中测试" Height="35" VerticalContentAlignment="Center"/>
+            </TabItem.Header>
+            <local:VisualSelectionPanel/>
+        </TabItem>
+        <TabItem>
+            <TabItem.Header>
+                <Label Content="Visual网格" Height="35" VerticalContentAlignment="Center"/>
+            </TabItem.Header>
+            <local:VisualGridLinePanel/>
+        </TabItem>
+    </TabControl>
+</Window>

@@ -1,0 +1,56 @@
+﻿<Window x:Class="LognetDemo.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:LognetDemo"
+        mc:Ignorable="d"
+          Title="MainWindow" Height="618" Width="1000">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="45"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="120"/>
+            <ColumnDefinition Width="120"/>
+        </Grid.ColumnDefinitions>
+        <TextBox Name="txt_inf"/>
+        <Button Grid.Column="1" Margin="1" Name="btn_logInf" Content="LoggerInf" />
+        <Button Grid.Column="2" Margin="1" Name="btn_logErr" Content="LoggerErr" />
+        <ListBox Grid.Row="1">
+            <ListBoxItem Content="将Log4Net集成为一个程序集后" />
+            <ListBoxItem Content="1.将Log4Net.config放入gui程序记的bin目录" />
+            <ListBoxItem Content="2.额外添加依赖库Log4Net.dll" />
+            <TextBlock>
+                MaxFileSize和MaxSizeRollBackups失效原理
+                <Hyperlink>
+                    https://www.cnblogs.com/Khan-Sadas/p/12802687.html
+                </Hyperlink>
+            </TextBlock>
+            <ListBoxItem Content="原因:RollingStyle设置备份参数" />
+            <ListBoxItem Content="*Once            代表只负责记录，不考虑文件大小和日期" />
+            <ListBoxItem Content="*Size　　       代表只判断文件大小进行日志新文件创建输出" />
+            <ListBoxItem Content="*Date             代表只判断日期间隔进行日志新文件创建输出" />
+            <ListBoxItem Content="*Composite   代表对文件大小和日期间隔都需要进行判断并创建新文件输出" />
+            <ListBoxItem Content="解决方案:将RollingStyle设置成Composite" />
+        </ListBox>
+        <Grid Grid.Row="1" Grid.Column="1" Grid.ColumnSpan="2">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="45"/>
+                <RowDefinition Height="45"/>
+                <RowDefinition Height="45"/>
+                <RowDefinition Height="45"/>
+                <RowDefinition Height="45"/>
+                <RowDefinition Height="45"/>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+            <Button Content="Parallel并行测试" Name="btn_parallelTest"  />
+            <Button Content="内存监控测试"     Name="btn_memoryTest"  Grid.Column="1" />
+        </Grid>
+    </Grid>
+</Window>
