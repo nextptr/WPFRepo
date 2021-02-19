@@ -1,0 +1,35 @@
+﻿<Window x:Class="WpfThread.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:WpfThread"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="600" Width="800">
+    <TabControl>
+        <TabItem>
+            <TabItem.Header>
+                <Label Content="线程池" Height="35" VerticalContentAlignment="Center"/>
+            </TabItem.Header>
+            <local:ThreadPoolPanel/>
+        </TabItem> 
+        <TabItem>
+            <TabItem.Header>
+                <Label Content="线程传参" Height="35" VerticalContentAlignment="Center"/>
+            </TabItem.Header>
+            <local:ThreadParameterPanel/>
+        </TabItem> 
+        <TabItem>
+            <TabItem.Header>
+                <Label Content="信号量" Height="35" VerticalContentAlignment="Center"/>
+            </TabItem.Header>
+            <local:ThreadSemaphorePanel/>
+        </TabItem>
+        <TabItem>
+            <TabItem.Header>
+                <Label Content="并行处理" Height="35" VerticalContentAlignment="Center"/>
+            </TabItem.Header>
+            <local:ThreadParallelPanel/>
+        </TabItem>
+    </TabControl>
+</Window>

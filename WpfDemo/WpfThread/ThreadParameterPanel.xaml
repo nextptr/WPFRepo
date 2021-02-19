@@ -1,0 +1,25 @@
+﻿<UserControl x:Class="WpfThread.ThreadParameterPanel"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:WpfThread"
+             mc:Ignorable="d" 
+             d:DesignHeight="300" d:DesignWidth="300">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        <UniformGrid Columns="5">
+            <TextBox  Text="123" Name="txt_num1" VerticalContentAlignment="Center"/>
+            <TextBlock  Text="+" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+            <TextBox  Text="456" Name="txt_num2" VerticalContentAlignment="Center"/>
+            <Button   Name="btn_add" Content="=" VerticalContentAlignment="Center"/>
+            <UniformGrid Rows="2">
+                <Label Name="lab_main"/>
+                <Label Name="lab_sub"/>
+            </UniformGrid>
+        </UniformGrid>
+    </Grid>
+</UserControl>

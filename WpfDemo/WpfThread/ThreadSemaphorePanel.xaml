@@ -1,0 +1,24 @@
+﻿<UserControl x:Class="WpfThread.ThreadSemaphorePanel"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:WpfThread"
+             mc:Ignorable="d" 
+             d:DesignHeight="300" d:DesignWidth="300">
+    <UniformGrid Columns="2">
+        <ListBox Name="ls_box"/>
+        <UniformGrid Rows="2">
+            <TextBox>
+            </TextBox>
+            <UniformGrid Rows="5" Columns="2">
+                <Label Content="设置信号量初始值" VerticalAlignment="Center" HorizontalAlignment="Right" />
+                <TextBox Name="txt_signal_init" Text="1" />
+                <Label Content="设置信号量最大值" VerticalAlignment="Center" HorizontalAlignment="Right" />
+                <TextBox Name="txt_signal_max" Text="1" />
+                <Button Name="btn_start" Content="开始测试"/>
+                <Button Name="btn_stop" Content="停止测试"/>
+            </UniformGrid>
+        </UniformGrid>
+    </UniformGrid>
+</UserControl>
