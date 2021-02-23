@@ -88,6 +88,7 @@
     <Compile Include="ComPort\ComSeriaPort.cs" />
     <Compile Include="Converts\ConverterBoolColor.cs" />
     <Compile Include="Csv\CvsHelper.cs" />
+    <Compile Include="DelegateCommand.cs" />
     <Compile Include="Extension\ApplicationExtension.cs" />
     <Compile Include="Extension\ArrayExtension.cs" />
     <Compile Include="Extension\ByteArrayExtension.cs" />

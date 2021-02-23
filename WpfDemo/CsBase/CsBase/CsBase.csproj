@@ -4,10 +4,10 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{CCC1C877-E689-4C8E-959A-416ECDB69EF9}</ProjectGuid>
+    <ProjectGuid>{D7771BD5-3B5B-41D7-8A35-F507DBAE6A32}</ProjectGuid>
     <OutputType>WinExe</OutputType>
-    <RootNamespace>WpfThread</RootNamespace>
-    <AssemblyName>WpfThread</AssemblyName>
+    <RootNamespace>CsBase</RootNamespace>
+    <AssemblyName>CsBase</AssemblyName>
     <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <ProjectTypeGuids>{60dc8134-eba5-43b8-bcc9-bb4bc16c2548};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
@@ -15,7 +15,7 @@
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
-    <PlatformTarget>AnyCPU</PlatformTarget>
+    <PlatformTarget>x64</PlatformTarget>
     <DebugSymbols>true</DebugSymbols>
     <DebugType>full</DebugType>
     <Optimize>false</Optimize>
@@ -56,6 +56,10 @@
   <ItemGroup>
     <Reference Include="System" />
     <Reference Include="System.Data" />
+    <Reference Include="System.Data.SQLite, Version=1.0.88.0, Culture=neutral, PublicKeyToken=db937bc2d44ff139, processorArchitecture=x86">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>bin\System.Data.SQLite.dll</HintPath>
+    </Reference>
     <Reference Include="System.Xml" />
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System.Core" />
@@ -74,21 +78,6 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
-    <Compile Include="ThreadAsyncPanel.xaml.cs">
-      <DependentUpon>ThreadAsyncPanel.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="ThreadParallelPanel.xaml.cs">
-      <DependentUpon>ThreadParallelPanel.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="ThreadParameterPanel.xaml.cs">
-      <DependentUpon>ThreadParameterPanel.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="ThreadPoolPanel.xaml.cs">
-      <DependentUpon>ThreadPoolPanel.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="ThreadSemaphorePanel.xaml.cs">
-      <DependentUpon>ThreadSemaphorePanel.xaml</DependentUpon>
-    </Compile>
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -97,30 +86,29 @@
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="Class1\Class1_1.cs" />
+    <Compile Include="Class1\Class1_2.cs" />
+    <Compile Include="Class1\Class1_3.cs" />
+    <Compile Include="Class2\Class2_1.cs" />
+    <Compile Include="Class2\Class2_2.cs" />
+    <Compile Include="Class2\Class2_3.cs" />
+    <Compile Include="Class3\Class3_1.cs" />
+    <Compile Include="Class3\Class3_2.cs" />
+    <Compile Include="Class4\Class4_1.cs" />
+    <Compile Include="Class4\Class4_2.cs" />
+    <Compile Include="Class4\Class4_3.cs" />
+    <Compile Include="Class4\Class4_4.cs" />
+    <Compile Include="Class4\Class4_5.cs" />
+    <Compile Include="Class4\Class4_6.cs" />
+    <Compile Include="Class4\Class4_7.cs" />
+    <Compile Include="Common\classBase.cs" />
+    <Compile Include="Common\IParameter.cs" />
+    <Compile Include="Common\NotifyPropertyChanged.cs" />
+    <Compile Include="Common\SQLiteHelper.cs" />
     <Compile Include="MainWindow.xaml.cs">
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Page Include="ThreadAsyncPanel.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="ThreadParallelPanel.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="ThreadParameterPanel.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="ThreadPoolPanel.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="ThreadSemaphorePanel.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs">
@@ -147,6 +135,10 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\close.png" />
+    <Resource Include="Images\min.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

@@ -31,5 +31,11 @@
             </TabItem.Header>
             <local:ThreadParallelPanel/>
         </TabItem>
+        <TabItem>
+            <TabItem.Header>
+                <Label Content="Async等待" Height="35" VerticalContentAlignment="Center"/>
+            </TabItem.Header>
+            <local:ThreadAsyncPanel/>
+        </TabItem>
     </TabControl>
 </Window>
