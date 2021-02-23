@@ -89,6 +89,7 @@
     <Compile Include="Converts\ConverterBoolColor.cs" />
     <Compile Include="Csv\CvsHelper.cs" />
     <Compile Include="DelegateCommand.cs" />
+    <Compile Include="EventAggregator\CommonEventAggregator.cs" />
     <Compile Include="Extension\ApplicationExtension.cs" />
     <Compile Include="Extension\ArrayExtension.cs" />
     <Compile Include="Extension\ByteArrayExtension.cs" />
