@@ -1,0 +1,24 @@
+﻿<Window x:Class="WpfApp.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:WpfApp"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="450" Width="800">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="45"/>
+            <RowDefinition Height="45"/>
+            <RowDefinition Height="45"/>
+            <RowDefinition Height="45"/>
+            <RowDefinition Height="45"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        <TextBlock Grid.Row="0" VerticalAlignment="Center" Name="txt_box1" />
+        <TextBlock Grid.Row="1" VerticalAlignment="Center" Name="txt_box2" />
+        <TextBlock Grid.Row="2" VerticalAlignment="Center" Name="txt_box3" />
+        <TextBlock Grid.Row="3" VerticalAlignment="Center" Name="txt_box4" />
+        <TextBlock Grid.Row="4" VerticalAlignment="Center" Name="txt_box5" />
+    </Grid>
+</Window>
