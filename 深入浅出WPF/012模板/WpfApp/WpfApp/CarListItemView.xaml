@@ -1,0 +1,18 @@
+﻿<UserControl x:Class="WpfApp.CarListItemView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:WpfApp"
+             mc:Ignorable="d" 
+             d:DesignHeight="350" d:DesignWidth="623">
+    <Grid Margin="2">
+        <StackPanel Orientation="Horizontal">
+            <Image Name="image_logo" Grid.RowSpan="3" Width="64" Height="64"/>
+            <StackPanel Margin="5,10">
+                <TextBlock Name="txt_name" FontSize="16" FontWeight="Bold"/>
+                <TextBlock Name="txt_year" FontSize="14"/>
+            </StackPanel>
+        </StackPanel>
+    </Grid>
+</UserControl>

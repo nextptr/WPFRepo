@@ -1,0 +1,60 @@
+﻿<Window x:Class="WpfApp.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:WpfApp"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="370" Width="600">
+    <TabControl TabStripPlacement="Bottom">
+        <TabItem >
+            <TabItem.Header>
+                <Label Content="内容控件"/>
+            </TabItem.Header>
+            <UniformGrid Columns="2">
+                <ListBox Name="ls_box"/>
+                <ListBox>
+                    <CheckBox Content="tim"/>
+                    <CheckBox Content="tom"/>
+                    <CheckBox Content="victor"/>
+                    <Button Name="btn_1" Content="mess" />
+                    <Button Name="btn_2" Content="owen"/>
+                    <Button Name="btn_3" Content="bruce"/>
+                </ListBox>
+            </UniformGrid>
+        </TabItem>
+        <TabItem Header="Grid代码添加布局">
+            <UniformGrid Columns="2">
+                <Grid Name="grid_main"/>
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="30px"/>
+                        <RowDefinition Height="30"/>
+                        <RowDefinition Height="0.5in"/>
+                        <RowDefinition Height="1cm"/>
+                        <RowDefinition Height="30pt"/>
+                        <RowDefinition Height="*"/>
+                    </Grid.RowDefinitions>
+                </Grid>
+            </UniformGrid>
+        </TabItem>
+        <TabItem Header="WrapPanel">
+            <UniformGrid Columns="2">
+                <WrapPanel>
+                    <Button Content="test button1" Height="45" Width="90" Margin="2"/>
+                    <Button Content="test button1" Height="45" Width="90" Margin="2"/>
+                    <Button Content="test button1" Height="45" Width="90" Margin="2"/>
+                    <Button Content="test button1" Height="45" Width="90" Margin="2"/>
+                    <Button Content="test button1" Height="45" Width="90" Margin="2"/>
+                </WrapPanel>
+                <WrapPanel Orientation="Vertical" HorizontalAlignment="Right">
+                    <Button Content="test button1" Height="45" Width="90" Margin="2"/>
+                    <Button Content="test button1" Height="45" Width="90" Margin="2"/>
+                    <Button Content="test button1" Height="45" Width="90" Margin="2"/>
+                    <Button Content="test button1" Height="45" Width="90" Margin="2"/>
+                    <Button Content="test button1" Height="45" Width="90" Margin="2"/>
+                </WrapPanel>
+            </UniformGrid>
+        </TabItem>
+    </TabControl>
+</Window>

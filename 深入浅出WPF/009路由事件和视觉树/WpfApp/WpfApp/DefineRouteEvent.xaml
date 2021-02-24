@@ -1,0 +1,24 @@
+﻿<UserControl x:Class="WpfApp.DefineRouteEvent"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:WpfApp"
+             mc:Ignorable="d" 
+             d:DesignHeight="450" d:DesignWidth="800">
+    <Grid Name="grid_1" local:TimeButton.ReportTime="ReportTimeEventHandle">
+        <Grid Name="grid_2" local:TimeButton.ReportTime="ReportTimeEventHandle">
+            <Grid Name="grid_3" local:TimeButton.ReportTime="ReportTimeEventHandle">
+                <UniformGrid Columns="2" Name="uniform_1" local:TimeButton.ReportTime="ReportTimeEventHandle" >
+                    <ListBox Name="ls_box"/>
+                    <Grid>
+                        <StackPanel VerticalAlignment="Center" HorizontalAlignment="Center">
+                            <CheckBox Name="chk_handle" Content="IsHandle"/>
+                            <local:TimeButton x:Name="btn_time" Width="100" Height="100" Content="报时" local:TimeButton.ReportTime="ReportTimeEventHandle" />
+                        </StackPanel>
+                    </Grid>
+                </UniformGrid>
+            </Grid>
+        </Grid>
+    </Grid>
+</UserControl>

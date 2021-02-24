@@ -1,0 +1,13 @@
+﻿<UserControl x:Class="WpfApp.AttachEvent"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:WpfApp"
+             mc:Ignorable="d" 
+             d:DesignHeight="450" d:DesignWidth="800">
+    <UniformGrid Columns="2" Name="unif_main" >
+        <ListBox Name="ls_box"/>
+        <Button Name="btn_attach" Content="attach" Width="100" Height="100" />
+    </UniformGrid>
+</UserControl>

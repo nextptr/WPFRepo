@@ -1,0 +1,35 @@
+﻿<Window x:Class="WpfApp.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:WpfApp"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="700" Width="1200">
+    <TabControl>
+        <TabItem>
+            <TabItem.Header>
+                <Label Content="模板示例" Height="25"/>
+            </TabItem.Header>
+            <local:Template1/>
+        </TabItem>
+        <TabItem Header="传统控件模式">
+            <local:Template2/>
+        </TabItem>
+        <TabItem Header="控件模板">
+            <local:Template3/>
+        </TabItem>
+        <TabItem Header="控件模板组成">
+            <local:Template4/>
+        </TabItem>
+        <TabItem Header="trigger">
+            <local:TemplateStyle/>
+        </TabItem>
+        <TabItem Header="list右键菜单">
+            <local:Template5/>
+        </TabItem>
+        <TabItem Header="按钮灯">
+            <local:Template6/>
+        </TabItem>
+    </TabControl>
+</Window>

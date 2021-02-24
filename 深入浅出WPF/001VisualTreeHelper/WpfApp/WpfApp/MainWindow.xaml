@@ -1,0 +1,26 @@
+﻿<Window x:Class="WpfApp.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:WpfApp"
+        mc:Ignorable="d"
+        Title="VisualTreeHelper" Height="494" Width="800">
+    <UniformGrid Columns="2" Name="top_unif">
+        <GroupBox Header="ListView">
+            <Grid>
+                <ListView Name="ls_view"/>
+                <Button Content="clear" Name="btn_clear" VerticalAlignment="Bottom" HorizontalAlignment="Right"/>
+            </Grid>
+        </GroupBox>
+        <Grid Name="top_grid">
+            <DockPanel Name="top_dock">
+                <UniformGrid Rows="2" Name="buttom_unif">
+                    <Button Width="80" Height="40"  Name="btn_parent" Content="GetParent" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+                    <Button Width="80" Height="40" Name="btn_child" Content="GetChild" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+                </UniformGrid>
+            </DockPanel>
+        </Grid>
+    </UniformGrid>
+
+</Window>

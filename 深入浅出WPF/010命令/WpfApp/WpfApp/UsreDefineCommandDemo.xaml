@@ -1,0 +1,15 @@
+﻿<UserControl x:Class="WpfApp.UsreDefineCommandDemo"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:WpfApp"
+             mc:Ignorable="d" 
+             d:DesignHeight="450" d:DesignWidth="800">
+    <StackPanel>
+        <local:MyCommandSource x:Name="ctrlClear" Margin="10">
+            <TextBlock Text="清除" FontSize="16" TextAlignment="Center" Background="LightGreen" Width="80"/>
+        </local:MyCommandSource>
+        <local:UserDefineCommandPanel x:Name="miniView"/>
+    </StackPanel>
+</UserControl>

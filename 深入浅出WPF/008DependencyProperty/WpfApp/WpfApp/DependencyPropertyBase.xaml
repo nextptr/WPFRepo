@@ -1,0 +1,70 @@
+﻿<UserControl x:Class="WpfApp.DependencyPropertyBase"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:WpfApp"
+             mc:Ignorable="d" 
+             d:DesignHeight="450" d:DesignWidth="800">
+    <TabControl TabStripPlacement="Bottom">
+        <TabItem>
+            <TabItem.Header>
+                <Label Content="简介"/>
+            </TabItem.Header>
+            <ListBox>
+                <ListBoxItem>
+                    普通的CLR属性使用GET\SET函数对字段的读写做出限制
+                </ListBoxItem>
+                <ListBoxItem>
+                    在GUI程序中各个控价都有大量的属性字段，如果使用CLR属性则会占用非常大的内存，所以引入了依赖属性
+                </ListBoxItem>
+                <ListBoxItem>
+                    依赖属性为动画、控件布局、、等提供了基础
+                </ListBoxItem>
+                <ListBoxItem>
+                    1.使用Public static readonly 来修饰依赖属性，无法new构造对象
+                </ListBoxItem>
+                <ListBoxItem>
+                    2.使用DependencyProperty.Regest(),将属性注册到HashTable
+                </ListBoxItem>
+                <ListBoxItem>
+                    3.借用DependencyObject的GetValue\SetValue来实现依赖属性的读写
+                </ListBoxItem>
+                <ListBoxItem>
+                    4.GetValue\SetValue可以使用普通的CLR属性包装
+                </ListBoxItem>
+            </ListBox>
+        </TabItem>
+        <TabItem Header="依赖属性用例">
+            <UniformGrid Rows="2" Columns="2" >
+                <GroupBox Header="用例">
+                    <Grid>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="*"/>
+                            <RowDefinition Height="*"/>
+                            <RowDefinition Height="*"/>
+                        </Grid.RowDefinitions>
+                        <TextBox Grid.Row="0" VerticalContentAlignment="Center" Name="txt_base_box1" />
+                        <TextBox Grid.Row="1" VerticalContentAlignment="Center" Name="txt_base_box2" />
+                        <Button Grid.Row="2" Name="btn_base_ok" Content="OK"/>
+                    </Grid>
+                </GroupBox>
+            </UniformGrid>
+        </TabItem>
+        <TabItem Header="附加属性">
+            <UniformGrid Columns="2">
+                <ListBox Name="ls_box"/>
+                <UniformGrid Rows="9" Columns="2">
+                    <Button Margin="2" Name="btn_test_att" Content="附加属性测试"/>
+                </UniformGrid>
+            </UniformGrid>
+        </TabItem>
+        <TabItem Header="典型附加属性">
+            <UniformGrid Rows="2" Columns="2">
+                <GroupBox Header="布局属性附加">
+                    <Label Name="lab_auto_att" Width="400" Height="400" VerticalAlignment="Stretch" HorizontalAlignment="Stretch"/>
+                </GroupBox>
+            </UniformGrid>
+        </TabItem>
+    </TabControl>
+</UserControl>

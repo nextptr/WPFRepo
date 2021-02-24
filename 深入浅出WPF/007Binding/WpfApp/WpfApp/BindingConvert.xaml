@@ -1,0 +1,133 @@
+﻿<UserControl x:Class="WpfApp.BindingConvert"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:WpfApp"
+             xmlns:convert="clr-namespace:WpfApp.Convert"
+             mc:Ignorable="d" 
+             d:DesignHeight="450" d:DesignWidth="800">
+    <UserControl.Resources>
+        <ResourceDictionary>
+            <convert:VisibilityConvert x:Key="visCvt"/>
+            <convert:ImageConvert x:Key="imgCvt"/>
+            <convert:TwoWayConvert x:Key="twoCvt"/>
+        </ResourceDictionary>
+    </UserControl.Resources>
+    <TabControl TabStripPlacement="Bottom">
+        <TabItem>
+            <TabItem.Header>
+                <Label Content="数据校验"/>
+            </TabItem.Header>
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="5*"/>
+                </Grid.RowDefinitions>
+                <TextBox x:Name="txt_check" VerticalContentAlignment="Center"/>
+                <Slider x:Name="slid_check" VerticalAlignment="Center" Grid.Row="1" Maximum="110" Minimum="-10" />
+                <Label Name="lab_error" Grid.Row="2" VerticalContentAlignment="Center" />
+                <ListView Grid.Row="4">
+                    <ListViewItem>
+                        进行校验的基础是Binding.ValidationRules.Add(校验规则)中添加的校验方法
+                    </ListViewItem>
+                    <ListViewItem>
+                        校验规则由ValidationRule类派生，在Validate接口中可以进行校验，以及设置校验失败提示信息
+                    </ListViewItem>
+                    <ListViewItem>
+                        设置Binding.ValidatesOnTargetUpdated可以控制校验方向
+                    </ListViewItem>
+                    <ListViewItem>
+                        绑定对象.AddHandler(Validation.ErrorEvent, new RoutedEventHandler(回调函数))，添加校验错误处理函数
+                    </ListViewItem>
+                </ListView>
+            </Grid>
+        </TabItem>
+        <TabItem Header="数据转换">
+            <UniformGrid Rows="2" Columns="2">
+                <GroupBox Header="隐藏登陆窗口" >
+                    <Grid>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="3*"/>
+                            <RowDefinition Height="*"/>
+                            <RowDefinition Height="*"/>
+                        </Grid.RowDefinitions>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="90"/>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="120"/>
+                        </Grid.ColumnDefinitions>
+                        <Image Grid.Column="1" Source="{Binding ElementName=check_Sex, Path=IsChecked, Converter={StaticResource imgCvt} }" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+
+                        <UniformGrid Columns="2" Grid.Row="1" Grid.Column="1">
+                            <RadioButton GroupName="1" Content="Male" Name="check_Sex" VerticalAlignment="Center" />
+                            <RadioButton GroupName="1" Content="Female" VerticalAlignment="Center" IsChecked="True"/>
+                        </UniformGrid>
+
+                        <Label   Grid.Row="2" Grid.Column="0" VerticalContentAlignment="Center" HorizontalContentAlignment="Right" Content="请输入用户名:"/>
+                        <TextBox Grid.Row="2" Grid.Column="1" VerticalContentAlignment="Center" HorizontalContentAlignment="Left"  Name="txt_inName"/>
+                        <Button  Grid.Row="2" Grid.Column="2" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" Content=" 登陆" Visibility="{Binding Path=Text, ElementName=txt_inName, Converter={StaticResource visCvt}}" Margin="2"/>
+                    </Grid>
+                </GroupBox>
+                <GroupBox Header="双向转换">
+                    <UniformGrid Columns="3">
+                        <UniformGrid Rows="3">
+                            <Label Content="请输入颜色" VerticalAlignment="Bottom" HorizontalAlignment="Center"/>
+                            <TextBox Name="txt_color" VerticalAlignment="Center" HorizontalAlignment="Center" Height="45" Width="90"/>
+                            <Label/>
+                        </UniformGrid>
+                        <Rectangle Name="rec_color" Width="135" Height="135" Fill="{Binding ElementName=txt_color, Path=Text, Converter={StaticResource twoCvt}, Mode=TwoWay}"/>
+                        <ComboBox Name="cmx_color" Height="45" Width="90">
+                            <ComboBoxItem>Red</ComboBoxItem>
+                            <ComboBoxItem>Green</ComboBoxItem>
+                            <ComboBoxItem>Blue</ComboBoxItem>
+                            <ComboBoxItem>Black</ComboBoxItem>
+                            <ComboBoxItem>White</ComboBoxItem>
+                        </ComboBox>
+                    </UniformGrid>
+                </GroupBox>
+                <ListView>
+                    <ListViewItem>
+                        进行转换的基础是IValueConverter接口中定义的接口函数
+                    </ListViewItem>
+                    <ListViewItem>
+                        Convert()用于源向目标发送数据时的转换
+                    </ListViewItem>
+                    <ListViewItem>
+                        ConvertBack()用于目标向源发送数据时的转换
+                    </ListViewItem>
+                </ListView>
+                <GroupBox Header="多重Binding">
+                    <Grid>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="*"/>
+                            <RowDefinition Height="*"/>
+                            <RowDefinition Height="*"/>
+                            <RowDefinition Height="*"/>
+                            <RowDefinition Height="*"/>
+                        </Grid.RowDefinitions>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="4*"/>
+                        </Grid.ColumnDefinitions>
+                        <Label Grid.Row="0" Grid.Column="0" Content="输入用户名:" VerticalAlignment="Center" HorizontalContentAlignment="Right"/>
+                        <Label Grid.Row="1" Grid.Column="0" Content="确认用户名:" VerticalAlignment="Center" HorizontalContentAlignment="Right"/>
+                        <Label Grid.Row="2" Grid.Column="0" Content="输入邮箱:" VerticalAlignment="Center" HorizontalContentAlignment="Right"/>
+                        <Label Grid.Row="3" Grid.Column="0" Content="确认邮箱:" VerticalAlignment="Center" HorizontalContentAlignment="Right"/>
+
+                        <TextBox Grid.Row="0" Grid.Column="1" Name="txt_userName" VerticalContentAlignment="Center"/>
+                        <TextBox Grid.Row="1" Grid.Column="1" Name="txt_confirm_name" VerticalContentAlignment="Center"/>
+                        <TextBox Grid.Row="2" Grid.Column="1" Name="txt_userEmil" VerticalContentAlignment="Center"/>
+                        <TextBox Grid.Row="3" Grid.Column="1" Name="txt_confirm_emil" VerticalContentAlignment="Center"/>
+
+                        <Button Grid.Row="4" Grid.ColumnSpan="2" Name="btn_submt" Content="Submit" Width="135" Margin="2"/>
+                    </Grid>
+                </GroupBox>
+            </UniformGrid>
+
+        </TabItem>
+    </TabControl>
+</UserControl>

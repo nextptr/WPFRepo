@@ -1,0 +1,21 @@
+﻿<Window x:Class="WpfApp.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:WpfApp"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="450" Width="800">
+    <UniformGrid Columns="2">
+        <Button Content="后台执行代码"   Name="btn_back" Width="120" Height="50" VerticalAlignment="Center" HorizontalAlignment="Center" Click="Btn_back_Click" />
+        <Button Content="xml中执行代码" Name="btn_front" Width="120" Height="50" VerticalAlignment="Center" HorizontalAlignment="Center" Click="Btn_front_Click" />
+    </UniformGrid>
+    <x:Code>
+        <![CDATA[
+                private void Btn_front_Click(object sender, RoutedEventArgs e)
+                {
+                    MessageBox.Show("Bye! Code-Xaml");
+                }
+        ]]>
+    </x:Code>
+</Window>

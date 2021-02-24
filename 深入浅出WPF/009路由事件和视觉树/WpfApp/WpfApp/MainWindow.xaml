@@ -1,0 +1,27 @@
+﻿<Window x:Class="WpfApp.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:WpfApp"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="927" Width="1500" WindowStartupLocation="CenterScreen">
+    <TabControl>
+        
+        <TabItem>
+            <TabItem.Header>
+                <Label Content="逻辑树和VisualTree"/>
+            </TabItem.Header>
+            <local:TreeHelper/>
+        </TabItem>
+        <TabItem Header="路由事件用例">
+            <local:RouteEventUseDemo/>
+        </TabItem>
+        <TabItem Header="自定义路由事件">
+            <local:DefineRouteEvent/>
+        </TabItem>
+        <TabItem Header="附加事件">
+            <local:AttachEvent/>
+        </TabItem>
+    </TabControl>
+</Window>

@@ -1,0 +1,57 @@
+﻿<Window x:Class="WpfApp.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:WpfApp"
+        mc:Ignorable="d"
+        Title="属性元素" Height="450" Width="800">
+    <TabControl>
+        <TabItem Header="属性元素">
+            <UniformGrid Rows="2" Columns="2">
+                <GroupBox Header="直接赋值、只能输入字符串、作用有限">
+                    <Rectangle Fill="Blue"/>
+                </GroupBox>
+                <GroupBox Header="属性元素、属性展开赋值、功能更强">
+                    <Rectangle>
+                        <Rectangle.Fill>
+                            <SolidColorBrush Color="Yellow"/>
+                        </Rectangle.Fill>
+                    </Rectangle>
+                </GroupBox>
+                <GroupBox Header="属性元素实现渐变画刷">
+                    <Rectangle>
+                        <Rectangle.Fill>
+                            <LinearGradientBrush>
+                                <LinearGradientBrush.GradientStops>
+                                    <GradientStop Offset="0.2" Color="LightBlue"/>
+                                    <GradientStop Offset="0.7" Color="Blue"/>
+                                    <GradientStop Offset="1.0" Color="DarkBlue"/>
+                                </LinearGradientBrush.GradientStops>
+                            </LinearGradientBrush>
+                        </Rectangle.Fill>
+                    </Rectangle>
+                </GroupBox>
+                <GroupBox Header="属性元素实现渐变画刷">
+                    <Ellipse Width="150" Height="150">
+                        <Ellipse.Fill>
+                            <RadialGradientBrush GradientOrigin="0.25,0.25" RadiusX="0.75" RadiusY="0.75">
+                                <RadialGradientBrush.GradientStops>
+                                    <GradientStop Offset="0" Color="White"/>
+                                    <GradientStop Offset="0.65" Color="Black"/>
+                                    <GradientStop Offset="0.8" Color="Gray"/>
+                                </RadialGradientBrush.GradientStops>
+                            </RadialGradientBrush>
+                        </Ellipse.Fill>
+                    </Ellipse>
+                </GroupBox>
+            </UniformGrid>
+        </TabItem>
+        <TabItem Header="标记扩展">
+            <StackPanel Background="LightSlateGray">
+                <TextBox Text="{Binding ElementName= slider1,Path=Value,Mode=OneWay}" Margin="5"/>
+                <Slider x:Name="slider1" Margin="5"/>
+            </StackPanel>
+        </TabItem>
+    </TabControl>
+</Window>
