@@ -1,0 +1,76 @@
+﻿<UserControl x:Class="WpfBase.Chapter8.unit8_2"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:WpfBase.Chapter8"
+             mc:Ignorable="d" 
+             d:DesignHeight="300" d:DesignWidth="300">
+    <UserControl.Resources>
+        <FontFamily x:Key="CustomFont">Calibri</FontFamily>
+    </UserControl.Resources>
+    <UniformGrid Rows="2" Columns="2">
+        <GroupBox Header="Source绑定" Tag="Green">
+            <UniformGrid Rows="3" Tag="True" >
+                <TextBlock Text="{Binding Source={StaticResource CustomFont}}"/>
+            </UniformGrid>
+        </GroupBox>
+        <GroupBox Header="RelativeSourse绑定">
+            <UniformGrid Columns="3" Background="White">
+                <Label Content="博客地址：https://blog.csdn.net/theoldsod2000/article/details/12966773" Visibility="Collapsed"/>
+                <!--<self绑定，使height绑定到同本控件的width属性>-->
+                <TextBlock Width="80" Height="{Binding RelativeSource={RelativeSource Self},Path=Width}" FontSize="18" FontWeight="Bold" Margin="10" Background="Red"  />
+                <!--<TemplatedParent绑定，使内部填充的颜色属性绑定到父模板的颜色属性>-->
+                <Button Content="TemplatedParent" Width="100" Height="50">
+                    <Button.Style>
+                        <Style TargetType="{x:Type Button}" >
+                            <Setter Property="Background" Value="Green"/>
+                            <Setter Property="Template">
+                                <Setter.Value>
+                                    <ControlTemplate TargetType="{x:Type Button}">
+                                        <Grid>
+                                            <Ellipse>
+                                                <Ellipse.Fill>
+                                                    <SolidColorBrush Color="{Binding Path=Background.Color,RelativeSource={RelativeSource TemplatedParent}}"/>
+                                                </Ellipse.Fill>
+                                            </Ellipse>
+                                        </Grid>
+                                    </ControlTemplate>
+                                </Setter.Value>
+                            </Setter>
+                            <Style.Triggers>
+                                <Trigger Property="IsMouseOver" Value="True">
+                                    <Setter Property="Background" Value="Blue"/>
+                                </Trigger>
+                            </Style.Triggers>
+                        </Style>
+                    </Button.Style>
+                </Button>
+                <!--<搜索关联父级容器的属性，可以指定模式，层数，类型，RelativeSource={RelativeSource Mode=FindAncestor,AncestorLevel=1,AncestorType={x:Type UniformGrid}}>-->
+                <!--<不是所有容器都可以作为父级容器被寻找，例如border>-->
+                <UniformGrid Columns="2" Background="Blue">
+                    <Border BorderBrush="Black" BorderThickness="3" Padding="5">
+                        <Label Background="Red" VerticalContentAlignment="Stretch" HorizontalContentAlignment="Stretch"/>
+                    </Border>
+                    <Border BorderBrush="Gold" BorderThickness="3" Padding="5">
+                        <StackPanel Background="Pink">
+                            <Label Background="{Binding Path=Background,RelativeSource={RelativeSource Mode=FindAncestor,AncestorType={x:Type Border}}}" VerticalContentAlignment="Stretch" HorizontalContentAlignment="Stretch"/>
+                            <Label Background="{Binding Path=Background,RelativeSource={RelativeSource Mode=FindAncestor,AncestorLevel=1, AncestorType={x:Type UniformGrid}}}" VerticalContentAlignment="Stretch" HorizontalContentAlignment="Stretch"/>
+                            <Label Background="{Binding Path=Background,RelativeSource={RelativeSource Mode=FindAncestor,AncestorType={x:Type UniformGrid}, AncestorLevel=2}}" VerticalContentAlignment="Stretch" HorizontalContentAlignment="Stretch"/>
+                        </StackPanel>
+                    </Border>
+                </UniformGrid>
+            </UniformGrid>
+        </GroupBox>
+
+        <GroupBox Header="DataContext绑定">
+            <StackPanel Orientation="Vertical" DataContext="{x:Static SystemFonts.IconFontFamily}">
+                <TextBlock Text="{Binding Path=Source}" Margin="2" />
+                <TextBlock Text="{Binding Path=Source}" Margin="2" />
+                <TextBlock Text="{Binding Path=Source}" Margin="2" />
+                <TextBlock Text="{Binding Path=Source}" Margin="2" />
+                <TextBlock Text="{Binding Path=Source}" Margin="2" />
+            </StackPanel>
+        </GroupBox>
+    </UniformGrid>
+</UserControl>

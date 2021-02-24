@@ -1,0 +1,318 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:local="clr-namespace:WpfBase.Chapter11">
+    <Style x:Key="BlackButton" TargetType="{x:Type Button}">
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="{x:Type Button}">
+                    <Border x:Name="border" 
+                            CornerRadius="0"
+                            BorderBrush="{TemplateBinding BorderBrush}" 
+                            BorderThickness="{TemplateBinding BorderThickness}" 
+                            Background="#FF484848">
+                        <ContentPresenter x:Name="contentPresenter"
+                                          HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
+                                          VerticalAlignment="{TemplateBinding VerticalContentAlignment}"
+                                          SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}"
+                                          Margin="{TemplateBinding Padding}"
+                                          RecognizesAccessKey="True" />
+                    </Border>
+                    <ControlTemplate.Triggers>
+                        <!--<Trigger Property="Button.IsFocused" Value="True">
+                            <Setter TargetName="Border" Property="Background" Value="Yellow" />
+                        </Trigger>-->
+                        <Trigger Property="IsPressed" Value="True">
+                            <Setter TargetName="border" Property="Background" Value="{Binding Path=Background, RelativeSource={RelativeSource AncestorType={x:Type Button}}}" />
+                        </Trigger>
+                        <Trigger Property="IsEnabled" Value="False">
+                            <Setter TargetName="contentPresenter" Property="Opacity" Value=".5" />
+                        </Trigger>
+                    </ControlTemplate.Triggers>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+    <Style x:Key="BlackOrangeButton" TargetType="{x:Type Button}" BasedOn="{StaticResource BlackButton}">
+        <Setter Property="Background" Value="Orange" />
+        <Setter Property="Foreground" Value="White" />
+        <Setter Property="HorizontalContentAlignment" Value="Center" />
+        <Setter Property="VerticalContentAlignment" Value="Center" />
+        <Setter Property="BorderBrush" Value="Orange"/>
+    </Style>
+    <Style x:Key="BlackToggleButton" TargetType="{x:Type ToggleButton}">
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="{x:Type ToggleButton}">
+                    <Border x:Name="outer"
+                            BorderBrush="{TemplateBinding BorderBrush}"
+                            BorderThickness="{TemplateBinding BorderThickness}"
+                            Background="#FF484848">
+                        <ContentPresenter x:Name="contentPresenter" 
+                                          HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}" 
+                                          VerticalAlignment="{TemplateBinding VerticalContentAlignment}"
+                                          Margin="{TemplateBinding Padding}" 
+                                          RecognizesAccessKey="True" />
+                    </Border>
+                    <ControlTemplate.Triggers>
+                        <Trigger Property="IsChecked" Value="True">
+                            <Setter TargetName="outer" Property="Background" Value="{Binding Path=Background, RelativeSource={RelativeSource AncestorType={x:Type ToggleButton}}}"/>
+                        </Trigger>
+                    </ControlTemplate.Triggers>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+    <Style x:Key="BlackOrangeToggleButton" TargetType="{x:Type ToggleButton}" BasedOn="{StaticResource BlackToggleButton}">
+        <Setter Property="Background" Value="Orange"/>
+        <Setter Property="Foreground" Value="White"/>
+        <Setter Property="VerticalContentAlignment" Value="Center"/>
+        <Setter Property="HorizontalContentAlignment" Value="Center"/>
+        <Setter Property="BorderBrush" Value="Orange"/>
+    </Style>
+
+    <Style TargetType="ToggleButton" BasedOn="{StaticResource BlackOrangeToggleButton}" x:Key="FlashToggleButton">
+        <Setter Property="Margin" Value="3"/>
+        <Setter Property="ContentTemplate">
+            <Setter.Value>
+                <DataTemplate>
+                    <StackPanel Orientation="Horizontal">
+                        <Ellipse Width="20" Height="20" Name="ellipseblink" Fill="Red"/>
+                        <TextBlock Text="{Binding}" Margin="5,0" VerticalAlignment="Center"/>
+                    </StackPanel>
+
+                    <DataTemplate.Triggers>
+                        <MultiDataTrigger>
+                            <MultiDataTrigger.Conditions>
+                                <Condition Binding="{Binding RelativeSource={RelativeSource Mode=FindAncestor, AncestorType={x:Type ToggleButton}},Path=Tag}" Value="0"/>
+                            </MultiDataTrigger.Conditions>
+                            <Setter TargetName="ellipseblink" Property="Fill" Value="Red"/>
+                        </MultiDataTrigger>
+                        <MultiDataTrigger>
+                            <MultiDataTrigger.Conditions>
+                                <Condition Binding="{Binding RelativeSource={RelativeSource Mode=FindAncestor, AncestorType={x:Type ToggleButton}},Path=Tag}" Value="1"/>
+                            </MultiDataTrigger.Conditions>
+                            <Setter TargetName="ellipseblink" Property="Fill" Value="LimeGreen"/>
+                        </MultiDataTrigger>
+                    </DataTemplate.Triggers>
+                </DataTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+    <Style TargetType="Button" BasedOn="{StaticResource BlackOrangeButton}" x:Key="FlashBorderButton">
+        <Setter Property="Margin" Value="3"/>
+        <Setter Property="ContentTemplate">
+            <Setter.Value>
+                <DataTemplate>
+                    <Grid Width="{Binding RelativeSource={RelativeSource Mode=FindAncestor, AncestorType={x:Type Button}},Path=Width}"
+                                  Height="{Binding RelativeSource={RelativeSource Mode=FindAncestor, AncestorType={x:Type Button}},Path=Height}"
+                                 Margin="-3">
+                        <Border BorderThickness="3" Name="bordProp">
+                            <TextBlock Text="{Binding}" Margin="5,0" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+                        </Border>
+                    </Grid>
+
+                    <DataTemplate.Triggers>
+                        <MultiDataTrigger>
+                            <MultiDataTrigger.Conditions>
+                                <Condition Binding="{Binding RelativeSource={RelativeSource Mode=FindAncestor, AncestorType={x:Type Button}},Path=Tag}" Value="0"/>
+                            </MultiDataTrigger.Conditions>
+                            <Setter TargetName="bordProp" Property="BorderBrush" Value="Red"/>
+                        </MultiDataTrigger>
+                        <MultiDataTrigger>
+                            <MultiDataTrigger.Conditions>
+                                <Condition Binding="{Binding RelativeSource={RelativeSource Mode=FindAncestor, AncestorType={x:Type Button}},Path=Tag}" Value="1"/>
+                            </MultiDataTrigger.Conditions>
+                            <Setter TargetName="bordProp" Property="BorderBrush" Value="Orange"/>
+                        </MultiDataTrigger>
+                    </DataTemplate.Triggers>
+                </DataTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+    <Style TargetType="Button" BasedOn="{StaticResource BlackOrangeButton}" x:Key="FlashBackgroundButton">
+        <Setter Property="Margin" Value="3"/>
+        <Setter Property="ContentTemplate">
+            <Setter.Value>
+                
+                    <DataTemplate>
+                    <Grid Width="{Binding RelativeSource={RelativeSource Mode=FindAncestor, AncestorType={x:Type Button}},Path=Width}"
+                          Height="{Binding RelativeSource={RelativeSource Mode=FindAncestor, AncestorType={x:Type Button}},Path=Height}"
+                          Margin="-3" Name="btnBack" >
+                    </Grid>
+
+                    <DataTemplate.Triggers>
+                        <MultiDataTrigger>
+                            <MultiDataTrigger.Conditions>
+                                <Condition Binding="{Binding RelativeSource={RelativeSource Mode=FindAncestor, AncestorType={x:Type Button}},Path=Tag}" Value="0"/>
+                            </MultiDataTrigger.Conditions>
+                            <Setter TargetName="btnBack" Property="Background" Value="Red"/>
+                        </MultiDataTrigger>
+                        <MultiDataTrigger>
+                            <MultiDataTrigger.Conditions>
+                                <Condition Binding="{Binding RelativeSource={RelativeSource Mode=FindAncestor, AncestorType={x:Type Button}},Path=Tag}" Value="1"/>
+                            </MultiDataTrigger.Conditions>
+                            <Setter TargetName="btnBack" Property="Background" Value="Orange"/>
+                        </MultiDataTrigger>
+                    </DataTemplate.Triggers>
+                </DataTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+    <Style TargetType="Button" x:Key="FlashBackgroundButtonRedGreen">
+        <Setter Property="Margin" Value="3"/>
+        <Style.Triggers>
+            <MultiTrigger>
+                <MultiTrigger.Conditions>
+                    <Condition Property="IsEnabled" Value="false"/>
+                </MultiTrigger.Conditions>
+                <Setter Property="Background" Value="Red"/>
+            </MultiTrigger>
+            <MultiTrigger>
+                <MultiTrigger.Conditions>
+                    <Condition Property="IsEnabled" Value="true"/>
+                </MultiTrigger.Conditions>
+                <Setter Property="Background" Value="Green"/>
+            </MultiTrigger>
+        </Style.Triggers>
+    </Style>
+    <Style TargetType="Button" x:Key="FlashBackgroundButtonRedGreen1">
+        <Setter Property="Margin" Value="3"/>
+        <Style.Triggers>
+            <Trigger Property="Tag" Value="0">
+                <Setter Property="Background" Value="Red"/>
+            </Trigger>
+            <Trigger Property="Tag" Value="1">
+                <Setter Property="Background" Value="Green"/>
+            </Trigger>
+            <Trigger Property="Tag" Value="2">
+                <Setter Property="Background" Value="#FF484848"/>
+            </Trigger>
+        </Style.Triggers>
+    </Style>
+    <Style TargetType="Button" BasedOn="{StaticResource BlackOrangeButton}" x:Key="FlashBackgroundButtonRedGreen2">
+        <Setter Property="Margin" Value="3"/>
+        <Setter Property="ContentTemplate">
+            <Setter.Value>
+                <DataTemplate>
+                    <Grid Width="{Binding RelativeSource={RelativeSource Mode=FindAncestor, AncestorType={x:Type Button}},Path=ActualWidth}"
+                          Height="{Binding RelativeSource={RelativeSource Mode=FindAncestor, AncestorType={x:Type Button}},Path=ActualHeight}"
+                           HorizontalAlignment="Stretch"
+                           VerticalAlignment="Stretch"
+                           SnapsToDevicePixels="{Binding SnapsToDevicePixels}"
+                          Margin="-1" Name="btnBack" >
+                        <TextBlock Text="{Binding}" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+                    </Grid>
+
+                    <DataTemplate.Triggers>
+                        <MultiDataTrigger>
+                            <MultiDataTrigger.Conditions>
+                                <Condition Binding="{Binding RelativeSource={RelativeSource Mode=FindAncestor, AncestorType={x:Type Button}},Path=Tag}" Value="0"/>
+                            </MultiDataTrigger.Conditions>
+                            <Setter TargetName="btnBack" Property="Background" Value="#FF484848"/>
+                        </MultiDataTrigger>
+                        <MultiDataTrigger>
+                            <MultiDataTrigger.Conditions>
+                                <Condition Binding="{Binding RelativeSource={RelativeSource Mode=FindAncestor, AncestorType={x:Type Button}},Path=Tag}" Value="1"/>
+                            </MultiDataTrigger.Conditions>
+                            <Setter TargetName="btnBack" Property="Background" Value="Orange"/>
+                        </MultiDataTrigger>
+                    </DataTemplate.Triggers>
+                </DataTemplate>
+            </Setter.Value>
+        </Setter>
+        <Style.Triggers>
+            <MultiTrigger>
+                <MultiTrigger.Conditions>
+                    <Condition Property="IsPressed" Value="True" />
+                </MultiTrigger.Conditions>
+                <Setter Property="Effect">
+                    <Setter.Value>
+                        <DropShadowEffect ShadowDepth="5" >
+                        </DropShadowEffect>
+                    </Setter.Value>
+                </Setter>
+            </MultiTrigger>
+            <MultiTrigger>
+                <MultiTrigger.Conditions>
+                    <Condition Property="IsPressed" Value="True" />
+                </MultiTrigger.Conditions>
+                <Setter Property="Effect">
+                    <Setter.Value>
+                        <DropShadowEffect ShadowDepth="0" >
+                        </DropShadowEffect>
+                    </Setter.Value>
+                </Setter>
+            </MultiTrigger>
+        </Style.Triggers>
+
+    </Style>
+
+    <Style TargetType="Button" BasedOn="{StaticResource BlackOrangeButton}" x:Key="NormalButton">
+        <Setter Property="Margin" Value="3"/>
+        <Setter Property="ContentTemplate">
+            <Setter.Value>
+                <DataTemplate>
+                    <StackPanel Orientation="Horizontal">
+                        <Ellipse Width="20" Height="20" Name="ellipse_Status"/>
+                        <TextBlock Text="{Binding}" Margin="5,0" VerticalAlignment="Center"/>
+                    </StackPanel>
+                    <DataTemplate.Triggers>
+                        <DataTrigger Binding="{Binding RelativeSource={RelativeSource Mode=TemplatedParent},Path=DataContext.Flag}" Value="True">
+                            <Setter TargetName="ellipse_Status" Property="Fill" Value="LimeGreen"/>
+                        </DataTrigger>
+                        <DataTrigger Binding="{Binding RelativeSource={RelativeSource Mode=TemplatedParent},Path=DataContext.Flag}" Value="False">
+                            <Setter TargetName="ellipse_Status" Property="Fill" Value="Red"/>
+                        </DataTrigger>
+                    </DataTemplate.Triggers>
+                </DataTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+    <Style TargetType="Button" BasedOn="{StaticResource BlackOrangeButton}" x:Key="LaserButton">
+        <Setter Property="Margin" Value="3"/>
+        <Setter Property="ContentTemplate">
+            <Setter.Value>
+                <DataTemplate>
+                    <StackPanel Orientation="Horizontal">
+                        <Ellipse Width="20" Height="20" Name="ellipseblink" Fill="Red"/>
+                        <TextBlock Text="{Binding}" Margin="5,0" VerticalAlignment="Center"/>
+                    </StackPanel>
+                    <DataTemplate.Triggers>
+                        <MultiDataTrigger>
+                            <MultiDataTrigger.Conditions>
+                                <Condition Binding="{Binding RelativeSource={RelativeSource Mode=TemplatedParent},Path=DataContext.Connecting}" Value="False"/>
+                                <Condition Binding="{Binding RelativeSource={RelativeSource Mode=TemplatedParent},Path=DataContext.Connected}" Value="False"/>
+                            </MultiDataTrigger.Conditions>
+                            <MultiDataTrigger.EnterActions>
+                                <StopStoryboard BeginStoryboardName="storyWarning1"/>
+                            </MultiDataTrigger.EnterActions>
+                        </MultiDataTrigger>
+                        <MultiDataTrigger>
+                            <MultiDataTrigger.Conditions>
+                                <Condition Binding="{Binding RelativeSource={RelativeSource Mode=TemplatedParent},Path=DataContext.Connecting}" Value="True"/>
+                                <Condition Binding="{Binding RelativeSource={RelativeSource Mode=TemplatedParent},Path=DataContext.Connected}" Value="False"/>
+                            </MultiDataTrigger.Conditions>
+                            <MultiDataTrigger.EnterActions>
+                                <BeginStoryboard Name="storyWarning1">
+                                    <Storyboard RepeatBehavior="Forever" AutoReverse="True">
+                                        <ColorAnimation  From="Red" To="DarkRed" RepeatBehavior="Forever"  Storyboard.TargetName="ellipseblink" Storyboard.TargetProperty="(Ellipse.Fill).Color"/>
+                                    </Storyboard>
+                                </BeginStoryboard>
+                            </MultiDataTrigger.EnterActions>
+                        </MultiDataTrigger>
+                        <MultiDataTrigger>
+                            <MultiDataTrigger.Conditions>
+                                <Condition Binding="{Binding RelativeSource={RelativeSource Mode=TemplatedParent},Path=DataContext.Connecting}" Value="False"/>
+                                <Condition Binding="{Binding RelativeSource={RelativeSource Mode=TemplatedParent},Path=DataContext.Connected}" Value="True"/>
+                            </MultiDataTrigger.Conditions>
+                            <MultiDataTrigger.EnterActions>
+                                <StopStoryboard BeginStoryboardName="storyWarning1"/>
+                            </MultiDataTrigger.EnterActions>
+                            <Setter TargetName="ellipseblink" Property="Fill" Value="LimeGreen"/>
+                        </MultiDataTrigger>
+                    </DataTemplate.Triggers>
+                </DataTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+</ResourceDictionary>

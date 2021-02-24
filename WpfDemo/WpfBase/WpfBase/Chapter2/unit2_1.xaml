@@ -1,0 +1,55 @@
+﻿<UserControl x:Class="WpfBase.Chapter2.unit2_1"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:WpfBase.Chapter2"
+             mc:Ignorable="d" 
+             d:DesignHeight="300" d:DesignWidth="300">
+    <!--《xaml中的数值都以字符串形式赋值，xaml解析器通过TypeConvert进行类型转换》-->
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="2*"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        <Grid Grid.Column="0">
+            <Grid.Background> <!--<使用句点(.)扩展元素属性，可以实现嵌套的元素>-->
+                <LinearGradientBrush>
+                    <LinearGradientBrush.GradientStops>
+                        <GradientStop Offset="0.00" Color="Red" />
+                        <GradientStop Offset="0.50" Color="IndianRed" />
+                        <GradientStop Offset="1.00" Color="Violet" />
+                    </LinearGradientBrush.GradientStops>
+                </LinearGradientBrush>
+            </Grid.Background>
+        </Grid>
+        <Grid Grid.Column="1">
+            <Grid.Background>
+                <LinearGradientBrush>
+                    <LinearGradientBrush.GradientStops>
+                        <GradientStop Offset="0" Color="Green" />
+                        <GradientStop Offset="0.50" Color="YellowGreen" />
+                        <GradientStop Offset="1.00" Color="Yellow" />
+                    </LinearGradientBrush.GradientStops>
+                </LinearGradientBrush>
+            </Grid.Background>
+
+        </Grid>
+        <!--《UniformGrid使用在grid中定义的附加属性Row,UniformGrid本身没有row属性，实际被转换成函数调用》-->
+        <!--《使用依赖项属性来实现附加属性》-->
+        <!--《子控件通过依赖属性来调用定义在上级控件中的函数，执行一些操作如 Grid.Row="1" 将使Grid排列相应的子控件》-->
+        <UniformGrid Columns="2" Grid.Row="1" Grid.Column="0">
+            <!--<使用标记扩展动态的将属性值设置为已经存在的对象的值>-->
+            <Button Content="扩展" Foreground="{x:Static SystemColors.ActiveCaptionBrush}"/>
+            <Button Content="嵌套扩展">
+                <Button.Foreground>
+                    <x:Static Member="SystemColors.ActiveCaptionBrush"/>
+                </Button.Foreground>
+            </Button>
+        </UniformGrid>
+    </Grid>
+</UserControl>

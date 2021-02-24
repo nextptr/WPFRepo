@@ -1,0 +1,59 @@
+﻿<UserControl x:Class="WpfBase.Chapter9.unit9_1"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:WpfBase.Chapter9"
+             mc:Ignorable="d" 
+             d:DesignHeight="600" d:DesignWidth="600">
+    <UserControl.CommandBindings>
+        <CommandBinding Command="New"  CanExecute="CommonCommandBinding_CanExecute" />
+        <CommandBinding Command="Open" CanExecute="CommonCommandBinding_CanExecute" />
+        <CommandBinding Command="Save" CanExecute="CommonCommandBinding_CanExecute" />
+    </UserControl.CommandBindings>
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+        <GroupBox Header="命令绑定">
+            <StackPanel Orientation="Vertical">
+                <Button Margin="2" Content="new1" Command="ApplicationCommands.New"/>
+                <Button Margin="2" Content="new2" Command="New" Tag="ApplicationCommands.New可以简化成New" />
+            </StackPanel>
+        </GroupBox>
+        <GroupBox Header="禁用命令" Grid.Column="1" >
+            <!--《https://www.wpf-tutorial.com/common-interface-controls/toolbar-control/》-->
+            <DockPanel>
+                <Menu DockPanel.Dock="Top">
+                    <MenuItem Header="File">
+                        <MenuItem Command="New"/>
+                    </MenuItem>
+                </Menu>
+                <DockPanel>
+                    <ToolBarTray DockPanel.Dock="Top">
+                        <ToolBar>
+                            <Button Command="New" Content="New" />
+                            <Button Command="Open" Content="Open" />
+                            <Button Command="Save" Content="Save" />
+                        </ToolBar>
+                        <ToolBar>
+                            <Button Command="Cut" Content="Cut" />
+                            <Button Command="Copy" Content="Copy" />
+                            <Button Command="Paste" Content="Paste" />
+                            <!--《按钮之所以能够对下方独立的txt_edit控件做出响应，是因为按钮被放在了ToolBar或Menu中，
+                            它们可以将其子元素的CommandTarget设置为当前具有焦点的控件，如果按钮放在了其他容器中
+                            则需要手动设置CommandTarget，如下所示》-->
+                            <!--<Button Command="Paste" Content="Paste" CommandTarget="{Binding ElementName=txt_edit}" />-->
+                        </ToolBar>
+                    </ToolBarTray>
+                    <TextBox AcceptsReturn="True" Name="txt_edit"/>
+                </DockPanel>
+            </DockPanel>
+        </GroupBox>
+    </Grid>
+</UserControl>

@@ -1,0 +1,269 @@
+﻿<UserControl x:Class="WpfBase.Chapter3.unit3_1"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:WpfBase.Chapter3"
+             mc:Ignorable="d" 
+             d:DesignHeight="600" d:DesignWidth="900">
+    <TabControl TabStripPlacement="Bottom">
+        <TabItem>
+            <TabItem.Header>
+                <Label Content="布局器" FontSize="17" FontWeight="Bold"/>
+            </TabItem.Header>
+            <UniformGrid Columns="3" Rows="2">
+                <GroupBox Header="StackPanel">
+                    <UniformGrid Rows="2">
+                        <StackPanel Orientation="Horizontal">
+                            <Label Content="label" VerticalContentAlignment="Center"/>
+                            <Button Content="button" Width="80" Margin="5,10,20,0" />
+                        </StackPanel>
+                        <StackPanel Orientation="Vertical">
+                            <Label Content="label" HorizontalContentAlignment="Center" />
+                            <Button Content="button"/>
+                        </StackPanel>
+                    </UniformGrid>
+                </GroupBox>
+                <GroupBox Header="Border">
+                    <Border Margin="5" Padding="10" Background="LightYellow" BorderBrush="SteelBlue"  BorderThickness="5,10,20,1" CornerRadius="10" VerticalAlignment="Top" >
+                        <StackPanel>
+                            <Button Content="one" Margin="3" />
+                            <Button Content="two" Margin="3" />
+                            <Button Content="three" Margin="3" />
+                        </StackPanel>
+                    </Border>
+                </GroupBox>
+                <GroupBox Header="WrapPanel">
+                    <WrapPanel Margin="3">
+                        <!--<以一行中元素的最大，最小值来进行排布一行元素>-->
+                        <Button Content="topBtn" VerticalAlignment="Top"/>
+                        <Button Content="TallBtn" MinHeight="60"/>
+                        <Button Content="BottomBtn" VerticalAlignment="Bottom"/>
+                        <Button Content="NormalBtn"/>
+                        <Button Content="centerBtn" VerticalAlignment="Center"/>
+                        <Button Content="topBtn" VerticalAlignment="Top"/>
+                        <Button Content="TallBtn" MinHeight="60"/>
+                        <Button Content="BottomBtn" VerticalAlignment="Bottom"/>
+                        <Button Content="NormalBtn"/>
+                        <Button Content="centerBtn" VerticalAlignment="Center"/>
+                    </WrapPanel>
+                </GroupBox>
+                <GroupBox Header="DockPanel">
+                    <UniformGrid Rows="2">
+                        <DockPanel LastChildFill="True" Margin="2">
+                            <Button Content="topBtn" DockPanel.Dock="Top" />
+                            <Button Content="bottomBtn" DockPanel.Dock="Bottom" />
+                            <Button Content="leftBtn" DockPanel.Dock="Left" />
+                            <Button Content="rightBtn" DockPanel.Dock="Right" />
+                            <Button Content="remainSpace"/>
+                        </DockPanel>
+                        <DockPanel Margin="2">
+                            <Button Content="A Stretch Top Button" DockPanel.Dock="Top"/>
+                            <Button Content="A Center Top Button" DockPanel.Dock="Top" HorizontalAlignment="Center"/>
+                            <Button Content="A left-Alignment Top Button" DockPanel.Dock="Top" HorizontalAlignment="Left"/>
+                            <Button Content="Botton Button" DockPanel.Dock="Bottom" />
+                            <Button Content="Left Button" DockPanel.Dock="Left"/>
+                            <Button Content="Right Button" DockPanel.Dock="Right"/>
+                            <Button Content="Remain Space"/>
+                        </DockPanel>
+                    </UniformGrid>
+                </GroupBox>
+                <GroupBox Header="嵌套布局">
+                    <DockPanel LastChildFill="True">
+                        <StackPanel DockPanel.Dock="Bottom" HorizontalAlignment="Right" Orientation="Horizontal">
+                            <Button Margin="10,10,2,10" Padding="3" Content="Ok"/>
+                            <Button Margin="2,10,10,10" Padding="3" Content="Cancel"/>
+                        </StackPanel>
+                        <TextBox DockPanel.Dock="Top" Margin="10" Text="This is a test."/>
+                    </DockPanel>
+                </GroupBox>
+                <GroupBox Header="Grid">
+                    <Grid ShowGridLines="True" UseLayoutRounding="True" >
+                        <Grid.RowDefinitions>
+                            <RowDefinition/>
+                            <RowDefinition/>
+                        </Grid.RowDefinitions>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="80"/>
+                            <ColumnDefinition Width="Auto"/>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="2*"/>
+                        </Grid.ColumnDefinitions>
+                        <Button Grid.Column="0" Content="btn1" Grid.RowSpan="2"/>
+                        <Button Grid.Column="1" Content="btn1"/>
+                        <Button Grid.Column="2" Content="btn1"/>
+                        <Button Grid.Column="3" Content="btn1"/>
+                    </Grid>
+                </GroupBox>
+            </UniformGrid>
+        </TabItem>
+        <TabItem>
+            <TabItem.Header>
+                <Label Content="分割窗口" FontSize="17" FontWeight="Bold"/>
+            </TabItem.Header>
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition/>
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition/>
+                    <ColumnDefinition Width="Auto"/>
+                    <ColumnDefinition/>
+                    <ColumnDefinition Width="Auto"/>
+                    <ColumnDefinition/>
+                </Grid.ColumnDefinitions>
+                <Button Margin="3" Content="topLeft" Grid.Row="0" Grid.Column="0"/>
+                <Button Margin="3" Content="topMid" Grid.Row="0" Grid.Column="2"/>
+                <Button Margin="3" Content="topRight" Grid.Row="0" Grid.Column="4"/>
+                <Button Margin="3" Content="bottomLedt" Grid.Row="2" Grid.Column="0"/>
+                <Button Margin="3" Content="bottomMid" Grid.Row="2" Grid.Column="2"/>
+                <Button Margin="3" Content="bottomRight" Grid.Row="2" Grid.Column="4"/>
+
+                <GridSplitter Grid.Row="1" Grid.ColumnSpan="3" Background="Red" Height="3" HorizontalAlignment="Stretch" VerticalAlignment="Center" ShowsPreview="False"/>
+                <GridSplitter Grid.Column="3" Grid.RowSpan="3" Background="Green" Width="3" VerticalAlignment="Stretch" HorizontalAlignment="Center" ShowsPreview="True"/>
+
+            </Grid>
+        </TabItem>
+        <TabItem>
+            <TabItem.Header>
+                <Label Content="嵌套分割窗口" FontSize="17" FontWeight="Bold"/>
+            </TabItem.Header>
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition MinWidth="150"/>
+                    <ColumnDefinition Width="Auto"/>
+                    <ColumnDefinition/>
+                </Grid.ColumnDefinitions>
+                <GridSplitter Grid.Column="1" Width="3" HorizontalAlignment="Center" Background="Red" VerticalAlignment="Stretch" ShowsPreview="True"/>
+                <Grid Grid.Column="0">
+                    <Grid.RowDefinitions>
+                        <RowDefinition/>
+                        <RowDefinition/>
+                    </Grid.RowDefinitions>
+                    <Button Margin="3" Content="topLeft" Grid.Row="0"/>
+                    <Button Margin="3" Content="bottomLeft" Grid.Row="2"/>
+                </Grid>
+                <Grid Grid.Column="2">
+                    <Grid.RowDefinitions>
+                        <RowDefinition/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition MinHeight="150"/>
+                    </Grid.RowDefinitions>
+                    <Button Margin="3" Grid.Row="0" Content="topRight"    />
+                    <Button Margin="3" Grid.Row="2" Content="bottomRight" />
+
+                    <GridSplitter Grid.Row="1" Height="3" Background="Green" HorizontalAlignment="Stretch" VerticalAlignment="Center" ShowsPreview="False"/>
+
+                </Grid>
+            </Grid>
+        </TabItem>
+        <TabItem>
+            <TabItem.Header>
+                <Label Content="共享尺寸组" FontSize="17" FontWeight="Bold"/>
+            </TabItem.Header>
+            <!--《在顶层grid中设置Grid.IsSharedSizeScope="True"》-->
+            <!--《在底层grid中设置<ColumnDefinition Width="Auto" SharedSizeGroup="TextLable"/>设置共享尺寸的名称》-->
+            <Grid Grid.IsSharedSizeScope="True" Margin="3">
+                <Grid.RowDefinitions>
+                    <RowDefinition/>
+                    <RowDefinition Height='Auto'/>
+                    <RowDefinition/>
+                </Grid.RowDefinitions>
+                <Grid Grid.Row="0" Margin='3' Background="LightYellow" ShowGridLines="True">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="Auto" SharedSizeGroup="TextLable"/>
+                        <ColumnDefinition Width="Auto"/>
+                        <ColumnDefinition Width="Auto"/>
+                        <ColumnDefinition />
+                    </Grid.ColumnDefinitions>
+                    <Label Margin="5" Content=" A very long bit of text"/>
+                    <GridSplitter Grid.Column="1" Width="3" Background="Red" VerticalAlignment="Stretch" HorizontalAlignment="Center"/>
+                    <Label Grid.Column="2" Margin="5" Content="More text"/>
+                    <TextBox Grid.Column="3" Margin="5" TextWrapping="WrapWithOverflow" Text="The Project Gutenberg EBook of Romeo and Juliet, by William Shakespeare
+This eBook is for the use of anyone anywhere at no cost and with
+almost no restrictions whatsoever.  You may copy it, give it away or
+re-use it under the terms of the Project Gutenberg License included
+with this eBook or online at www.gutenberg.org/license
+Posting Date: May 25, 2012 [EBook #111]"/>
+                </Grid>
+                <Label Grid.Row="1" Content="Some text in between the two grids"/>
+                <Grid Grid.Row="2" Margin='3' Background="LightYellow" ShowGridLines="True">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="Auto" SharedSizeGroup="TextLable"/>
+                        <ColumnDefinition />
+                    </Grid.ColumnDefinitions>
+                    <Label Margin="5" Content=" Short"/>
+                    <TextBox Grid.Column="1" Margin="5" Text="A textbox"/>
+                </Grid>
+            </Grid>
+        </TabItem>
+        <TabItem>
+            <TabItem.Header>
+                <Label Content="Canvas" FontSize="17" FontWeight="Bold"/>
+            </TabItem.Header>
+            <UniformGrid Columns="2">
+                <GroupBox Header="Canvas">
+                    <Canvas>
+                        <Button Canvas.Left="10"  Canvas.Top="10" Content="(10,10)"/>
+                        <Button Canvas.Left="120" Canvas.Top="30" Content="(120,30)"/>
+                        <Button Canvas.Left="60"  Canvas.Top="80"  Width="50" Height="50" Content="(60,80)" Panel.ZIndex="1" />
+                        <Button Canvas.Left="70"  Canvas.Top="120" Width="50" Height="50" Content="(70,120)"/>
+                    </Canvas>
+                </GroupBox>
+                <GroupBox Header="InkCanvas">
+                    <UniformGrid Rows="2">
+                        <InkCanvas Name="InkCanvas" Background="LightYellow" EditingMode="Ink">
+                            <Image Source="/Images/tim.jpg" InkCanvas.Top="10" InkCanvas.Left="10" Width="287" Height="319"/>
+                        </InkCanvas>
+                        <InkCanvas Background="LightGreen" EditingMode="Select">
+                            <Label Background="OrangeRed" Content="EditingMode=Select模式所有元素双击可选中"/>
+                            <Image Source="/Images/tim.jpg" InkCanvas.Top="10" InkCanvas.Left="10" Width="287" Height="319"/>
+                            <Button Content="可移动按钮" Width="80" Height='40' InkCanvas.Left="56" InkCanvas.Top="40" />
+                        </InkCanvas>
+                    </UniformGrid>
+                </GroupBox>
+            </UniformGrid>
+        </TabItem>
+        <TabItem>
+            <TabItem.Header>
+                <Label Content="Visibility" FontSize="17" FontWeight="Bold"/>
+            </TabItem.Header>
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="*"/>
+                </Grid.RowDefinitions>
+                <GroupBox Header="Hidden" Grid.Row="0" BorderBrush="Gray" BorderThickness="3" >
+                    <UniformGrid Rows="2">
+                        <Label Content="Visible可见,Hidden不可见,但是保留位置" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                        <UniformGrid Columns="2">
+                            <StackPanel Grid.Row="0" Orientation="Horizontal">
+                                <Button Content="btn1" Width="80" Height="40"/>
+                                <Button Content="btn2" Width="80" Height="40"/>
+                                <Button Content="btn3" Width="80" Height="40" Name="btn_hid"/>
+                                <Button Content="btn4" Width="80" Height="40"/>
+                            </StackPanel>
+                            <ToggleButton Content="HiddenButton3" Width="120" Height="60" Click="HiddenButton_Click"/>
+                        </UniformGrid>
+                    </UniformGrid>
+                </GroupBox>
+                <GroupBox Header="Collapsed" Grid.Row="1" BorderBrush="Gray" BorderThickness="3" >
+                    <UniformGrid Rows="2">
+                        <Label Content="Visible可见,Collapsed不可见，也不保留位置" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                        <UniformGrid Columns="2">
+                            <StackPanel Grid.Row="0" Orientation="Horizontal">
+                                <Button Content="btn1" Width="80" Height="40"/>
+                                <Button Content="btn2" Width="80" Height="40"/>
+                                <Button Content="btn3" Width="80" Height="40" Name="btn_coll"/>
+                                <Button Content="btn4" Width="80" Height="40"/>
+                            </StackPanel>
+                            <ToggleButton Content="CollapsedButton3" Width="120" Height="60" Click="CollapsedButton_Click"/>
+                        </UniformGrid>
+                    </UniformGrid>
+                </GroupBox>
+            </Grid>
+        </TabItem>
+    </TabControl>
+</UserControl>

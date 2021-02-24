@@ -1,0 +1,83 @@
+﻿<UserControl x:Class="WpfBase.Chapter8.unit8_1"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:WpfBase.Chapter8"
+             mc:Ignorable="d" 
+             d:DesignHeight="300" d:DesignWidth="300">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+        <GroupBox Header="简单元素绑定">
+            <StackPanel Orientation="Vertical">
+                <Slider Name="slider_fontsize" Minimum="10" Maximum="40" TickPlacement="BottomRight" TickFrequency="1"/>
+                <TextBlock Text="依赖属性绑定" FontSize="{Binding ElementName=slider_fontsize,Path=Value}"/>
+            </StackPanel>
+        </GroupBox>
+        <GroupBox Header="OneWay绑定" Grid.Column="1">
+            <StackPanel Orientation="Vertical">
+                <Slider Name="slid_r0c1" Orientation="Horizontal" Maximum="500" Minimum="50" LargeChange="5" SmallChange="5" Value="50.7" IsSnapToTickEnabled="True"
+                                TickPlacement="BottomRight"
+                                TickFrequency="5"
+                                IsSelectionRangeEnabled="True"
+                                SelectionStart="{Binding ElementName=slid_u2s3,Path=Minimum}"
+                                SelectionEnd="{Binding ElementName=slid_u2s3,Path=Value}"/>
+                <Slider Orientation="Horizontal" Maximum="500" Minimum="50" LargeChange="5" SmallChange="5" IsSnapToTickEnabled="True"
+                                Value="{Binding ElementName=slid_r0c1 ,Path=Value, Mode=OneWay}"/>
+            </StackPanel>
+        </GroupBox>
+        <GroupBox Header="OneWayToSource绑定" Grid.Column="2">
+            <StackPanel Orientation="Vertical">
+                <Slider Name="slid_r0c2" Orientation="Horizontal" Maximum="500" Minimum="50" LargeChange="5" SmallChange="5" Value="50.7" IsSnapToTickEnabled="True"
+                                TickPlacement="BottomRight"
+                                TickFrequency="5"
+                                IsSelectionRangeEnabled="True"
+                                SelectionStart="{Binding ElementName=slid_u2s3,Path=Minimum}"
+                                SelectionEnd="{Binding ElementName=slid_u2s3,Path=Value}"/>
+                <Slider Orientation="Horizontal" Maximum="500" Minimum="50" LargeChange="5" SmallChange="5" IsSnapToTickEnabled="True"
+                                Value="{Binding ElementName=slid_r0c2 ,Path=Value, Mode=OneWayToSource}"/>
+                <TextBlock TextWrapping="WrapWithOverflow" Text="OneWayToSource是将自身的值绑定到别的控件的属性上，其他模式的绑定都是将别的属性引用到自身"/>
+            </StackPanel>
+        </GroupBox>
+
+        <GroupBox Header="TwoWay绑定" Grid.Row="1" Grid.Column="0">
+            <StackPanel Orientation="Vertical">
+                <Slider Name="slid_r1c0" Orientation="Horizontal" Maximum="500" Minimum="50" LargeChange="5" SmallChange="5" Value="50.7" IsSnapToTickEnabled="True"
+                                TickPlacement="BottomRight"
+                                TickFrequency="5"
+                                IsSelectionRangeEnabled="True"
+                                SelectionStart="{Binding ElementName=slid_u2s3,Path=Minimum}"
+                                SelectionEnd="{Binding ElementName=slid_u2s3,Path=Value}"/>
+                <Slider Orientation="Horizontal" Maximum="500" Minimum="50" LargeChange="5" SmallChange="5" IsSnapToTickEnabled="True"
+                                Value="{Binding ElementName=slid_r1c0 ,Path=Value, Mode=TwoWay}"/>
+            </StackPanel>
+        </GroupBox>
+        <GroupBox Header="使用代码绑定" Grid.Row="1" Grid.Column="1">
+            <StackPanel Orientation="Vertical">
+                <Slider Name="slider_fontsize2" Minimum="10" Maximum="40" TickPlacement="BottomRight" TickFrequency="1"/>
+                <TextBlock Name="txt_codeBind" Text="代码绑定" FontSize="{Binding ElementName=slider_fontsize,Path=Value}"/>
+            </StackPanel>
+        </GroupBox>
+        <GroupBox Header="多属性绑定" Grid.Row="1" Grid.Column="2">
+            <StackPanel Orientation="Vertical">
+                <Slider Margin="3" Name="slider_r1c2" Minimum="10" Maximum="40"/>
+                <TextBox Margin="3" Name="txt_r1c2" Text="多属性绑定"/>
+                <ComboBox Margin="3" Name="com_color">
+                    <ComboBoxItem Selected="ComboBoxItem_Selected" Content="Red" Background="Red"/>
+                    <ComboBoxItem Selected="ComboBoxItem_Selected" Content="Green" Background="Green"/>
+                    <ComboBoxItem Selected="ComboBoxItem_Selected" Content="Blue" Background="Blue"/>
+                </ComboBox>
+                <TextBlock Margin="3" Text="{Binding ElementName=txt_r1c2,Path=Text}" Foreground="{Binding ElementName=com_color ,Path=Background}" FontSize="{Binding ElementName=slider_r1c2 ,Path=Value}"/>
+            </StackPanel>
+        </GroupBox>
+
+    </Grid>
+</UserControl>

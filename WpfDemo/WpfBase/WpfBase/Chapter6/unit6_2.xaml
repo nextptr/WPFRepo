@@ -1,0 +1,140 @@
+﻿<UserControl x:Class="WpfBase.Chapter6.unit6_2"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:WpfBase.Chapter6"
+             xmlns:common="clr-namespace:WpfBase.Common"
+             mc:Ignorable="d" 
+             d:DesignHeight="300" d:DesignWidth="300">
+    <TabControl TabStripPlacement="Bottom">
+        <TabItem>
+            <TabItem.Header>
+                <Label Content="按钮" FontSize="17" FontWeight="Bold"/>
+            </TabItem.Header>
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="*"/>
+                        <RowDefinition Height="*"/>
+                        <RowDefinition Height="*"/>
+                        <RowDefinition Height="*"/>
+                        <RowDefinition Height="*"/>
+                        <RowDefinition Height="*"/>
+                        <RowDefinition Height="*"/>
+                        <RowDefinition Height="*"/>
+                    </Grid.RowDefinitions>
+                    <Button Grid.Row="0" Name="btn_Hover" Content="HoverButton" ClickMode="Hover"/>
+                    <RepeatButton Grid.Row="1" Name="btn_Repeat" Content="RepeatButton" />
+                    <UniformGrid Columns="5" Rows="2" Grid.Row="2">
+                        <RadioButton Content="RadioBtn" GroupName="1" Click="RadioButton_Click"/>
+                        <RadioButton Content="RadioBtn" GroupName="1" Click="RadioButton_Click"/>
+                        <RadioButton Content="RadioBtn" GroupName="2" Click="RadioButton_Click"/>
+                        <RadioButton Content="RadioBtn" GroupName="2" Click="RadioButton_Click"/>
+                        <RadioButton Content="RadioBtn" GroupName="2" Click="RadioButton_Click"/>
+                        <RadioButton Content="RadioBtn" GroupName="1" Click="RadioButton_Click"/>
+                        <RadioButton Content="RadioBtn" GroupName="1" Click="RadioButton_Click"/>
+                        <RadioButton Content="RadioBtn" GroupName="3" Click="RadioButton_Click"/>
+                        <RadioButton Content="RadioBtn" GroupName="3" Click="RadioButton_Click"/>
+                        <RadioButton Content="RadioBtn" GroupName="3" Click="RadioButton_Click"/>
+                    </UniformGrid>
+                    <CheckBox Content="CheckBox" Grid.Row="3" VerticalAlignment="Center" Click="CheckBox_Click"/>
+                    <Button Grid.Row="4" Content="ToolTipBtn" ToolTip="This is my toolTip"/>
+                    <Button Grid.Row="5" Content="嵌套ToolTipBtn">
+                        <Button.ToolTip>
+                            <ToolTip Background="#60AA4030" Foreground="White" HasDropShadow="True">
+                                <UniformGrid Rows="2">
+                                    <Label Content="Label and Image"/>
+                                    <Image Source="/Images/game.png"/>
+                                </UniformGrid>
+                            </ToolTip>
+                        </Button.ToolTip>
+                    </Button>
+                    <Button Grid.Row="6" Content="UpDown事件测试" Name="btnUpDown" />
+                </Grid>
+                <common:ListMessagePanel Grid.Column="1" x:Name="ls_event"/>
+            </Grid>
+
+        </TabItem>
+        <TabItem>
+            <TabItem.Header>
+                <Label Content="Popup控件" FontSize="17" FontWeight="Bold"/>
+            </TabItem.Header>
+            <UniformGrid Columns="2">
+                <Grid>
+                    <TextBlock TextWrapping="Wrap">The Project Gutenberg EBook of Romeo and Juliet, by William Shakespeare
+This eBook is for the use of anyone anywhere at no cost and with <Run TextDecorations="UnderLine" Background="Red" MouseEnter="Run_MouseEnter">almost</Run>
+ no restrictions whatsoever."</TextBlock>
+                    <Popup Name="popLink" StaysOpen="False" Placement="Mouse" MaxWidth="200" PopupAnimation="Slide"  AllowsTransparency="True">
+                        <Border BorderBrush="Beige" BorderThickness="2" Background="White">
+                            <TextBlock Margin="10" TextWrapping="Wrap">
+                            For more information,see <Hyperlink NavigateUri="https://fanyi.baidu.com/?aldtype=16047#en/zh/almost" Click="Hyperlink_Click">百度</Hyperlink>
+                            </TextBlock>
+                        </Border>
+                    </Popup>
+                </Grid>
+                <Grid>
+                    <Label Content="Show Popup" FontSize="20" Background="Yellow" VerticalAlignment="Top" HorizontalAlignment="Center" MouseEnter="Label_MouseEnter"/>
+                    <Popup Name="popWin" Placement="Mouse" MaxWidth="200" PopupAnimation="Fade" AllowsTransparency="True">
+                        <Border BorderBrush="Beige" BorderThickness="2" Background="White">
+                            <Grid>
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="30"/>
+                                    <RowDefinition />
+                                </Grid.RowDefinitions>
+                                <DockPanel Background="AliceBlue" Name="TitleBar" LastChildFill="False">
+                                    <Label DockPanel.Dock="Left" Content="pop弹出窗口" />
+                                    <Button DockPanel.Dock="Right" Background="{x:Null}" BorderBrush="{x:Null}" Foreground="{x:Null}" Margin="0,2,2,2" Name="BtnClose" Click="BtnClose_Click" ToolTip="关闭">
+                                        <Button.Content>
+                                            <Image Source="/Images/close.png"></Image>
+                                        </Button.Content>
+                                    </Button>
+                                </DockPanel>
+                                <Polygon Grid.Row="1" Points="100,25 125,0 200,25 125,50" Fill="Blue"/>
+                                <Polygon Grid.Row="1" Points="100,25 75,0 0,25 75,50" Fill="Red"/>
+
+                            </Grid>
+                        </Border>
+                    </Popup>
+                </Grid>
+            </UniformGrid>
+           
+        </TabItem>
+        <TabItem>
+            <TabItem.Header>
+                <Label Content="Expander控件" FontSize="17" FontWeight="Bold"/>
+            </TabItem.Header>
+            <UniformGrid Rows="2" Columns="2">
+                <Expander Margin="5" Padding="5" ExpandDirection="Down" Header="Region One">
+                    <TextBlock TextWrapping="Wrap" Text="This eBook is for the use of anyone anywhere at no cost and with
+almost no restrictions whatsoever.  You may copy it, give it away or
+re-use it under the terms of the Project Gutenberg License included
+with this eBook or online at www.gutenberg.org/license" />
+                </Expander>
+                <Expander Margin="5" Padding="5" ExpandDirection="Left" Header="Region Two">
+                    <TextBlock TextWrapping="Wrap" Text="This eBook is for the use of anyone anywhere at no cost and with
+almost no restrictions whatsoever.  You may copy it, give it away or
+re-use it under the terms of the Project Gutenberg License included
+with this eBook or online at www.gutenberg.org/license" />
+                </Expander>
+                <Expander Margin="5" Padding="5" ExpandDirection="Right" Header="Region Three">
+                    <TextBlock TextWrapping="Wrap" Text="This eBook is for the use of anyone anywhere at no cost and with
+almost no restrictions whatsoever.  You may copy it, give it away or
+re-use it under the terms of the Project Gutenberg License included
+with this eBook or online at www.gutenberg.org/license" />
+                </Expander>
+                <Expander Margin="5" Padding="5" ExpandDirection="Up" Header="Region Four">
+                    <TextBlock TextWrapping="Wrap" Text="This eBook is for the use of anyone anywhere at no cost and with
+almost no restrictions whatsoever.  You may copy it, give it away or
+re-use it under the terms of the Project Gutenberg License included
+with this eBook or online at www.gutenberg.org/license" />
+                </Expander>
+            </UniformGrid>
+        </TabItem>
+    </TabControl>
+
+</UserControl>

@@ -1,0 +1,20 @@
+﻿<UserControl x:Class="WpfBase.Chapter5.unit5_2"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:WpfBase.Chapter5"
+             mc:Ignorable="d" 
+             d:DesignHeight="300" d:DesignWidth="300">
+    <UniformGrid Columns="2">
+        <UniformGrid Rows="2">
+            <Button Name="btn_pop" VerticalAlignment="Center" HorizontalAlignment="Center" Content="PopWindow" Width="120" Height="40"/>
+            <Button Name="btn_popInstance" VerticalAlignment="Center" HorizontalAlignment="Center" Content="PopInstanceWindow" Width="160" Height="40"/>
+
+        </UniformGrid>
+        <Grid>
+            <ListView  Name="list_view"/>
+            <Button    Name="btn_clear" Content="clear" HorizontalAlignment="Right" VerticalAlignment="Bottom"/>
+        </Grid>
+    </UniformGrid>
+</UserControl>
