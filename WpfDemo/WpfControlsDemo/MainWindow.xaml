@@ -1,0 +1,23 @@
+﻿<Window x:Class="WpfControlsDemo.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:WpfControlsDemo"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="600" Width="800">
+    <TabControl>
+        <TabItem>
+            <TabItem.Header>
+                <Label Content="可停靠控件" Height="35" VerticalContentAlignment="Center" />
+            </TabItem.Header>
+            <local:FreeDockPanel/>
+        </TabItem> 
+        <TabItem>
+            <TabItem.Header>
+                <Label Content="控件Effect" Height="35" VerticalContentAlignment="Center" />
+            </TabItem.Header>
+            <local:EffectPanel/>
+        </TabItem> 
+    </TabControl>
+</Window>

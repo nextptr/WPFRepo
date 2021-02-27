@@ -1,0 +1,77 @@
+﻿<UserControl x:Class="WpfControlsDemo.FreeDockPanel"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:WpfControlsDemo"
+             xmlns:xcad="http://schemas.xceed.com/wpf/xaml/avalondock"
+             mc:Ignorable="d" 
+             d:DesignHeight="300" d:DesignWidth="300">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        <TextBlock >
+            <Hyperlink NavigateUri='https://blog.csdn.net/honantic/article/details/45965965'>https://blog.csdn.net/honantic/article/details/45965965</Hyperlink>
+        </TextBlock>
+        <xcad:DockingManager x:Name="dockingManager" Grid.Row="1">
+            <xcad:LayoutRoot>
+                <xcad:LayoutPanel Orientation="Horizontal">
+                    <xcad:LayoutDocumentPane DockWidth="300">
+                        <xcad:LayoutAnchorable Title="Sample Tool Pane">
+                            <TextBox/>
+                        </xcad:LayoutAnchorable>
+                    </xcad:LayoutDocumentPane>
+                </xcad:LayoutPanel>
+                <xcad:LayoutRoot.LeftSide>
+                    <xcad:LayoutAnchorSide>
+                        <xcad:LayoutAnchorGroup>
+                            <xcad:LayoutAnchorable Title="Autohidden Content">
+                                <TextBox/>
+                            </xcad:LayoutAnchorable>
+                        </xcad:LayoutAnchorGroup>
+                    </xcad:LayoutAnchorSide>
+                </xcad:LayoutRoot.LeftSide>
+            </xcad:LayoutRoot>
+        </xcad:DockingManager>
+    </Grid>
+    <!--<TabItem>
+            <xcad:DockingManager>
+                <xcad:DockingManager.Theme>
+                    <xcad:MetroTheme></xcad:MetroTheme>
+                </xcad:DockingManager.Theme>
+                <xcad:LayoutRoot>
+                    <xcad:LayoutPanel Orientation="Horizontal">
+                        <xcad:LayoutAnchorablePaneGroup DockMinWidth="240" FloatingWidth="240">
+                            <xcad:LayoutAnchorablePane x:Name="panelLeft">
+                                <xcad:LayoutAnchorable Title="Left1"></xcad:LayoutAnchorable>
+                                <xcad:LayoutAnchorable Title="Left2"></xcad:LayoutAnchorable>
+                            </xcad:LayoutAnchorablePane>
+                        </xcad:LayoutAnchorablePaneGroup>
+                        <xcad:LayoutPanel Orientation="Vertical">
+                            <xcad:LayoutDocumentPaneGroup>
+                                <xcad:LayoutDocumentPane x:Name="panelTop">
+                                    <xcad:LayoutDocument Title="Top1"></xcad:LayoutDocument>
+                                    <xcad:LayoutDocument Title="Top2"></xcad:LayoutDocument>
+                                </xcad:LayoutDocumentPane>
+                            </xcad:LayoutDocumentPaneGroup>
+                            <xcad:LayoutAnchorablePaneGroup DockMinHeight="180" FloatingHeight="180">
+                                <xcad:LayoutAnchorablePane x:Name="panelBottom">
+                                    <xcad:LayoutAnchorable Title="Bottom1"></xcad:LayoutAnchorable>
+                                    <xcad:LayoutAnchorable Title="Bottom2"></xcad:LayoutAnchorable>
+                                    <xcad:LayoutAnchorable Title="Bottom3"></xcad:LayoutAnchorable>
+                                </xcad:LayoutAnchorablePane>
+                            </xcad:LayoutAnchorablePaneGroup>
+                        </xcad:LayoutPanel>
+                        <xcad:LayoutAnchorablePaneGroup DockMinWidth="270" FloatingWidth="270">
+                            <xcad:LayoutAnchorablePane x:Name="panelRight" DockWidth="240" FloatingWidth="240">
+                                <xcad:LayoutAnchorable Title="Right1"></xcad:LayoutAnchorable>
+                                <xcad:LayoutAnchorable Title="Right2"></xcad:LayoutAnchorable>
+                            </xcad:LayoutAnchorablePane>
+                        </xcad:LayoutAnchorablePaneGroup>
+                    </xcad:LayoutPanel>
+                </xcad:LayoutRoot>
+            </xcad:DockingManager>
+        </TabItem>-->
+</UserControl>
