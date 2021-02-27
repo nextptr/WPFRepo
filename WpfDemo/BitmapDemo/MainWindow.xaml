@@ -1,0 +1,30 @@
+﻿<Window x:Class="BitmapDemo.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:BitmapDemo"
+        mc:Ignorable="d"
+        Title="WriteBitmap" Height="400" Width="450">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition />
+            <ColumnDefinition Width="50"/>
+        </Grid.ColumnDefinitions>
+        <Label>
+            <Hyperlink NavigateUri="https://blog.csdn.net/jiuzaizuotian2014/article/details/81279423">
+                csdn博客
+            </Hyperlink>
+        </Label>
+        <Image Grid.Row="1" Name="imgPanel"/>
+        <StackPanel Grid.Row="1" Grid.Column="1" Orientation="Vertical">
+            <Button  Name="btnStart" Content="Start" Margin="2" />
+            <Button  Name="btnSave"  Content="Save" Margin="2" />
+            <Button  Name="btnGrph"  Content="draw" Margin="2" />
+        </StackPanel>
+    </Grid>
+</Window>
