@@ -1,0 +1,19 @@
+﻿<Application x:Class="WpfSerialization.App"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:local="clr-namespace:WpfSerialization"
+             StartupUri="MainWindow.xaml">
+    <Application.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="/Resource/TabItemNoHeader.xaml"/>
+                <ResourceDictionary Source="/Resource/RadioButton.xaml"/>
+                <ResourceDictionary Source="/Resource/ToggleButton.xaml"/>
+                <ResourceDictionary Source="/Resource/Button.xaml"/>
+                <ResourceDictionary Source="/Resource/RepeatButton.xaml"/>
+                <ResourceDictionary Source="/Resource/DataGrid.xaml"/>
+                <ResourceDictionary Source="/Resource/TextBlock.xaml"/>
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+    </Application.Resources>
+</Application>

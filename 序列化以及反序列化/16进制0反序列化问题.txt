@@ -1,0 +1,58 @@
+public class MyObject
+{
+    public string MyString { get; set; }
+}
+ 
+class Program
+{
+    static void Main(string[] args)
+    {
+         
+        XmlSerializerFactory fact = new XmlSerializerFactory();
+        XmlSerializer ser = fact.CreateSerializer(typeof(MyObject));
+ 
+        MyObject obj0 = new MyObject();
+        obj0.MyString = "Hello\0World";
+ 
+        // Serialize the object
+        StringWriter sw = new StringWriter();
+        ser.Serialize(sw, obj0);
+        string xml = sw.ToString();
+        // We can check that in the xml a \0 is transformed in &#x0;
+        Console.WriteLine(xml);
+ 
+        // Classic use of XmlReader.Create
+        StringReader sr1 = new StringReader(xml);
+        XmlReader xr1 = XmlTextReader.Create(sr1); // xr1's type is XmlTextReaderImpl
+        try
+        {
+            MyObject obj1 = (MyObject)ser.Deserialize(xr1);
+            Console.WriteLine("XmlReader [CheckCharacters({0})] : Success : {1}", xr1.Settings.CheckCharacters, obj1.MyString);
+            Console.WriteLine(obj1.MyString);
+        }
+        catch (Exception e)
+        {
+            Console.WriteLine("XmlReader [CheckCharacters({0})] : Error : {1}", xr1.Settings.CheckCharacters, e.InnerException);
+        }
+ 
+        // Using an XmlTextReader
+        StringReader sr2 = new StringReader(xml);
+        XmlTextReader xr2 = new XmlTextReader(sr2);
+        // xr2.Settings is null
+        MyObject obj2 = (MyObject)ser.Deserialize(xr2);
+        Console.WriteLine("XmlTextReader : Success : {0}", obj2.MyString);
+ 
+        // Using XmlReader with the good XmlReaderSettings
+        StringReader sr3 = new StringReader(xml);
+        XmlReaderSettings settings = new XmlReaderSettings();
+        settings.CheckCharacters = false; // default value is true;
+        XmlReader xr3 = XmlTextReader.Create(sr3, settings); // xr3.Settings.CheckCharacters is a read only and xr3's type is XmlTextReaderImpl
+        MyObject obj3 = (MyObject)ser.Deserialize(xr3);
+        Console.WriteLine("XmlReader [CheckCharacters({0})] : Success : {1}", xr3.Settings.CheckCharacters, obj3.MyString);
+    }
+}
+--------------------- 
+作者：imperman 
+来源：CSDN 
+原文：https://blog.csdn.net/imperman/article/details/8333461 
+版权声明：本文为博主原创文章，转载请附上博文链接！

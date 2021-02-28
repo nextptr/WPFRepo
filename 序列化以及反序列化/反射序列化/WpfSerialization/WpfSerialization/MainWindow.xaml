@@ -1,0 +1,92 @@
+﻿<Window x:Class="WpfSerialization.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:WpfSerialization"
+        xmlns:converts="clr-namespace:Common.Converts;assembly=Common"
+        mc:Ignorable="d"
+        Title="序列化测试" Height="350" Width="525">
+    <Window.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+            </ResourceDictionary.MergedDictionaries>
+            <converts:ConverterBoolColor x:Key="BoolConvert"/>
+            <SolidColorBrush x:Key="{x:Static SystemColors.InactiveSelectionHighlightBrushKey}" Color="{x:Static SystemColors.HighlightColor}"/>
+        </ResourceDictionary>
+    </Window.Resources>
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition  Height="Auto"/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+        <GroupBox Grid.Row="0">
+            <GroupBox.Header>
+                <Label Content="Parameter1" FontWeight="Bold" FontSize="17" />
+            </GroupBox.Header>
+            <UniformGrid Columns="6" Name="uim_Head">
+                <Label Content="名称:" HorizontalAlignment="Right"/>
+                <Label Content="{Binding ItemName }" HorizontalAlignment="Left"/>
+                <Label Content="地址:" HorizontalAlignment="Right"/>
+                <Label Content="{Binding ItemAddress }" HorizontalAlignment="Left"/>
+                <Label Content="电话:" HorizontalAlignment="Right"/>
+                <Label Content="{Binding ItemPhonNumber }" HorizontalAlignment="Left"/>
+            </UniformGrid>
+
+        </GroupBox>
+
+        <GroupBox Grid.Row="1">
+            <GroupBox.Header>
+                <Label Content="Parameter2" FontWeight="Bold" FontSize="17" />
+            </GroupBox.Header>
+            <DataGrid AutoGenerateColumns="False" Name="dg_param" ColumnWidth="*" 
+                  CanUserAddRows="False" CanUserDeleteRows="False"
+                  HorizontalContentAlignment="Center"
+                  CanUserReorderColumns="False"
+                  CanUserSortColumns="False"
+                  HeadersVisibility="Column"
+                  SelectedIndex="0"
+                  IsReadOnly="False">
+                <DataGrid.Columns>
+                    <DataGridTextColumn Width="*" Binding="{Binding ItemName}">
+                        <DataGridTextColumn.Header>
+                            <TextBlock Text="名称" Foreground="White"/>
+                        </DataGridTextColumn.Header>
+                    </DataGridTextColumn>
+
+                    <DataGridTemplateColumn  Width="*">
+                        <DataGridTemplateColumn.Header>
+                            <TextBlock Text="状态" Foreground="White"/>
+                        </DataGridTemplateColumn.Header>
+                        <DataGridTemplateColumn.CellTemplate>
+                            <DataTemplate>
+                                <Ellipse Width="13" Height="13" Fill="{Binding ItemStatus, Converter={StaticResource BoolConvert}}"/>
+                            </DataTemplate>
+                        </DataGridTemplateColumn.CellTemplate>
+                    </DataGridTemplateColumn>
+
+                    <DataGridTextColumn Width="*" Binding="{Binding ItemPosX}">
+                        <DataGridTextColumn.Header>
+                            <TextBlock Text="pos_x" Foreground="White"/>
+                        </DataGridTextColumn.Header>
+                    </DataGridTextColumn>
+
+                    <DataGridTextColumn Width="*" Binding="{Binding ItemPosY}">
+                        <DataGridTextColumn.Header>
+                            <TextBlock Text="pos_y" Foreground="White"/>
+                        </DataGridTextColumn.Header>
+                    </DataGridTextColumn>
+
+                    <DataGridTextColumn Width="*" Binding="{Binding ItemPosZ}">
+                        <DataGridTextColumn.Header>
+                            <TextBlock Text="pos_z" Foreground="White"/>
+                        </DataGridTextColumn.Header>
+                    </DataGridTextColumn>
+
+
+                </DataGrid.Columns>
+            </DataGrid>
+
+        </GroupBox>
+    </Grid>
+</Window>
