@@ -1,0 +1,71 @@
+﻿<Window x:Class="BindingConvertDemo.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:BindingConvertDemo"
+        xmlns:cvt="clr-namespace:BindingConvertDemo.Convert"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="350" Width="525">
+    <Window.Resources>
+        <ResourceDictionary>
+            <cvt:IntValToColorConvert x:Key="ColorConvert"/>
+            <cvt:MultiStringValueConverter x:Key="multCvt"/>
+        </ResourceDictionary>
+    </Window.Resources>
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+        <Label Name="labTest" Content="测试" Background="{Binding Color,Converter={StaticResource ColorConvert},Mode=TwoWay}" VerticalAlignment="Center" HorizontalAlignment="Center" Height="60" Width="80"/>
+        <Grid Grid.Column="1">
+            <Grid.RowDefinitions>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+            <TextBlock Name="TxtBox" Grid.Row="1" Grid.Column="0" Text="{Binding Color,Mode=TwoWay}" Width="30" FontSize="20" Background="Aqua" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+            <Button Name="BtnAdd" Grid.Row="1" Grid.Column="1" Content="+1" Margin="5" Click="BtnAdd_Click" />
+            <Button Name="BtnSub" Grid.Row="1" Grid.Column="2" Content="-1" Margin="5" Click="BtnSub_Click" />
+        </Grid>
+        <GroupBox Grid.Row="1" Header="多绑定">
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="*"/>
+                </Grid.RowDefinitions>
+                <TextBlock Name="txtBlock1">
+                    <TextBlock.Text>
+                        <MultiBinding StringFormat="({0}, {1}, {2})">
+                            <Binding Path="AxisXPos"/>
+                            <Binding Path="AxisYPos"/>
+                            <Binding Path="AxisZPos"/>
+                        </MultiBinding>
+                    </TextBlock.Text>
+                </TextBlock>
+                <TextBlock Grid.Row="1" Name="txtBlock2" >
+                    <TextBlock.Text>
+                        <MultiBinding Converter="{StaticResource multCvt}">
+                            <Binding Path="AxisXPos" />
+                            <Binding Path="AxisYPos" />
+                            <Binding Path="AxisZPos" />
+                        </MultiBinding>
+                    </TextBlock.Text>
+                </TextBlock>
+            </Grid>
+        </GroupBox>
+    </Grid>
+</Window>
