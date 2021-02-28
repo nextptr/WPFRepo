@@ -1,0 +1,31 @@
+﻿<Window x:Class="PopWindowsDemo.FindWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:PopWindowsDemo"
+        mc:Ignorable="d"
+              Title="FindWindow" Height="450" Width="600" WindowStyle="None">
+    <Border BorderThickness="3" BorderBrush="Black">
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="30"/>
+                <RowDefinition />
+            </Grid.RowDefinitions>
+            <DockPanel Background="AliceBlue" Name="TitleBar" LastChildFill="False">
+                <Label DockPanel.Dock="Left" Content="使用title发现的窗口" />
+                <Button DockPanel.Dock="Right" Background="{x:Null}" BorderBrush="{x:Null}" Foreground="{x:Null}" Margin="0,2" Name="BtnClose" ToolTip="关闭">
+                    <Button.Content>
+                        <Image Source="/Images/close.png"></Image>
+                    </Button.Content>
+                </Button>
+                <Button DockPanel.Dock="Right" Background="{x:Null}" BorderBrush="{x:Null}" Foreground="{x:Null}" Margin="2,1,1,2" Width="30" Name="BtnMin" ToolTip="最小化">
+                    <Button.Content>
+                        <Image Source="/Images/min.png"></Image>
+                    </Button.Content>
+                </Button>
+            </DockPanel>
+            <Label Content="wi32title发现窗口" FontSize="40" Grid.Row="1" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+        </Grid>
+    </Border>
+</Window>
