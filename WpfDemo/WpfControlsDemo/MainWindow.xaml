@@ -19,5 +19,11 @@
             </TabItem.Header>
             <local:EffectPanel/>
         </TabItem> 
+        <TabItem>
+            <TabItem.Header>
+                <Label Content="控件Style" Height="35" VerticalContentAlignment="Center" />
+            </TabItem.Header>
+            <local:StylePanel/>
+        </TabItem> 
     </TabControl>
 </Window>

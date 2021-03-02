@@ -4,6 +4,16 @@
              xmlns:local="clr-namespace:WpfControlsDemo"
              StartupUri="MainWindow.xaml">
     <Application.Resources>
-         
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="/Resource/Button.xaml"/>
+                <ResourceDictionary Source="/Resource/DataGrid.xaml"/>
+                <ResourceDictionary Source="/Resource/RadioButton.xaml"/>
+                <ResourceDictionary Source="/Resource/RepeatButton.xaml"/>
+                <ResourceDictionary Source="/Resource/TabItemNoHeader.xaml"/>
+                <ResourceDictionary Source="/Resource/TextBlock.xaml"/>
+                <ResourceDictionary Source="/Resource/ToggleButton.xaml"/>
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
     </Application.Resources>
 </Application>
