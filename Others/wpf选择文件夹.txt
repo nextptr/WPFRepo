@@ -1,0 +1,53 @@
+        private void Btn_File_Click(object sender, RoutedEventArgs e)
+        {
+            string filepath = Directory.GetCurrentDirectory();
+            filepath += "\\CoincidenceCheckImg\\";
+            if (selectAngle == Angle.vertic)
+            {
+                filepath += "90度";
+            }
+            else
+            {
+                filepath += "0度";
+            }
+            if (!Directory.Exists(filepath))
+            {
+                Directory.CreateDirectory(filepath);
+            }
+
+            {
+                //OpenFileDialog fd = new OpenFileDialog
+                //{
+                //    Title = "打开图片",
+                //    Filter = "bmp图像|*.bmp",
+                //    InitialDirectory = "D:\\MaxWell",
+                //};
+                //if (fd.ShowDialog().Value)
+                //{
+                //    ddMsg(fd.FileName);
+                //}
+            }
+
+            FolderBrowserDialog m_Dialog = new FolderBrowserDialog();
+            m_Dialog.SelectedPath = filepath;
+            DialogResult result = m_Dialog.ShowDialog();
+            if (result == System.Windows.Forms.DialogResult.Cancel)
+            {
+                return;
+            }
+            filepath = m_Dialog.SelectedPath.Trim();
+
+            string[] files = Directory.GetFiles(filepath);
+            if (files.Length == 0)
+            {
+                return;
+            }
+            selectPath = filepath;
+            list_vew.Items.Clear();
+            foreach (var tmp in files)
+            {
+                string[] pathstr = tmp.Split('\\');
+                string imgname = pathstr[pathstr.Length - 1];
+                ddMsg(imgname);
+            }
+        }

@@ -8,7 +8,7 @@ namespace Common.ComPort
 {
     public class ComSeriaPort : NotifyPropertyChanged
     {
-        public delegate void ReceiveDataEventHandle(string s);
+        public delegate void ReceiveDataEventHandle(object sender, object data);
         public event ReceiveDataEventHandle ReceiveDataEvent; //接受数据事件
 
         private SerialPort ComDevice = null;
@@ -209,7 +209,7 @@ namespace Common.ComPort
                 byte[] ReDatas = new byte[ComDevice.BytesToRead];
                 ComDevice.Read(ReDatas, 0, ReDatas.Length);//读取数据
                 SourceData = aSCIIEncoding.GetString(ReDatas);
-                ReceiveDataEvent?.Invoke(SourceData);
+                ReceiveDataEvent?.Invoke(this, SourceData);
             }
             catch (Exception ex)
             {

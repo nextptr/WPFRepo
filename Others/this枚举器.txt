@@ -1,0 +1,15 @@
+  {
+        private Dictionary<string,LightSourceConfig>_lightSourceConfigs
+        {
+            get
+            {
+                Dictionary<string, LightSourceConfig> lightSourceConfigs = new Dictionary<string, LightSourceConfig>();
+                foreach(LightSourceConfig light in this)
+                {
+                    lightSourceConfigs.Add(light.Name,light);
+                }
+                return lightSourceConfigs;
+            }
+        }
+        public LightSourceConfig this[string name]=>_lightSourceConfigs[name];
+    }

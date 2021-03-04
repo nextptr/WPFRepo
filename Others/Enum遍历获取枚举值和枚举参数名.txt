@@ -1,0 +1,9 @@
+for (int i = (int)testEnum.testString; i < (int)testEnum.str8 + 1; i++)
+{
+    ls.Items.Add(((testEnum)i).ToString());
+}
+
+for (int i = 0; i < Enum.GetValues(typeof(testEnum)).Length; i++)
+{
+    ls.Items.Add(((testEnum)i).ToString());
+}

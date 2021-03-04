@@ -86,6 +86,7 @@
   <ItemGroup>
     <Compile Include="ComMath.cs" />
     <Compile Include="ComPort\ComSeriaPort.cs" />
+    <Compile Include="ComPort\ISeriaPort.cs" />
     <Compile Include="Converts\ConverterBoolColor.cs" />
     <Compile Include="Csv\CvsHelper.cs" />
     <Compile Include="DelegateCommand.cs" />
