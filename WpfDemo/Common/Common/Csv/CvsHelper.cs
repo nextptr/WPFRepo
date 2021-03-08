@@ -63,6 +63,49 @@ namespace Common.Csv
             }
             return readFile(filePathAndName);
         }
+        public List<List<object>> ReadNoHeaderFile(string fullPathName)
+        {
+            List<List<object>> lstDic = new List<List<object>>();
+            try
+            {
+                if (File.Exists(fullPathName))
+                {
+                    StreamReader sr = new StreamReader(fullPathName);
+                    int index = 0;
+                    while (!sr.EndOfStream)
+                    {
+                        string line = sr.ReadLine();
+                        string[] ls = line.Split(',');
+                        if (ls.Length > 0)
+                        {
+                            lstDic.Add(new List<object>());
+                            for (int i = 0; i < ls.Length; i++)
+                            {
+                                lstDic[index].Add(ls[i]);
+                            }
+                            index++;
+                        }
+                        else
+                        {
+                            sr.Close();
+                            return null;
+                        }
+                    }
+                    sr.Close();
+                    return lstDic;
+                }
+                else
+                {
+                    throw new IOException("文件不存在: " + fullPathName);
+                }
+            }
+            catch (IOException e)
+            {
+                MessageBox.Show("读取文件失败:" + e.Message);
+                return null;
+            }
+
+        }
         public Dictionary<object, List<object>> ReadLastLoadData()
         {
             string filePath = _recoderLastLoadFoldPath + @"\" + _recoderLastLoadFileName;

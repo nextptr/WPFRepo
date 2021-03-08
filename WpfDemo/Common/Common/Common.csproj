@@ -111,6 +111,8 @@
     <Compile Include="PrintTxt.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="RootPath.cs" />
+    <Compile Include="UDP\CommonUdpServer.cs" />
+    <Compile Include="UDP\CommonUdpClient.cs" />
   </ItemGroup>
   <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
