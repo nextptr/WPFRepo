@@ -111,6 +111,12 @@
     <Compile Include="PrintTxt.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="RootPath.cs" />
+    <Compile Include="TCP\ClientSocket.cs" />
+    <Compile Include="TCP\ServerSocket.cs" />
+    <Compile Include="TCP\TcpServerManager.cs" />
+    <Compile Include="TCP\tcpSocketClient.cs" />
+    <Compile Include="TCP\tcpSocketConfig.cs" />
+    <Compile Include="TCP\tcpSocketServer.cs" />
     <Compile Include="UDP\CommonUdpServer.cs" />
     <Compile Include="UDP\CommonUdpClient.cs" />
   </ItemGroup>
