@@ -1,0 +1,26 @@
+﻿<UserControl x:Class="MvvmDemo.mvvmGroupBind"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:MvvmDemo"
+             mc:Ignorable="d" 
+             d:DesignHeight="300" d:DesignWidth="300">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="35"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+        <ListView Grid.Column="0" Margin="2" Name="lsv_cont" ItemsSource="{Binding Employees}" Grid.RowSpan="2" />
+        <ComboBox Grid.Column="1" Margin="2" Name="com_cont" ItemsSource="{Binding Employees}" VerticalContentAlignment="Center" />
+        <TextBox  Grid.Column="2" Margin="2" Name="txt_arg" Text="小马" VerticalContentAlignment="Center" />
+        <Button Grid.Column="3"  Margin="2" Name="btn_add" Content="添加"/>
+        <TextBlock Grid.Row="1" Grid.Column="1" Grid.ColumnSpan="4" TextWrapping="Wrap" Text="ObservableCollection(T)继承了INotifyCollectionChanged和INotifyPropertyChanged部分源码" />
+    </Grid>
+</UserControl>

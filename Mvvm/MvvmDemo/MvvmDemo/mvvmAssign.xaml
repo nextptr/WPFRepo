@@ -1,0 +1,29 @@
+﻿<UserControl x:Class="MvvmDemo.mvvmAssign"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:MvvmDemo"
+             mc:Ignorable="d" 
+             d:DesignHeight="300" d:DesignWidth="300">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="35"/>
+            <RowDefinition Height="35"/>
+            <RowDefinition Height="35"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition />
+            <ColumnDefinition />
+        </Grid.ColumnDefinitions>
+        <Label Grid.Row="0" Grid.Column="0" VerticalContentAlignment="Center" HorizontalContentAlignment="Right" Content="赋值:" />
+        <Label Grid.Row="0" Grid.Column="1" VerticalContentAlignment="Center" HorizontalContentAlignment="Left"  Name="lab_assign" Content="123"   />
+        <Label Grid.Row="1" Grid.Column="0" VerticalContentAlignment="Center" HorizontalContentAlignment="Right" Content="绑定:" />
+        <Label Grid.Row="1" Grid.Column="1" VerticalContentAlignment="Center" HorizontalContentAlignment="Left"  Name="lab_bind" Content="{Binding Time}"/>
+        <Button Grid.Row="2" Grid.Column="0" Name="btn_flash_assign" Content="更新赋值" Margin="2"/>
+        <Button Grid.Row="2" Grid.Column="1" Name="btn_flash_bind" Content="更新绑定" Margin="2"/>
+        <TextBlock Grid.Row="4" Grid.ColumnSpan="2" TextWrapping="Wrap" Text="使用INotifyPropertyChanged接口实现绑定数据修改后通知界面更新" />
+    </Grid>
+</UserControl>
