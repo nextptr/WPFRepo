@@ -6,6 +6,8 @@
         xmlns:local="clr-namespace:WpfTips"
         xmlns:wpflambda="clr-namespace:WpfTips.WpfLambda"
         xmlns:memoryinfo="clr-namespace:WpfTips.MemoryInfo"
+        xmlns:xamldefinisition="clr-namespace:WpfTips.XamlDefinisition"
+        xmlns:datagridscroll="clr-namespace:WpfTips.DataGridScroll"
         mc:Ignorable="d"
         Title="MainWindow" Height="600" Width="800">
     <Grid Margin="5">
@@ -26,6 +28,18 @@
                     <Label Content="内存信息" Height="35" VerticalContentAlignment="Center"/>
                 </TabItem.Header>
                 <memoryinfo:MemoryInformation/>
+            </TabItem>
+            <TabItem>
+                <TabItem.Header>
+                    <Label Content="xaml命名空间映射" Height="35" VerticalContentAlignment="Center"/>
+                </TabItem.Header>
+                <xamldefinisition:XamlDefinisitionDemo/>
+            </TabItem>
+            <TabItem>
+                <TabItem.Header>
+                    <Label Content="DataGrid自动滚动到最后" Height="35" VerticalContentAlignment="Center"/>
+                </TabItem.Header>
+                <datagridscroll:DataGridScrollToLastItem/>
             </TabItem>
         </TabControl>
     </Grid>

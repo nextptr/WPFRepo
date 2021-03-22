@@ -1,0 +1,44 @@
+﻿
+using System;
+
+下料Z轴零点位
+下料Z轴待机位
+下料Z轴取料位
+下料Z轴导轨放料位
+
+		
+//上料Z轴
+[Mode = Position, GroupName = State]
+LSD_AXIS_STATUS.LSD_AXIS_STATUS_Struct_Block.ListOfAxisStatusStruct(20)
+{
+    InplaceSignal()
+    {
+		bool Inplace_20_0 (0) : InPosFlag_0
+		bool Inplace_20_1 (1) : InPosFlag_1
+		bool Inplace_20_2 (2) : InPosFlag_2
+		bool Inplace_20_3 (3) : InPosFlag_3
+	}
+}
+[Mode = Position, GroupName = Control]
+LSD_AXIS_CMD.LSD_AXIS_CMD_Struct_Block.ListOfAxisCMDStruct(20)    
+{
+    PositionTrigger()
+    {
+    	PulseOffOn PositionTrigger_20_0 (0)  : PosMovesw_0
+		PulseOffOn PositionTrigger_20_1 (1)  : PosMovesw_1
+		PulseOffOn PositionTrigger_20_2 (2)  : PosMovesw_2
+		PulseOffOn PositionTrigger_20_3 (3)  : PosMovesw_3
+	}
+}
+[Mode = Position, GroupName = Value]
+LSD_AXIS_MotionPAR.LSD_AXIS_MotionPAR_Struct_Block.ListOfAxisMotionPara(20)
+{
+    Poses()
+    {
+		float 下料Z轴零点位 (0)  : Pos_0
+		float 下料Z轴待机位 (1)  : Pos_1
+		float 下料Z轴取料位 (2)  : Pos_2
+		float 下料Z轴导轨放料位 (3)  : Pos_3
+	}
+}
+

@@ -1,0 +1,73 @@
+﻿<#@ template debug="false" hostspecific="false" language="C#" #>
+<#@ assembly name="System.Core" #>
+<#@ import namespace="System.Linq" #>
+<#@ import namespace="System.Text" #>
+<#@ import namespace="System.Collections.Generic" #>
+<#@ output extension=".txt" #>
+
+using System;
+
+下料Z轴零点位
+下料Z轴待机位
+下料Z轴取料位
+下料Z轴导轨放料位
+
+		<# 
+	    int index=20;
+		int count=4;
+		string[] arr = new string[]
+		{
+		"下料Z轴零点位",
+		"下料Z轴待机位",
+		"下料Z轴取料位",
+		"下料Z轴导轨放料位"
+		};
+		#>
+
+//上料Z轴
+[Mode = Position, GroupName = State]
+LSD_AXIS_STATUS.LSD_AXIS_STATUS_Struct_Block.ListOfAxisStatusStruct(<#= index #>)
+{
+    InplaceSignal()
+    {
+	<#
+		for(int i=0;i<count;i++)
+		{
+	#>
+	bool Inplace_<#= index #>_<#= i #> (<#= i #>) : InPosFlag_<#= i #>
+	<#
+}
+		#>
+}
+}
+[Mode = Position, GroupName = Control]
+LSD_AXIS_CMD.LSD_AXIS_CMD_Struct_Block.ListOfAxisCMDStruct(<#= index #>)    
+{
+    PositionTrigger()
+    {
+    <#
+		for(int i=0;i<count;i++)
+		{
+	#>
+	PulseOffOn PositionTrigger_<#= index #>_<#= i #> (<#= i #>)  : PosMovesw_<#= i #>
+	<#
+}
+		#>
+}
+}
+[Mode = Position, GroupName = Value]
+LSD_AXIS_MotionPAR.LSD_AXIS_MotionPAR_Struct_Block.ListOfAxisMotionPara(<#= index #>)
+{
+    Poses()
+    {
+	<#
+		for(int i=0;i<count;i++)
+		{
+	#>
+	float <#= arr[i] #> (<#= i #>)  : Pos_<#= i #>
+	<#
+}
+		#>
+}
+}
+

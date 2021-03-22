@@ -74,13 +74,30 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="DataGrid自动滚动到最下方一条\DataGridScrollToLastItem.xaml.cs">
+      <DependentUpon>DataGridScrollToLastItem.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="ListGroup分组\ListView.xaml.cs">
+      <DependentUpon>ListView.xaml</DependentUpon>
+    </Compile>
     <Compile Include="MessageEventArgs.cs" />
-    <Compile Include="WpfLambda\LambdaPanel.xaml.cs">
+    <Compile Include="WpfLambda与事件聚合器\LambdaPanel.xaml.cs">
       <DependentUpon>LambdaPanel.xaml</DependentUpon>
     </Compile>
     <Compile Include="内存信息获取\MemoryInformation.xaml.cs">
       <DependentUpon>MemoryInformation.xaml</DependentUpon>
     </Compile>
+    <Compile Include="重定义xaml中的命名空间\XamlDefinisitionDemo.xaml.cs">
+      <DependentUpon>XamlDefinisitionDemo.xaml</DependentUpon>
+    </Compile>
+    <Page Include="DataGrid自动滚动到最下方一条\DataGridScrollToLastItem.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="ListGroup分组\ListView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -93,11 +110,15 @@
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Page Include="WpfLambda\LambdaPanel.xaml">
+    <Page Include="WpfLambda与事件聚合器\LambdaPanel.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="内存信息获取\MemoryInformation.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="重定义xaml中的命名空间\XamlDefinisitionDemo.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -133,6 +154,20 @@
       <Project>{6929adf7-96f4-46bb-9392-afca7cab79dc}</Project>
       <Name>Common</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="tt模板\TextTemplate.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>TextTemplate.txt</LastGenOutput>
+    </Content>
+    <Resource Include="tt模板\TextTemplate.txt">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>TextTemplate.tt</DependentUpon>
+    </Resource>
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
