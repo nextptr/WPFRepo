@@ -1,0 +1,61 @@
+﻿<#@ template debug="false" hostspecific="false" language="C#" #>
+<#@ assembly name="System.Core" #>
+<#@ import namespace="System.Linq" #>
+<#@ import namespace="System.Text" #>
+<#@ import namespace="System.Collections.Generic" #>
+<#@ output extension=".txt" #>
+
+<#
+string[] arr=new string[]
+{
+"MoveToLoadPosition",
+"MoveToUnloadPosition",       
+"StageVacuumAbnormal",
+"StageSideVacuumAbnormal",
+"StageUnlock",
+"LaserPrepare",
+"StageNotHasWaferWhenUnloadStart",
+"KerfCheckFail",
+"WaferThicknessChange",
+"TargetCheckFail",
+"SetOrResetSignal",
+"AutoFocusSendTriggerPosFail",
+"AutoFocusRunFail",
+"AutoFocusIamgeNumError",
+"AutoFocusVisionFail",
+"SetExposureFail",
+"SetGainFail",
+"SetLightFail",
+"EdgePatternFail",
+"MoveToFocusPosition",
+"WaferCenterDataError",
+"MoveToLowPointPosition",
+"AngleLowPatternFail",
+"AfterManualRetryCancel",
+"AngleLowAdjustFail",
+"AngleLowAdjustCountTimeout",
+"AngleHighPatternFail",
+"MoveToHighPointPosition",
+"TurnToChannelFail",
+"ApproachPointFail",
+"ApproachPointCountTimeout",
+"AngleHighAdjustFail",
+"AngleHighAdjustCountTimeout",
+"StepConfirmError",
+"FirstCutlineConfirmFail",
+"MoveToKerfCheckPositionFail",
+"ProcessStopAlarm"
+};
+
+#>
+
+<#
+for(int i=0;i<arr.Length;i++)
+{
+#>
+<#= i #>,<#= arr[i] #>,Reason,Solution,Device,Alarm
+<#
+}
+#>
+
+
