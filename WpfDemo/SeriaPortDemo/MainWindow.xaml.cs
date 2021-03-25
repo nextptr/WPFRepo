@@ -27,32 +27,15 @@ namespace SeriaPortDemo
             InitializeComponent();
             this.Loaded += MainWindow_Loaded;
             this.Closing += MainWindow_Closing;
-            this.btn_AscSend1.Click += Btn_AscSend1_Click;
-            btn_AscSend2.Click += Btn_AscSend2_Click;
+            btnConnect.Click += BtnConnect_Click;
+            btn_AscSend.Click += Btn_AscSend_Click;
+            btn_DeftSend.Click += Btn_DeftSend_Click;
+            btn_HexSend1.Click += Btn_HexSend1_Click;
+            btn_HexSend2.Click += Btn_HexSend2_Click;
+            btn_clean.Click += Btn_clean_Click;
 
             connectStatus.DataContext = comSeriaPort;
-            btnConnect.Click += BtnConnect_Click;
             comSeriaPort.ReceiveDataEvent += ComSeriaPort_ReceiveDataEvent;
-        }
-
-        private void Btn_AscSend2_Click(object sender, RoutedEventArgs e)
-        {
-            string cmd = txt_AscCommand2.Text + " \r \n";
-            comSeriaPort.SendCommand3(cmd);
-        }
-
-        private void Btn_AscSend1_Click(object sender, RoutedEventArgs e)
-        {
-            string cmd = txt_AscCommand1.Text + " \r \n";
-            comSeriaPort.SendCommand1(cmd);
-        }
-
-        private void ComSeriaPort_ReceiveDataEvent(object sender,object data)
-        {
-            this.Dispatcher.Invoke(new Action(() =>
-            {
-                list_text.Items.Add(data);
-            }));
         }
 
         private void MainWindow_Loaded(object sender, RoutedEventArgs e)
@@ -73,9 +56,6 @@ namespace SeriaPortDemo
                 comSeriaPort.Close();
             }
         }
-
-
-
         private void BtnConnect_Click(object sender, RoutedEventArgs e)
         {
             if (btnConnect.IsChecked == true)
@@ -87,7 +67,7 @@ namespace SeriaPortDemo
                 }
                 comSeriaPort.ComBaud = ComSeriaPort.GetBaud(ComBaud.SelectedIndex);
                 comSeriaPort.ComName = ComPort.SelectedItem.ToString();
-                comSeriaPort.Open();
+                comSeriaPort.OpenNoneParity();
             }
             else
             {
@@ -97,6 +77,35 @@ namespace SeriaPortDemo
                     comSeriaPort.Close();
                 }
             }
+        }
+        private void ComSeriaPort_ReceiveDataEvent(object sender, object data)
+        {
+            this.Dispatcher.Invoke(new Action(() =>
+            {
+                list_text.Items.Insert(0, data);
+            }));
+        }
+
+
+        private void Btn_AscSend_Click(object sender, RoutedEventArgs e)
+        {
+            string cmd = txt_AscCommand1.Text + "\r\n";
+            comSeriaPort.SendASCIICommand(cmd);
+        }
+        private void Btn_DeftSend_Click(object sender, RoutedEventArgs e)
+        {
+            string cmd = txt_AscCommand2.Text + "\r\n";
+            comSeriaPort.SendDefaultCommand(cmd);
+        }
+        private void Btn_HexSend1_Click(object sender, RoutedEventArgs e)
+        {
+        }
+        private void Btn_HexSend2_Click(object sender, RoutedEventArgs e)
+        {
+        }
+        private void Btn_clean_Click(object sender, RoutedEventArgs e)
+        {
+            list_text.Items.Clear();
         }
     }
 }

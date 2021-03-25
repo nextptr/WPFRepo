@@ -68,9 +68,9 @@
                     </Grid.ColumnDefinitions>
 
                     <TextBox Grid.Row="0" Grid.Column="0" Margin="-1,0,0,1" Name="txt_AscCommand1" Grid.ColumnSpan="2" VerticalContentAlignment="Center"/>
-                    <Button Grid.Row="0" Grid.Column="1" Margin="0,0,0,1" Name="btn_AscSend1" Content="ASCII发送1"/>
+                    <Button Grid.Row="0" Grid.Column="1" Margin="0,0,0,1" Name="btn_AscSend" Content="ASCII发送"/>
                     <TextBox Grid.Row="1" Grid.Column="0" Margin="-1,1,0,1" Name="txt_AscCommand2" Grid.ColumnSpan="2" VerticalContentAlignment="Center"/>
-                    <Button Grid.Row="1" Grid.Column="1" Margin="0,1,0,1" Name="btn_AscSend2" Content="ASCII发送2"/>
+                    <Button Grid.Row="1" Grid.Column="1" Margin="0,1,0,1" Name="btn_DeftSend" Content="Deft发送"/>
 
                     <TextBox Grid.Row="2" Grid.Column="0" Margin="-1,0,0,1" Name="txt_HexCommand1" Grid.ColumnSpan="2" VerticalContentAlignment="Center"/>
                     <Button Grid.Row="2" Grid.Column="1" Margin="0,0,0,1" Name="btn_HexSend1" Content="HEX发送1"/>

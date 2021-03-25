@@ -71,7 +71,7 @@ namespace Common.ComPort
         }
 
         ///初始化设备
-        public bool Open()
+        public bool OpenEvenParity()
         {
             try
             {
@@ -89,7 +89,8 @@ namespace Common.ComPort
                 ComDevice.BaudRate = _comBaud;
                 ComDevice.DataBits = 8;
                 ComDevice.Parity = Parity.Even;
-                ComDevice.StopBits = (StopBits)Convert.ToInt32(1);
+                ComDevice.StopBits = StopBits.One;
+                ComDevice.DataReceived -= ComDevice_DataReceived;
                 ComDevice.DataReceived += ComDevice_DataReceived;
                 ComDevice.Open();
                 ComConnected = true;
@@ -100,7 +101,37 @@ namespace Common.ComPort
                 MessageBox.Show("打开串口失败:" + e.Message);
                 return false;
             }
-
+        }
+        public bool OpenNoneParity()
+        {
+            try
+            {
+                if (_comBaud == 0)
+                {
+                    MessageBox.Show("打开串口失败,波特率为0!");
+                    return false;
+                }
+                if (_comName == "")
+                {
+                    MessageBox.Show("打开串口失败,串口号为空!");
+                    return false;
+                }
+                ComDevice.PortName = _comName;
+                ComDevice.BaudRate = _comBaud;
+                ComDevice.DataBits = 8;
+                ComDevice.Parity = Parity.None;
+                ComDevice.StopBits = StopBits.One;
+                ComDevice.DataReceived -= ComDevice_DataReceived;
+                ComDevice.DataReceived += ComDevice_DataReceived;
+                ComDevice.Open();
+                ComConnected = true;
+                return true;
+            }
+            catch (Exception e)
+            {
+                MessageBox.Show("打开串口失败:" + e.Message);
+                return false;
+            }
         }
         public void Close()
         {
@@ -120,7 +151,7 @@ namespace Common.ComPort
         }
 
         ///发送数据
-        public void SendCommand(string command)
+        public void SendHexCommand(string command)
         {
             byte[] sendData = ComMath.Hex16StringToByteArry(command);
             if (ComDevice.IsOpen)
@@ -135,7 +166,7 @@ namespace Common.ComPort
                 }
             }
         }
-        public void SendCommand(byte[] sendData)
+        public void SendByteCommand(byte[] sendData)
         {
             if (ComDevice.IsOpen)
             {
@@ -151,53 +182,30 @@ namespace Common.ComPort
         }
 
         ///发送数据
-        public void SendCommand1(string command)
+        public void SendASCIICommand(string command)
         {
-            string strStop = "$"+command;
-            byte[] sendData = null;
-            sendData = Encoding.ASCII.GetBytes(strStop);
-            if (ComDevice.IsOpen)
+            try
             {
-                try
-                {
-                    ComDevice.Write(sendData, 0, sendData.Length);//发送数据
-                }
-                catch (Exception ex)
-                {
-                    MessageBox.Show("发送失败：" + ex.Message);
-                }
+                byte[] sendData = null;
+                sendData = Encoding.ASCII.GetBytes(command);
+                SendByteCommand(sendData);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("发送失败：" + ex.Message);
             }
         }
-        public void SendCommand3(string command)
+        public void SendDefaultCommand(string command)
         {
-            string strStop = "$" + command;
-            if (ComDevice.IsOpen)
+            try
             {
-                try
-                {
-                    ComDevice.Write(command);//发送数据
-                }
-                catch (Exception ex)
-                {
-                    MessageBox.Show("发送失败：" + ex.Message);
-                }
+                byte[] sendData = null;
+                sendData = Encoding.Default.GetBytes(command);
+                SendByteCommand(sendData);
             }
-        }
-        public void SendCommand2(string command)
-        {
-            string strStop = '*' + command;
-            byte[] sendData = null;
-            sendData = Encoding.ASCII.GetBytes(strStop.Trim());
-            if (ComDevice.IsOpen)
+            catch (Exception ex)
             {
-                try
-                {
-                    ComDevice.Write(sendData, 0, sendData.Length);//发送数据
-                }
-                catch (Exception ex)
-                {
-                    MessageBox.Show("发送失败：" + ex.Message);
-                }
+                MessageBox.Show("发送失败：" + ex.Message);
             }
         }
 
