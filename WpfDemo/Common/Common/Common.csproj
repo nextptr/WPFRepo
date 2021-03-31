@@ -111,6 +111,11 @@
     <Compile Include="PrintTxt.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="RootPath.cs" />
+    <Compile Include="Stylet\IMainViewModel.cs" />
+    <Compile Include="Stylet\IoC.cs" />
+    <Compile Include="Stylet\IPage.cs" />
+    <Compile Include="Stylet\IRouter.cs" />
+    <Compile Include="Stylet\Router.cs" />
     <Compile Include="TCP\ClientSocket.cs" />
     <Compile Include="TCP\ServerSocket.cs" />
     <Compile Include="TCP\TcpServerManager.cs" />
