@@ -1,10 +1,6 @@
 ﻿using Common.Stylet;
 using Stylet;
-using System;
-using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace DepthInCSharpDemo
 {
@@ -49,7 +45,6 @@ namespace DepthInCSharpDemo
         //}
         public IPage GetPageInstance(string name)
         {
-            return null;
             if (string.IsNullOrEmpty(name))
             {
                 return null;

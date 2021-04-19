@@ -4,6 +4,7 @@ using StyletIoC;
 using System;
 using System.Collections.Generic;
 using System.Reflection;
+using System.Windows.Threading;
 
 namespace DepthInCSharpDemo
 {
@@ -21,6 +22,12 @@ namespace DepthInCSharpDemo
             IoC.GetInstance = new Func<Type, string, object>(base.Container.Get);
             IoC.GetAllInstances = new Func<Type, string, IEnumerable<object>>(base.Container.GetAll);
             IoC.BuildUp = new Action<object>(base.Container.BuildUp);
+        }
+
+        protected override void OnUnhandledException(DispatcherUnhandledExceptionEventArgs e)
+        {
+            // Called on Application.DispatcherUnhandledException
+            base.OnUnhandledException(e);
         }
     }
 }

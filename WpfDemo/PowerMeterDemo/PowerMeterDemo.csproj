@@ -4,10 +4,10 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{3F8F9081-DA39-41B9-B2B9-42DEAA0BFFDA}</ProjectGuid>
+    <ProjectGuid>{4B5F7D7B-7874-4157-BB74-6939EE6E65FA}</ProjectGuid>
     <OutputType>WinExe</OutputType>
-    <RootNamespace>PopWindowsDemo</RootNamespace>
-    <AssemblyName>PopWindowsDemo</AssemblyName>
+    <RootNamespace>PowerMeterDemo</RootNamespace>
+    <AssemblyName>PowerMeterDemo</AssemblyName>
     <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <ProjectTypeGuids>{60dc8134-eba5-43b8-bcc9-bb4bc16c2548};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
@@ -74,18 +74,6 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
-    <Compile Include="FindWindow.xaml.cs">
-      <DependentUpon>FindWindow.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="PopWindow.xaml.cs">
-      <DependentUpon>PopWindow.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Win32Api.cs" />
-    <Compile Include="WpfWindow.cs" />
-    <Page Include="FindWindow.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -98,10 +86,6 @@
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Page Include="PopWindow.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs">
@@ -130,8 +114,10 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="Images\close.png" />
-    <Resource Include="Images\min.png" />
+    <ProjectReference Include="..\PowerMeterDevice\PowerMeterDevice.csproj">
+      <Project>{8f245568-a007-423f-95c0-f0141498e074}</Project>
+      <Name>PowerMeterDevice</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

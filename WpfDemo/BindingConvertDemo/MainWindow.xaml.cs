@@ -23,6 +23,7 @@ namespace BindingConvertDemo
         public Item item = new Item();
         public multItem multItem1 = new multItem();
         public multItem multItem2 = new multItem();
+        public multItem multItem3 = new multItem();
         public MainWindow()
         {
             InitializeComponent();
@@ -35,9 +36,15 @@ namespace BindingConvertDemo
             multItem2.AxisXPos = 1.23;
             multItem2.AxisYPos = 4.56;
             multItem2.AxisZPos = 7.89;
+            multItem3.AxisXPos = 1;
+            multItem3.AxisYPos = 1;
+            multItem3.AxisZPos = 1;
             txtBlock1.DataContext = multItem1;
             txtBlock2.DataContext = multItem2;
+            gbFormat.DataContext = multItem3;
+            btnFormat.Click += BtnFormat_Click;
         }
+
         private void BtnAdd_Click(object sender, RoutedEventArgs e)
         {
             item.Color++;
@@ -51,6 +58,13 @@ namespace BindingConvertDemo
             {
                 item.Color = 4;
             }
+        }
+
+        private void BtnFormat_Click(object sender, RoutedEventArgs e)
+        {
+            multItem3.AxisXPos += 1;
+            multItem3.AxisYPos += 1;
+            multItem3.AxisZPos += 1;
         }
     }
     public class multItem : NotifyPropetryChanged

@@ -1,0 +1,73 @@
+﻿<Window x:Class="PowerMeterDevice.HistoryDataView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:PowerMeterDevice"
+             mc:Ignorable="d" 
+             Title="History" Height="675" Width="1200">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+        <GroupBox Header="测试数据">
+            <Border BorderBrush="SteelBlue" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" BorderThickness="2">
+                <DataGrid AutoGenerateColumns="False" DockPanel.Dock="Bottom" GridLinesVisibility="All"
+                                DataContext="{Binding SelectData}" ItemsSource="{Binding AdjustDatas.LineDatas}"
+                                CanUserAddRows="False" CanUserDeleteRows="False"
+                                HorizontalContentAlignment="Center"
+                                CanUserReorderColumns="False"
+                                CanUserSortColumns="False"
+                                Background="Transparent" 
+                                BorderThickness="0"
+                                IsReadOnly="True"
+                                Margin="5"
+                                VerticalScrollBarVisibility="Disabled">
+                    <DataGrid.Columns>
+                        <DataGridTextColumn Width="*" Header="序号"        Binding="{Binding TestIndex}"></DataGridTextColumn>
+                        <DataGridTextColumn Width="*" Header="测量参数"    Binding="{Binding TestKey}"></DataGridTextColumn>
+                        <DataGridTextColumn Width="*" Header="实际功率(W)" Binding="{Binding TestValue}"></DataGridTextColumn>
+                    </DataGrid.Columns>
+                </DataGrid>
+            </Border>
+        </GroupBox>
+        <GroupBox Header="历史数据" Grid.Column="1">
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="auto"/>
+                    <RowDefinition Height="*"/>
+                </Grid.RowDefinitions>
+                <UniformGrid Columns="5" Margin="5" IsEnabled="{Binding IsSelected}" >
+                    <Button Content="应用选中项" Height="45" Margin="5" Click="btnApplyItem"/>
+                    <Button Content="删除选中项" Height="45" Margin="5" Click="btnDeleteItem" />
+                </UniformGrid>
+                <Border Grid.Row="1" BorderBrush="SteelBlue" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" BorderThickness="2" Margin="5">
+                    <DataGrid AutoGenerateColumns="False" DockPanel.Dock="Bottom" GridLinesVisibility="All" SelectionMode="Single" SelectionUnit="FullRow"
+                      DataContext="{Binding Param}" ItemsSource="{Binding Datas}"
+                      SelectionChanged="DataGrid_SelectionChanged"
+                      CanUserAddRows="False" CanUserDeleteRows="False"
+                      HorizontalContentAlignment="Center"
+                      CanUserReorderColumns="False"
+                      CanUserSortColumns="False"
+                      Background="Transparent" 
+                      BorderThickness="0"
+                      IsReadOnly="True"
+                      Margin="5"
+                      VerticalScrollBarVisibility="Disabled">
+                        <DataGrid.Columns>
+                            <DataGridTextColumn Width="2*" Header="测试日期"    Binding="{Binding TestDateTime}"></DataGridTextColumn>
+                            <DataGridTextColumn Width="*" Header="稳定时间(s)" Binding="{Binding TimeDelay}"></DataGridTextColumn>
+                            <DataGridTextColumn Width="*" Header="采样时间(s)" Binding="{Binding TimeAcq}"></DataGridTextColumn>
+                            <DataGridTextColumn Width="*" Header="处理时间(s)" Binding="{Binding TimeCalc}"></DataGridTextColumn>
+                            <DataGridTextColumn Width="*" Header="参数MIN"     Binding="{Binding RangeSta}"></DataGridTextColumn>
+                            <DataGridTextColumn Width="*" Header="参数MAX"     Binding="{Binding RangeEnd}"></DataGridTextColumn>
+                            <DataGridTextColumn Width="*" Header="参数分辨率"  Binding="{Binding TestInterval}"></DataGridTextColumn>
+                            <DataGridTextColumn Width="*" Header="拟合算法"    Binding="{Binding FittingType}"></DataGridTextColumn>
+                        </DataGrid.Columns>
+                    </DataGrid>
+                </Border>
+            </Grid>
+        </GroupBox>
+    </Grid>
+</Window>

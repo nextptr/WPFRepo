@@ -1,0 +1,47 @@
+﻿<UserControl x:Class="PowerMeterDevice.PowerMeterControl"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:PowerMeterDevice"
+             mc:Ignorable="d" 
+             d:DesignHeight="760" d:DesignWidth="575">
+    <Grid>
+        <GroupBox HorizontalContentAlignment="Stretch" VerticalContentAlignment="Stretch">
+            <GroupBox.Header>
+                <Label Content="功率计" FontSize="14" FontWeight="Bold"/>
+            </GroupBox.Header>
+            <Grid HorizontalAlignment="Stretch">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="auto"/>
+                </Grid.RowDefinitions>
+                <local:AutoWaveLine x:Name="panel_OnTimeView" />
+                <Grid Margin="15,10" Grid.Row="1">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="*"/>
+                    </Grid.ColumnDefinitions>
+                    <Grid Grid.Column="0" >
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="auto"/>
+                        </Grid.ColumnDefinitions>
+                        <Label Content="串口:" Grid.Column="0" HorizontalAlignment="Right" HorizontalContentAlignment="Left" VerticalAlignment="Center"/>
+                        <Label Name="lab_com"  Grid.Column="1" HorizontalAlignment="Left"  HorizontalContentAlignment="Left" VerticalAlignment="Center"/>
+                    </Grid>
+                    <TextBlock    Grid.Column="1" Margin="5" Text="波长(nm):" HorizontalAlignment="Right" VerticalAlignment="Center"/>
+                    <TextBox      Grid.Column="2" Margin="5" Name="txt_length"/>
+                    <Button       Grid.Column="3" Margin="5" Name="btnSetLength"  Content="设置" />
+                    <ToggleButton Grid.Column="4" Margin="5" Name="btnAcqDevice"  Content="开始" />
+                    <ToggleButton Grid.Column="5" Margin="5" Name="btnZero" Content="归零"   />
+
+                </Grid>
+            </Grid>
+        </GroupBox>
+    </Grid>
+</UserControl>

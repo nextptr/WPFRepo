@@ -6,12 +6,13 @@
              xmlns:local="clr-namespace:DepthInCSharpDemo"
              xmlns:s="https://github.com/canton7/Stylet"
              mc:Ignorable="d" 
-             d:DesignHeight="300" d:DesignWidth="300">
+             d:DesignHeight="600" d:DesignWidth="800">
     <UserControl.Resources>
         <ResourceDictionary>
             <Style TargetType="Button">
                 <Setter Property="Margin" Value="5"/>
                 <Setter Property="Height" Value="35" />
+                <Setter Property="Width" Value="100" />
             </Style>
         </ResourceDictionary>
     </UserControl.Resources>
@@ -24,44 +25,13 @@
             <ColumnDefinition Width="*"/>
             <ColumnDefinition Width="*"/>
         </Grid.ColumnDefinitions>
-        <Button Content=" backHome" Width="80" HorizontalAlignment="Left" Margin="5" Click="{s:Action btnBack}"/>
+        <Button Content=" backHome" HorizontalAlignment="Left" Click="{s:Action btnBack}"/>
         <GroupBox Header="OutPut" Grid.Row="1">
             <ListBox Name="lsBox" ItemsSource="{Binding Datas}"/>
         </GroupBox>
-        <Grid Grid.Column="1" Grid.RowSpan="2">
-            <Grid.RowDefinitions>
-                <RowDefinition Height="auto"/>
-                <RowDefinition Height="auto"/>
-                <RowDefinition Height="auto"/>
-                <RowDefinition Height="auto"/>
-                <RowDefinition Height="auto"/>
-                <RowDefinition Height="auto"/>
-                <RowDefinition Height="auto"/>
-                <RowDefinition Height="auto"/>
-                <RowDefinition Height="*"/>
-            </Grid.RowDefinitions>
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="auto"/>
-                <ColumnDefinition Width="auto"/>
-                <ColumnDefinition Width="auto"/>
-                <ColumnDefinition Width="auto"/>
-                <ColumnDefinition Width="auto"/>
-                <ColumnDefinition Width="*"/>
-            </Grid.ColumnDefinitions>
+        <WrapPanel Grid.Column="1" Grid.RowSpan="2" Orientation="Horizontal" >
             <Button Content="排序和过滤" Click="{s:Action btnSortAndFilt}"/>
-            <UniformGrid Grid.Row="1" Rows="2" Columns="2">
-                <Label Content="粗相机X:"/>
-                <TextBox Text="{Binding RoughX}"/>
-                <Label Content="粗相机Y:"/>
-                <TextBox Text="{Binding RoughY}"/>
-            </UniformGrid>
-            <Button Grid.Row="2" Content="计算" Click="{s:Action btnConvert}" />
-            <UniformGrid Grid.Row="3" Rows="2" Columns="2">
-                <Label Content="精相机X:"/>
-                <TextBlock Text="{Binding FineX}"/>
-                <Label Content="精相机Y:"/>
-                <TextBlock Text="{Binding FineY}"/>
-            </UniformGrid>
-        </Grid>
+            <Button Content="查询" Click="{s:Action btnFind}"/>
+        </WrapPanel>
     </Grid>
 </UserControl>

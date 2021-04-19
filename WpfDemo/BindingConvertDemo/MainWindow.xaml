@@ -67,5 +67,15 @@
                 </TextBlock>
             </Grid>
         </GroupBox>
+        <GroupBox Grid.Row="1" Grid.Column="1" Name="gbFormat" Header="格式化绑定">
+            <StackPanel Orientation="Vertical" Margin="5">
+                <StackPanel Orientation="Horizontal">
+                    <Button Content="+1" Name="btnFormat" />
+                    <Label Content="{Binding AxisXPos, StringFormat=头{0}尾}"/>
+                    <TextBlock Text="{Binding AxisYPos, StringFormat=头{0}尾}" VerticalAlignment="Center"/>
+                </StackPanel>
+                <TextBlock Text="{Binding AxisZPos, StringFormat=头{0}尾}"/>
+            </StackPanel>
+        </GroupBox>
     </Grid>
 </Window>

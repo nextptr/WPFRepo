@@ -8,6 +8,7 @@
         xmlns:memoryinfo="clr-namespace:WpfTips.MemoryInfo"
         xmlns:xamldefinisition="clr-namespace:WpfTips.XamlDefinisition"
         xmlns:datagridscroll="clr-namespace:WpfTips.DataGridScroll"
+        xmlns:datagridsort="clr-namespace:WpfTips.DataGridSort"
         mc:Ignorable="d"
         Title="MainWindow" Height="600" Width="800">
     <Grid Margin="5">
@@ -40,6 +41,12 @@
                     <Label Content="DataGrid自动滚动到最后" Height="35" VerticalContentAlignment="Center"/>
                 </TabItem.Header>
                 <datagridscroll:DataGridScrollToLastItem/>
+            </TabItem>
+            <TabItem>
+                <TabItem.Header>
+                    <Label Content="DataGrid自动排序" Height="35" VerticalContentAlignment="Center"/>
+                </TabItem.Header>
+                <datagridsort:DataGridAutoSort/>
             </TabItem>
         </TabControl>
     </Grid>

@@ -38,74 +38,77 @@ namespace DepthInCSharpDemo
                 OnPropertyChanged(nameof(Datas));
             }
         }
-
+        private void msg(object obj)
+        {
+            Datas.Add(obj.ToString());
+        }
         public void btnSortAndFilt()
         {
+            msg("product类");
             List<Product> ls = Product.GetSampleProducts();
             foreach (var item in ls)
             {
-                Datas.Add(item.ToString());
+                msg(item);
             }
-        }
 
-        private double roughX;
-        public double RoughX
-        {
-            get
+            msg("\nIComparer排序");
+            ls.Sort(new ProductNameComparer());
+            foreach (var item in ls)
             {
-                return roughX;
+                msg(item);
             }
-            set
-            {
-                roughX = value;
-                OnPropertyChanged(nameof(RoughX));
-            }
-        }
-        private double roughY;
-        public double RoughY
-        {
-            get
-            {
-                return roughY;
-            }
-            set
-            {
-                roughY = value;
-                OnPropertyChanged(nameof(RoughY));
-            }
-        }
 
-        private double fineX;
-        public double FineX
-        {
-            get
+            msg("\nDelegate排序");
+            ls.Sort(delegate(Product x,Product y)
+            { return y.Name.CompareTo(x.Name); });
+            foreach (var item in ls)
             {
-                return fineX;
+                msg(item);
             }
-            set
-            {
-                fineX = value;
-                OnPropertyChanged(nameof(FineX));
-            }
-        }
-        private double fineY;
-        public double FineY
-        {
-            get
-            {
-                return fineY;
-            }
-            set
-            {
-                fineY = value;
-                OnPropertyChanged(nameof(FineY));
-            }
-        }
 
-        public void btnConvert()
+            msg("\nLambda排序");
+            ls.Sort((x,y)=> x.Name.CompareTo(y.Name));
+            foreach (var item in ls)
+            {
+                msg(item);
+            }
+
+            msg("\nOrderby排序");
+            foreach (var item in ls.OrderBy(p=>p.Name))
+            {
+                msg(item);
+            }
+        }
+        public void btnFind()
         {
-            FineX = RoughX - 51.728;
-            FineY = RoughY - 1.675;
+            msg("c#1");
+            List<Product> ls = Product.GetSampleProducts();
+            foreach (var item in ls)
+            {
+                if (item.Price > 10m)
+                {
+                    msg("c#1:" + item.ToString());
+                }
+            }
+
+            msg("c#2");
+            Predicate<Product> test = delegate (Product p) { return p.Price > 10m; };
+            List<Product> matches = ls.FindAll(test);
+            matches.ForEach(p => { msg("c#2:"+ p.ToString()); });
+
+            msg("c#3");
+            ls.FindAll(p => { return p.Price > 10m; }).ForEach(p => msg("c#3:" + p.ToString()));
+
+            msg("c#4");
+            foreach (var item in ls.Where(p=>p.Price>10m))
+            {
+                msg("c#4:" + item.ToString());
+            }
+        }
+        public void btnBack()
+        {
+            var router = IoC.Get<IRouter>();
+            router.GoBack();
         }
     }
 }

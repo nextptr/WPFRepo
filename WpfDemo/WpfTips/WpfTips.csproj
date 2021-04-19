@@ -74,6 +74,9 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="DataGrid自动排序\DataGridAutoSort.xaml.cs">
+      <DependentUpon>DataGridAutoSort.xaml</DependentUpon>
+    </Compile>
     <Compile Include="DataGrid自动滚动到最下方一条\DataGridScrollToLastItem.xaml.cs">
       <DependentUpon>DataGridScrollToLastItem.xaml</DependentUpon>
     </Compile>
@@ -90,6 +93,10 @@
     <Compile Include="重定义xaml中的命名空间\XamlDefinisitionDemo.xaml.cs">
       <DependentUpon>XamlDefinisitionDemo.xaml</DependentUpon>
     </Compile>
+    <Page Include="DataGrid自动排序\DataGridAutoSort.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="DataGrid自动滚动到最下方一条\DataGridScrollToLastItem.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>

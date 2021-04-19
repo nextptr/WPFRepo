@@ -6,8 +6,6 @@ using System.Threading.Tasks;
 
 namespace DepthInCSharpDemo
 {
-
-
     public class Product
     {
         public string Name { get; private set; }
@@ -32,6 +30,13 @@ namespace DepthInCSharpDemo
         public override string ToString()
         {
             return string.Format("{0}:{1}", Name, Price);
+        }
+    }
+    public class ProductNameComparer : IComparer<Product>
+    {
+        public int Compare(Product x, Product y)
+        {
+            return x.Name.CompareTo(y.Name);
         }
     }
 }
