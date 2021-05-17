@@ -101,6 +101,7 @@
     <Compile Include="Class4\Class4_5.cs" />
     <Compile Include="Class4\Class4_6.cs" />
     <Compile Include="Class4\Class4_7.cs" />
+    <Compile Include="Class4\Class4_8.cs" />
     <Compile Include="Common\classBase.cs" />
     <Compile Include="Common\IParameter.cs" />
     <Compile Include="Common\NotifyPropertyChanged.cs" />

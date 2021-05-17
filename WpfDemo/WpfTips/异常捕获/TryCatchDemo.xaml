@@ -1,0 +1,13 @@
+﻿<UserControl x:Class="WpfTips.ExceptionDemo.TryCatchDemo"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:WpfTips.ExceptionDemo"
+             mc:Ignorable="d" 
+             d:DesignHeight="300" d:DesignWidth="300">
+    <WrapPanel>
+        <Button Content="return"    Width="120" Height="35" Click="Button_Click" />
+        <Button Content="exception" Width="120" Height="35" Click="Button_Click_1" />
+    </WrapPanel>
+</UserControl>

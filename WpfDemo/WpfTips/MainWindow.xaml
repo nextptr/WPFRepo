@@ -9,6 +9,7 @@
         xmlns:xamldefinisition="clr-namespace:WpfTips.XamlDefinisition"
         xmlns:datagridscroll="clr-namespace:WpfTips.DataGridScroll"
         xmlns:datagridsort="clr-namespace:WpfTips.DataGridSort"
+        xmlns:exceptiondemo="clr-namespace:WpfTips.ExceptionDemo"
         mc:Ignorable="d"
         Title="MainWindow" Height="600" Width="800">
     <Grid Margin="5">
@@ -47,6 +48,12 @@
                     <Label Content="DataGrid自动排序" Height="35" VerticalContentAlignment="Center"/>
                 </TabItem.Header>
                 <datagridsort:DataGridAutoSort/>
+            </TabItem>
+            <TabItem>
+                <TabItem.Header>
+                    <Label Content="异常捕获" Height="35" VerticalContentAlignment="Center"/>
+                </TabItem.Header>
+                <exceptiondemo:TryCatchDemo/>
             </TabItem>
         </TabControl>
     </Grid>

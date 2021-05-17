@@ -89,6 +89,68 @@ namespace CsBase.Class2
             }
         }
     }
+
+    public class BaseClas
+    {
+        public virtual int VirtualField { get; set; } = 1;
+        
+        public virtual int Calculate(int a,int b)
+        {
+            return VirtualField * (a + b);
+        }
+    }
+
+    public class ChildClas:BaseClas
+    {
+        public override int VirtualField
+        {
+            get => base.VirtualField;
+            set => base.VirtualField = value + 1;
+        }
+        public override int Calculate(int a, int b)
+        {
+            return VirtualField * (a * b);
+        }
+    }
+
+    public sealed class person
+    {
+        public string Name { get; set; }
+        public string Phone { get; set; }
+        public int Age { get; set; }
+        public string GetPhone()
+        {
+            return Phone;
+        }
+    }
+    public static class personExtend
+    {
+        public static string ShowPhone(this person p)
+        {
+            return p.Phone;
+        }
+    }
+
+    public interface Icalc
+    {
+        string calc();
+    }
+
+    public class CalcObj : Icalc
+    {
+        public string calc()
+        {
+            return "接口继承";
+        }
+    }
+    public static class CalcExten
+    {
+        public static string calc2(this Icalc cal)
+        {
+            return "接口扩展";
+        }
+    }
+
     #endregion codeEnd
     public class Class2_2:classBase
     {
@@ -112,6 +174,28 @@ namespace CsBase.Class2
             ddr("ind id,bool falg cla[0,true]  " + cla[0,true]);
             ddr("ind id,bool falg cla[1,false] " + cla[1,false]);
             ddr("ind id,bool falg cla[2,true]  " + cla[2,true]);
+
+
+            ddr("\n");
+            ddr("virtual 虚函数、虚方法");
+            BaseClas baseClas = new BaseClas();
+            baseClas.VirtualField = 2;
+            ddr("baseClas.Calculate(2,3)  " + baseClas.Calculate(2,3));
+            ChildClas childClas = new ChildClas();
+            childClas.VirtualField = 2;
+            ddr("childClas.Calculate(2,3)  " + childClas.Calculate(2, 3));
+
+
+            ddr("\n");
+            ddr("扩展方法，静态类的静态方法的this参数");
+            person p = new person();
+            ddr(p.ShowPhone());
+
+
+            ddr("\n");
+            ddr("扩展方法和继承方法的优先级");
+            CalcObj calcObj = new CalcObj();
+            ddr(calcObj.calc());
         }
         #endregion codeEnd
     }

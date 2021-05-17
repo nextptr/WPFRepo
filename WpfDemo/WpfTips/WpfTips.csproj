@@ -90,6 +90,9 @@
     <Compile Include="内存信息获取\MemoryInformation.xaml.cs">
       <DependentUpon>MemoryInformation.xaml</DependentUpon>
     </Compile>
+    <Compile Include="异常捕获\TryCatchDemo.xaml.cs">
+      <DependentUpon>TryCatchDemo.xaml</DependentUpon>
+    </Compile>
     <Compile Include="重定义xaml中的命名空间\XamlDefinisitionDemo.xaml.cs">
       <DependentUpon>XamlDefinisitionDemo.xaml</DependentUpon>
     </Compile>
@@ -122,6 +125,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="内存信息获取\MemoryInformation.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="异常捕获\TryCatchDemo.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

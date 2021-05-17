@@ -54,6 +54,7 @@
                     <TreeViewItem Name="unit4_5" Header="LINQ"/>
                     <TreeViewItem Name="unit4_6" Header="正则表达式"/>
                     <TreeViewItem Name="unit4_7" Header="反射和特性"/>
+                    <TreeViewItem Name="unit4_8" Header="扩展方法"/>
                 </TreeViewItem>
             </TreeView>
             <TabControl Name="tabRoot" Grid.Column="1" TabStripPlacement="Bottom" >
