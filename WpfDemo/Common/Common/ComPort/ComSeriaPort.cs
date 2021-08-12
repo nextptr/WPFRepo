@@ -180,6 +180,20 @@ namespace Common.ComPort
                 }
             }
         }
+        public void SendStringCommand(string command)
+        {
+            if (ComDevice.IsOpen)
+            {
+                try
+                {
+                    ComDevice.Write(command);//发送数据
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("发送失败：" + ex.Message);
+                }
+            }
+        }
 
         ///发送数据
         public void SendASCIICommand(string command)

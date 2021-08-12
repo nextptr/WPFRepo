@@ -7,7 +7,7 @@ namespace MotionDemo.Process
         protected string _name = "";
         private Stopwatch _sw_run = new Stopwatch();
         private bool _isStart = false;
-        private bool _isRunning
+        private bool _isRunning;
 
     }
 }

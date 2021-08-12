@@ -37,5 +37,11 @@
             </TabItem.Header>
             <local:ThreadAsyncPanel/>
         </TabItem>
+        <TabItem>
+            <TabItem.Header>
+                <Label Content="锁" Height="35" VerticalContentAlignment="Center"/>
+            </TabItem.Header>
+            <local:LockMonitorResetEventPanel/>
+        </TabItem> 
     </TabControl>
 </Window>

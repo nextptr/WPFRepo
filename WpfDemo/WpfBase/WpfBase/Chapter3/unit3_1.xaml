@@ -265,5 +265,52 @@ Posting Date: May 25, 2012 [EBook #111]"/>
                 </GroupBox>
             </Grid>
         </TabItem>
+        <TabItem >
+            <TabItem.Header>
+                <Label Content="ToolBarTray" FontSize="17" FontWeight="Bold"/>
+            </TabItem.Header>
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="auto"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+                <ToolBarTray Background="White" Orientation="Vertical">
+                    <ToolBar Band="1" BandIndex="1">
+                        <Button>
+                            <Rectangle Fill="Aquamarine" Width="20" Height="20"/>
+                        </Button>
+                        <Button>
+                            <Rectangle Fill="Aquamarine" Width="20" Height="20"/>
+                        </Button>
+                        <Button>
+                            <Rectangle Fill="Aquamarine" Width="20" Height="20"/>
+                        </Button>
+                    </ToolBar>
+                    <ToolBar Band="2" BandIndex="1">
+                        <Button>
+                            <Rectangle Fill="AntiqueWhite" Width="20" Height="20"/>
+                        </Button>
+                        <Button>
+                            <Rectangle Fill="AntiqueWhite" Width="20" Height="20"/>
+                        </Button>
+                    </ToolBar>
+                    <ToolBar Band="2" BandIndex="2">
+                        <Button>
+                            <Rectangle Fill="Aqua" Width="20" Height="20"/>
+                        </Button>
+                        <Button>
+                            <Rectangle Fill="Aqua" Width="20" Height="20"/>
+                        </Button>
+                        <Separator/>
+                        <Button>
+                            <Rectangle Fill="Aqua" Width="20" Height="20"/>
+                        </Button>
+                        <Button>
+                            <Rectangle Fill="Aqua" Width="20" Height="20"/>
+                        </Button>
+                    </ToolBar>
+                </ToolBarTray>
+            </Grid>
+        </TabItem>
     </TabControl>
 </UserControl>

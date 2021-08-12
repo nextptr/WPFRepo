@@ -9,7 +9,7 @@
     <Grid>
         <Canvas Name="chartCanvas" Margin="1">
             <Line x:Name="x_axis" Stroke="Black" StrokeThickness="3" X1="100" Y1="750" X2="1400" Y2="750" StrokeStartLineCap="Round"/>
-            <Line x:Name="y_axis" Stroke="Black" StrokeThickness="3" X1="100" Y1="750" X2="100" Y2="30" StrokeStartLineCap="Round"/>
+            <Line x:Name="y_axis" Stroke="Black" StrokeThickness="3" X1="100" Y1="750" X2="100" Y2="30"   StrokeStartLineCap="Round"/>
             <Path x:Name="x_axisArrow" Fill="Black">
                 <Path.Data>
                     <PathGeometry>

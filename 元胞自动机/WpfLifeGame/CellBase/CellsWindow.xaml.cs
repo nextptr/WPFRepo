@@ -40,10 +40,6 @@ namespace WpfLifeGame.CellBase
             if (this.IsVisible)
             {
                 this.Loaded -= Window_Loaded;
-                //窗口对齐
-                double width = this.ActualWidth;
-                double height = grid_board.ActualHeight;
-                bord_grid.Width = height + 6;
                 //初始化
                 InitCells(50);
                 InitBinding(50);
@@ -64,20 +60,22 @@ namespace WpfLifeGame.CellBase
             {
                 RowDefinition rd = new RowDefinition();
                 rd.Height = new GridLength();
-                grid_board.RowDefinitions.Add(rd);
+                grid.RowDefinitions.Add(rd);
             }
             for (int i = 0; i < count; i++)
             {
                 ColumnDefinition cd = new ColumnDefinition();
                 cd.Width = new GridLength();
-                grid_board.ColumnDefinitions.Add(cd);
+                grid.ColumnDefinitions.Add(cd);
             }
             //初始化cell
             ActionCells = new Cells(count);
         }
         public void InitBinding(int count)
         {
-            double wid = grid_board.ActualHeight / count;
+            double wid = grid.ActualHeight / count;
+            double grid_width = grid.ActualWidth;
+            double grid_height = grid.ActualHeight;
             for (int i = 0; i < count; i++)
             {
                 for (int j = 0; j < count; j++)
@@ -96,7 +94,7 @@ namespace WpfLifeGame.CellBase
                     btn.Tag = i.ToString() + "_" + j.ToString();
                     btn.SetBinding(ToggleButton.IsCheckedProperty, binding);
 
-                    grid_board.Children.Add(btn);
+                    grid.Children.Add(btn);
                     Grid.SetColumn(btn, j);
                     Grid.SetRow(btn, i);
                 }

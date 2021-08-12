@@ -74,6 +74,9 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="LockMonitorResetEventPanel.xaml.cs">
+      <DependentUpon>LockMonitorResetEventPanel.xaml</DependentUpon>
+    </Compile>
     <Compile Include="ThreadAsyncPanel.xaml.cs">
       <DependentUpon>ThreadAsyncPanel.xaml</DependentUpon>
     </Compile>
@@ -89,6 +92,10 @@
     <Compile Include="ThreadSemaphorePanel.xaml.cs">
       <DependentUpon>ThreadSemaphorePanel.xaml</DependentUpon>
     </Compile>
+    <Page Include="LockMonitorResetEventPanel.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>

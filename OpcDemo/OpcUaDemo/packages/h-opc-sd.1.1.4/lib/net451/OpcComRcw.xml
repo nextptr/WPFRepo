@@ -1,0 +1,937 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>OpcComRcw</name>
+    </assembly>
+    <members>
+        <member name="T:OpcRcw.Ae.CATID_OPCAEServer10">
+            <exclude />
+        </member>
+        <member name="T:OpcRcw.Ae.OPCAEBROWSEDIRECTION">
+            <exclude />
+        </member>
+        <member name="T:OpcRcw.Ae.OPCAEBROWSETYPE">
+            <exclude />
+        </member>
+        <member name="T:OpcRcw.Ae.OPCEVENTSERVERSTATE">
+            <exclude />
+        </member>
+        <member name="T:OpcRcw.Ae.FILETIME">
+            <exclude />
+        </member>
+        <member name="T:OpcRcw.Ae.ONEVENTSTRUCT">
+            <exclude />
+        </member>
+        <member name="T:OpcRcw.Ae.OPCEVENTSERVERSTATUS">
+            <exclude />
+        </member>
+        <member name="T:OpcRcw.Ae.OPCCONDITIONSTATE">
+            <exclude />
+        </member>
+        <member name="T:OpcRcw.Ae.IOPCEventServer">
+            <exclude />
+        </member>
+        <member name="T:OpcRcw.Ae.IOPCEventSubscriptionMgt">
+            <exclude />
+        </member>
+        <member name="T:OpcRcw.Ae.IOPCEventAreaBrowser">
+            <exclude />
+        </member>
+        <member name="T:OpcRcw.Ae.IOPCEventSink">
+            <exclude />
+        </member>
+        <member name="T:OpcRcw.Ae.IOPCEventServer2">
+            <exclude />
+        </member>
+        <member name="T:OpcRcw.Ae.IOPCEventSubscriptionMgt2">
+            <exclude />
+        </member>
+        <member name="T:OpcRcw.Ae.Constants">
+            <exclude />
+        </member>
+        <member name="T:OpcRcw.Comn.CONNECTDATA">
+            <exclude />
+        </member>
+        <member name="T:OpcRcw.Comn.IEnumConnections">
+            <exclude />
+        </member>
+        <member name="T:OpcRcw.Comn.IConnectionPoint">
+            <exclude />
+        </member>
+        <member name="T:OpcRcw.Comn.IEnumConnectionPoints">
+            <exclude />
+        </member>
+        <member name="T:OpcRcw.Comn.IConnectionPointContainer">
+            <exclude />
+        </member>
+        <member name="T:OpcRcw.Comn.IOPCShutdown">
+            <exclude />
+        </member>
+        <member name="T:OpcRcw.Comn.IOPCCommon">
+            <exclude />
+        </member>
+        <member name="T:OpcRcw.Comn.IOPCServerList">
+            <exclude />
+        </member>
+        <member name="T:OpcRcw.Comn.IOPCEnumGUID">
+            <exclude />
+        </member>
+        <member name="T:OpcRcw.Comn.IEnumGUID">
+            <exclude />
+        </member>
+        <member name="T:OpcRcw.Comn.IEnumUnknown">
+            <exclude />
+        </member>
+        <member name="T:OpcRcw.Comn.IEnumString">
+            <exclude />
+        </member>
+        <member name="T:OpcRcw.Comn.IOPCServerList2">
+            <exclude />
+        </member>
+        <member name="T:OpcRcw.Cmd.CATID_OPCCMDServer10">
+            <exclude />
+        </member>
+        <member name="T:OpcRcw.Cmd.OpcCmdNamespaceDefinition">
+            <exclude />
+        </member>
+        <member name="T:OpcRcw.Cmd.OpcCmdBrowseFilter">
+            <exclude />
+        </member>
+        <member name="T:OpcRcw.Cmd.OpcCmdTargetElement">
+            <exclude />
+        </member>
+        <member name="T:OpcRcw.Cmd.OpcCmdEventDefinition">
+            <exclude />
+        </member>
+        <member name="T:OpcRcw.Cmd.OpcCmdStateDefinition">
+            <exclude />
+        </member>
+        <member name="T:OpcRcw.Cmd.OpcCmdActionDefinition">
+            <exclude />
+        </member>
+        <member name="T:OpcRcw.Cmd.OpcCmdStateTransition">
+            <exclude />
+        </member>
+        <member name="T:OpcRcw.Cmd.OpcCmdArgumentDefinition">
+            <exclude />
+        </member>
+        <member name="T:OpcRcw.Cmd.OpcCmdArgument">
+            <exclude />
+        </member>
+        <member name="T:OpcRcw.Cmd.OpcCmdCommandDescription">
+            <exclude />
+        </member>
+        <member name="T:OpcRcw.Cmd.OpcCmdStateChangeEvent">
+            <exclude />
+        </member>
+        <member name="T:OpcRcw.Cmd.IOPCComandCallback">
+            <exclude />
+        </member>
+        <member name="T:OpcRcw.Cmd.IOPCCommandInformation">
+            <exclude />
+        </member>
+        <member name="T:OpcRcw.Cmd.IOPCCommandExecution">
+            <exclude />
+        </member>
+        <member name="T:OpcRcw.Cmd.Constants">
+            <exclude />
+        </member>
+        <member name="T:OpcRcw.Cmd.EventName">
+            <exclude />
+        </member>
+        <member name="T:OpcRcw.Cmd.StateName">
+            <exclude />
+        </member>
+        <member name="T:OpcRcw.Cmd.ControlCommand">
+            <exclude />
+        </member>
+        <member name="T:OpcRcw.Batch.CATID_OPCBatchServer10">
+            <exclude />
+        </member>
+        <member name="T:OpcRcw.Batch.CATID_OPCBatchServer20">
+            <exclude />
+        </member>
+        <member name="T:OpcRcw.Batch.OPCBATCHSUMMARY">
+            <exclude />
+        </member>
+        <member name="T:OpcRcw.Batch.OPCBATCHSUMMARYFILTER">
+            <exclude />
+        </member>
+        <member name="T:OpcRcw.Batch.IOPCBatchServer">
+            <exclude />
+        </member>
+        <member name="T:OpcRcw.Batch.IOPCBatchServer2">
+            <exclude />
+        </member>
+        <member name="T:OpcRcw.Batch.IEnumOPCBatchSummary">
+            <exclude />
+        </member>
+        <member name="T:OpcRcw.Batch.IOPCEnumerationSets">
+            <exclude />
+        </member>
+        <member name="T:OpcRcw.Batch.Constants">
+            <exclude />
+        </member>
+        <member name="T:OpcRcw.Batch.EnumSets">
+            <exclude />
+        </member>
+        <member name="T:OpcRcw.Batch.Properties">
+            <exclude />
+        </member>
+        <member name="T:OpcRcw.ServerDescription">
+            <summary>
+            Stores the connection information about a COM server.
+            </summary>
+        </member>
+        <member name="P:OpcRcw.ServerDescription.HostName">
+            <summary>
+            The name of the machine.
+            </summary>
+        </member>
+        <member name="P:OpcRcw.ServerDescription.Clsid">
+            <summary>
+            The class id.
+            </summary>
+        </member>
+        <member name="P:OpcRcw.ServerDescription.ProgId">
+            <summary>
+            The programmatic id.
+            </summary>
+        </member>
+        <member name="P:OpcRcw.ServerDescription.VersionIndependentProgId">
+            <summary>
+            The version independent programmatic id.
+            </summary>
+        </member>
+        <member name="P:OpcRcw.ServerDescription.Description">
+            <summary>
+            The description.
+            </summary>
+        </member>
+        <member name="T:OpcRcw.ResultIds">
+            <summary>
+            Defines all well known COM HRESULT codes.
+            </summary>
+        </member>
+        <member name="F:OpcRcw.ResultIds.S_OK">
+            <remarks/>
+        </member>
+        <member name="F:OpcRcw.ResultIds.S_FALSE">
+            <remarks/>
+        </member>
+        <member name="F:OpcRcw.ResultIds.E_NOTIMPL">
+            <remarks/>
+        </member>
+        <member name="F:OpcRcw.ResultIds.E_OUTOFMEMORY">
+            <remarks/>
+        </member>
+        <member name="F:OpcRcw.ResultIds.E_INVALIDARG">
+            <remarks/>
+        </member>
+        <member name="F:OpcRcw.ResultIds.E_NOINTERFACE">
+            <remarks/>
+        </member>
+        <member name="F:OpcRcw.ResultIds.E_POINTER">
+            <remarks/>
+        </member>
+        <member name="F:OpcRcw.ResultIds.E_FAIL">
+            <remarks/>
+        </member>
+        <member name="F:OpcRcw.ResultIds.E_ACCESSDENIED">
+            <remarks/>
+        </member>
+        <member name="F:OpcRcw.ResultIds.CONNECT_E_NOCONNECTION">
+            <remarks/>
+        </member>
+        <member name="F:OpcRcw.ResultIds.CONNECT_E_ADVISELIMIT">
+            <remarks/>
+        </member>
+        <member name="F:OpcRcw.ResultIds.DISP_E_TYPEMISMATCH">
+            <remarks/>
+        </member>
+        <member name="F:OpcRcw.ResultIds.DISP_E_OVERFLOW">
+            <remarks/>
+        </member>
+        <member name="F:OpcRcw.ResultIds.E_INVALIDHANDLE">
+            <remarks/>
+        </member>
+        <member name="F:OpcRcw.ResultIds.E_BADTYPE">
+            <remarks/>
+        </member>
+        <member name="F:OpcRcw.ResultIds.E_PUBLIC">
+            <remarks/>
+        </member>
+        <member name="F:OpcRcw.ResultIds.E_BADRIGHTS">
+            <remarks/>
+        </member>
+        <member name="F:OpcRcw.ResultIds.E_UNKNOWNITEMID">
+            <remarks/>
+        </member>
+        <member name="F:OpcRcw.ResultIds.E_INVALIDITEMID">
+            <remarks/>
+        </member>
+        <member name="F:OpcRcw.ResultIds.E_INVALIDFILTER">
+            <remarks/>
+        </member>
+        <member name="F:OpcRcw.ResultIds.E_UNKNOWNPATH">
+            <remarks/>
+        </member>
+        <member name="F:OpcRcw.ResultIds.E_RANGE">
+            <remarks/>
+        </member>
+        <member name="F:OpcRcw.ResultIds.E_DUPLICATENAME">
+            <remarks/>
+        </member>
+        <member name="F:OpcRcw.ResultIds.S_UNSUPPORTEDRATE">
+            <remarks/>
+        </member>
+        <member name="F:OpcRcw.ResultIds.S_CLAMP">
+            <remarks/>
+        </member>
+        <member name="F:OpcRcw.ResultIds.S_INUSE">
+            <remarks/>
+        </member>
+        <member name="F:OpcRcw.ResultIds.E_INVALIDCONFIGFILE">
+            <remarks/>
+        </member>
+        <member name="F:OpcRcw.ResultIds.E_NOTFOUND">
+            <remarks/>
+        </member>
+        <member name="F:OpcRcw.ResultIds.E_INVALID_PID">
+            <remarks/>
+        </member>
+        <member name="F:OpcRcw.ResultIds.E_DEADBANDNOTSET">
+            <remarks/>
+        </member>
+        <member name="F:OpcRcw.ResultIds.E_DEADBANDNOTSUPPORTED">
+            <remarks/>
+        </member>
+        <member name="F:OpcRcw.ResultIds.E_NOBUFFERING">
+            <remarks/>
+        </member>
+        <member name="F:OpcRcw.ResultIds.E_INVALIDCONTINUATIONPOINT">
+            <remarks/>
+        </member>
+        <member name="F:OpcRcw.ResultIds.S_DATAQUEUEOVERFLOW">
+            <remarks/>
+        </member>
+        <member name="F:OpcRcw.ResultIds.E_RATENOTSET">
+            <remarks/>
+        </member>
+        <member name="F:OpcRcw.ResultIds.E_NOTSUPPORTED">
+            <remarks/>
+        </member>
+        <member name="F:OpcRcw.ResultIds.E_TYPE_CHANGED">
+            <remarks/>
+        </member>
+        <member name="F:OpcRcw.ResultIds.E_FILTER_DUPLICATE">
+            <remarks/>
+        </member>
+        <member name="F:OpcRcw.ResultIds.E_FILTER_INVALID">
+            <remarks/>
+        </member>
+        <member name="F:OpcRcw.ResultIds.E_FILTER_ERROR">
+            <remarks/>
+        </member>
+        <member name="F:OpcRcw.ResultIds.S_FILTER_NO_DATA">
+            <remarks/>
+        </member>
+        <member name="F:OpcRcw.ResultIds.E_MAXEXCEEDED">
+            <remarks/>
+        </member>
+        <member name="F:OpcRcw.ResultIds.S_NODATA">
+            <remarks/>
+        </member>
+        <member name="F:OpcRcw.ResultIds.S_MOREDATA">
+            <remarks/>
+        </member>
+        <member name="F:OpcRcw.ResultIds.E_INVALIDAGGREGATE">
+            <remarks/>
+        </member>
+        <member name="F:OpcRcw.ResultIds.S_CURRENTVALUE">
+            <remarks/>
+        </member>
+        <member name="F:OpcRcw.ResultIds.S_EXTRADATA">
+            <remarks/>
+        </member>
+        <member name="F:OpcRcw.ResultIds.W_NOFILTER">
+            <remarks/>
+        </member>
+        <member name="F:OpcRcw.ResultIds.E_UNKNOWNATTRID">
+            <remarks/>
+        </member>
+        <member name="F:OpcRcw.ResultIds.E_NOT_AVAIL">
+            <remarks/>
+        </member>
+        <member name="F:OpcRcw.ResultIds.E_INVALIDDATATYPE">
+            <remarks/>
+        </member>
+        <member name="F:OpcRcw.ResultIds.E_DATAEXISTS">
+            <remarks/>
+        </member>
+        <member name="F:OpcRcw.ResultIds.E_INVALIDATTRID">
+            <remarks/>
+        </member>
+        <member name="F:OpcRcw.ResultIds.E_NODATAEXISTS">
+            <remarks/>
+        </member>
+        <member name="F:OpcRcw.ResultIds.S_INSERTED">
+            <remarks/>
+        </member>
+        <member name="F:OpcRcw.ResultIds.S_REPLACED">
+            <remarks/>
+        </member>
+        <member name="F:OpcRcw.ResultIds.S_ALREADYACKED">
+            <remarks/>
+        </member>
+        <member name="F:OpcRcw.ResultIds.S_INVALIDBUFFERTIME">
+            <remarks/>
+        </member>
+        <member name="F:OpcRcw.ResultIds.S_INVALIDMAXSIZE">
+            <remarks/>
+        </member>
+        <member name="F:OpcRcw.ResultIds.S_INVALIDKEEPALIVETIME">
+            <remarks/>
+        </member>
+        <member name="F:OpcRcw.ResultIds.E_INVALIDBRANCHNAME">
+            <remarks/>
+        </member>
+        <member name="F:OpcRcw.ResultIds.E_INVALIDTIME">
+            <remarks/>
+        </member>
+        <member name="F:OpcRcw.ResultIds.E_BUSY">
+            <remarks/>
+        </member>
+        <member name="F:OpcRcw.ResultIds.E_NOINFO">
+            <remarks/>
+        </member>
+        <member name="T:OpcRcw.ServerEnumerator">
+            <summary>
+            Enumerates the OPC server on a host.
+            </summary>
+        </member>
+        <member name="M:OpcRcw.ServerEnumerator.#ctor">
+            <summary>
+            Initializes an empty instance.
+            </summary>
+        </member>
+        <member name="M:OpcRcw.ServerEnumerator.Initialize">
+            <summary>
+            Sets private members to default values.
+            </summary>
+        </member>
+        <member name="M:OpcRcw.ServerEnumerator.Finalize">
+            <summary>
+            The finializer implementation.
+            </summary>
+        </member>
+        <member name="M:OpcRcw.ServerEnumerator.Dispose">
+            <summary>
+            Frees any unmanaged resources.
+            </summary>
+        </member>
+        <member name="M:OpcRcw.ServerEnumerator.Dispose(System.Boolean)">
+            <summary>
+            An overrideable version of the Dispose.
+            </summary>
+        </member>
+        <member name="M:OpcRcw.ServerEnumerator.Connect">
+            <summary>
+            Connects to OPCEnum on the local machine.
+            </summary>
+        </member>
+        <member name="M:OpcRcw.ServerEnumerator.Connect(System.String,System.String,System.String,System.String)">
+            <summary>
+            Connects to OPCEnum on the specified machine.
+            </summary>
+        </member>
+        <member name="M:OpcRcw.ServerEnumerator.Disconnect">
+            <summary>
+            Releases the active server.
+            </summary>
+        </member>
+        <member name="M:OpcRcw.ServerEnumerator.GetAvailableServers(System.Guid[])">
+            <summary>
+            Returns a list of servers that support the specified specification.
+            </summary>
+        </member>
+        <member name="M:OpcRcw.ServerEnumerator.CLSIDFromProgID(System.String)">
+            <summary>
+            Looks up the CLSID for the specified prog id on a remote host.
+            </summary>
+        </member>
+        <member name="M:OpcRcw.ServerEnumerator.ReadClasses(OpcRcw.Comn.IOPCEnumGUID)">
+            <summary>
+            Reads the guids from the enumerator.
+            </summary>
+        </member>
+        <member name="M:OpcRcw.ServerEnumerator.ReadServerDetails(System.Guid)">
+            <summary>
+            Reads the server details from the enumerator.
+            </summary>
+        </member>
+        <member name="T:OpcRcw.Utils">
+            <summary>
+            Utility functions used by COM applications.
+            </summary>
+        </member>
+        <member name="M:OpcRcw.Utils.RegisterComTypes(System.String)">
+            <summary>
+            Registers the COM types in the specified assembly.
+            </summary>
+        </member>
+        <member name="M:OpcRcw.Utils.VerifyCodebase(System.Reflection.Assembly,System.String)">
+            <summary>
+            Checks that the assembly loaded has the expected codebase.
+            </summary>
+        </member>
+        <member name="M:OpcRcw.Utils.UnregisterComTypes(System.String)">
+            <summary>
+            Unregisters the COM types in the specified assembly.
+            </summary>
+        </member>
+        <member name="M:OpcRcw.Utils.GetSystemMessage(System.Int32,System.Int32)">
+            <summary>
+            Retrieves the system message text for the specified error.
+            </summary>
+        </member>
+        <member name="M:OpcRcw.Utils.ProgIDFromCLSID(System.Guid)">
+            <summary>
+            Returns the prog id from the clsid.
+            </summary>
+        </member>
+        <member name="M:OpcRcw.Utils.CLSIDFromProgID(System.String)">
+            <summary>
+            Returns the prog id from the clsid.
+            </summary>
+        </member>
+        <member name="M:OpcRcw.Utils.GetImplementedCategories(System.Guid)">
+            <summary>
+            Returns the implemented categories for the class.
+            </summary>
+        </member>
+        <member name="M:OpcRcw.Utils.EnumClassesInCategories(System.Guid[])">
+            <summary>
+            Fetches the classes in the specified categories.
+            </summary>
+        </member>
+        <member name="F:OpcRcw.Utils.CATID_OPCDAServer20">
+            <summary>
+            COM servers that support the DA 2.0 specification.
+            </summary>
+        </member>
+        <member name="F:OpcRcw.Utils.CATID_OPCDAServer30">
+            <summary>
+            COM servers that support the DA 3.0 specification.
+            </summary>
+        </member>
+        <member name="F:OpcRcw.Utils.CATID_OPCAEServer10">
+            <summary>
+            COM servers that support the AE 1.0 specification.
+            </summary>
+        </member>
+        <member name="F:OpcRcw.Utils.CATID_OPCHDAServer10">
+            <summary>
+            COM servers that support the HDA 1.0 specification.
+            </summary>
+        </member>
+        <member name="M:OpcRcw.Utils.GetExecutablePath(System.Guid)">
+            <summary>
+            Returns the location of the COM server executable.
+            </summary>
+        </member>
+        <member name="M:OpcRcw.Utils.CreateLocalServer(System.Guid)">
+            <summary>
+            Creates an instance of a COM server on the current machine using the current user.
+            </summary>
+        </member>
+        <member name="T:OpcRcw.Utils.ServerInfo">
+            <summary>
+            A class used to allocate and deallocate the elements of a COSERVERINFO structure.
+            </summary>
+        </member>
+        <member name="M:OpcRcw.Utils.ServerInfo.Allocate(System.String,System.String,System.String,System.String)">
+            <summary>
+            Allocates a COSERVERINFO structure.
+            </summary>
+        </member>
+        <member name="M:OpcRcw.Utils.ServerInfo.Deallocate">
+            <summary>
+            Deallocated memory allocated when the COSERVERINFO structure was created.
+            </summary>
+        </member>
+        <member name="M:OpcRcw.Utils.CreateInstance(System.Guid,System.String,System.String,System.String,System.String)">
+            <summary>
+            Creates an instance of a COM server.
+            </summary>
+        </member>
+        <member name="M:OpcRcw.Utils.ReleaseServer(System.Object)">
+            <summary>
+            Releases the server if it is a true COM server.
+            </summary>
+        </member>
+        <member name="M:OpcRcw.Utils.RegisterClassInCategory(System.Guid,System.Guid)">
+            <summary>
+            Registers the classes in the specified category.
+            </summary>
+        </member>
+        <member name="M:OpcRcw.Utils.RegisterClassInCategory(System.Guid,System.Guid,System.String)">
+            <summary>
+            Registers the classes in the specified category.
+            </summary>
+        </member>
+        <member name="M:OpcRcw.Utils.UnregisterComServer(System.Guid)">
+            <summary>
+            Removes the registration for a COM server from the registry.
+            </summary>
+        </member>
+        <member name="M:OpcRcw.Utils.UnregisterClassInCategory(System.Guid,System.Guid)">
+            <summary>
+            Unregisters the classes in the specified category.
+            </summary>
+        </member>
+        <member name="M:OpcRcw.Utils.CreateComException(System.Exception)">
+            <summary>
+            Converts an exception to an exception that returns a COM error code.
+            </summary>
+        </member>
+        <member name="M:OpcRcw.Utils.CreateComException(System.Int32,System.String,System.Object[])">
+            <summary>
+            Converts an exception to an exception that returns a COM error code.
+            </summary>
+        </member>
+        <member name="M:OpcRcw.Utils.CreateComException(System.Exception,System.Int32,System.String,System.Object[])">
+            <summary>
+            Converts an exception to an exception that returns a COM error code.
+            </summary>
+        </member>
+        <member name="F:OpcRcw.Utils.LOCALE_SYSTEM_DEFAULT">
+            <summary>
+            The WIN32 system default locale.
+            </summary>
+        </member>
+        <member name="F:OpcRcw.Utils.LOCALE_USER_DEFAULT">
+            <summary>
+            The WIN32 user default locale.
+            </summary>
+        </member>
+        <member name="F:OpcRcw.Utils.FILETIME_BaseTime">
+            <summary>
+            The base for the WIN32 FILETIME structure.
+            </summary>
+        </member>
+        <member name="T:OpcRcw.Utils.GUID">
+            <summary>
+            WIN32 GUID struct declaration.
+            </summary>
+        </member>
+        <member name="F:OpcRcw.Utils.VARIANT_SIZE">
+            <summary>
+            The size, in bytes, of a VARIANT structure.
+            </summary>
+        </member>
+        <member name="M:OpcRcw.Utils.VariantInit(System.IntPtr)">
+            <summary>
+            Intializes a pointer to a VARIANT.
+            </summary>
+        </member>
+        <member name="M:OpcRcw.Utils.VariantClear(System.IntPtr)">
+            <summary>
+            Frees all memory referenced by a VARIANT stored in unmanaged memory.
+            </summary>
+        </member>
+        <member name="T:OpcRcw.Dx.CATID_OPCDXServer10">
+            <exclude />
+        </member>
+        <member name="T:OpcRcw.Dx.ItemIdentifier">
+            <exclude />
+        </member>
+        <member name="T:OpcRcw.Dx.IdentifiedResult">
+            <exclude />
+        </member>
+        <member name="T:OpcRcw.Dx.DXGeneralResponse">
+            <exclude />
+        </member>
+        <member name="T:OpcRcw.Dx.SourceServer">
+            <exclude />
+        </member>
+        <member name="T:OpcRcw.Dx.DXConnection">
+            <exclude />
+        </member>
+        <member name="T:OpcRcw.Dx.IOPCConfiguration">
+            <exclude />
+        </member>
+        <member name="T:OpcRcw.Dx.Names">
+            <exclude />
+        </member>
+        <member name="T:OpcRcw.Dx.QualityStatusName">
+            <exclude />
+        </member>
+        <member name="T:OpcRcw.Dx.LimitStatusName">
+            <exclude />
+        </member>
+        <member name="T:OpcRcw.Dx.ServerTypeName">
+            <exclude />
+        </member>
+        <member name="T:OpcRcw.Dx.ServerStateName">
+            <exclude />
+        </member>
+        <member name="T:OpcRcw.Dx.ConnectStatusName">
+            <exclude />
+        </member>
+        <member name="T:OpcRcw.Dx.ConnectionStateName">
+            <exclude />
+        </member>
+        <member name="T:OpcRcw.Da.CATID_OPCDAServer10">
+            <exclude />
+        </member>
+        <member name="T:OpcRcw.Da.CATID_OPCDAServer20">
+            <exclude />
+        </member>
+        <member name="T:OpcRcw.Da.CATID_OPCDAServer30">
+            <exclude />
+        </member>
+        <member name="T:OpcRcw.Da.CATID_XMLDAServer10">
+            <exclude />
+        </member>
+        <member name="T:OpcRcw.Da.FILETIME">
+            <exclude />
+        </member>
+        <member name="T:OpcRcw.Da.OPCDATASOURCE">
+            <exclude />
+        </member>
+        <member name="T:OpcRcw.Da.OPCBROWSETYPE">
+            <exclude />
+        </member>
+        <member name="T:OpcRcw.Da.OPCNAMESPACETYPE">
+            <exclude />
+        </member>
+        <member name="T:OpcRcw.Da.OPCBROWSEDIRECTION">
+            <exclude />
+        </member>
+        <member name="T:OpcRcw.Da.OPCEUTYPE">
+            <exclude />
+        </member>
+        <member name="T:OpcRcw.Da.OPCSERVERSTATE">
+            <exclude />
+        </member>
+        <member name="T:OpcRcw.Da.OPCENUMSCOPE">
+            <exclude />
+        </member>
+        <member name="T:OpcRcw.Da.OPCGROUPHEADER">
+            <exclude />
+        </member>
+        <member name="T:OpcRcw.Da.OPCITEMHEADER1">
+            <exclude />
+        </member>
+        <member name="T:OpcRcw.Da.OPCITEMHEADER2">
+            <exclude />
+        </member>
+        <member name="T:OpcRcw.Da.OPCGROUPHEADERWRITE">
+            <exclude />
+        </member>
+        <member name="T:OpcRcw.Da.OPCITEMHEADERWRITE">
+            <exclude />
+        </member>
+        <member name="T:OpcRcw.Da.OPCITEMSTATE">
+            <exclude />
+        </member>
+        <member name="T:OpcRcw.Da.OPCSERVERSTATUS">
+            <exclude />
+        </member>
+        <member name="T:OpcRcw.Da.OPCITEMDEF">
+            <exclude />
+        </member>
+        <member name="T:OpcRcw.Da.OPCITEMATTRIBUTES">
+            <exclude />
+        </member>
+        <member name="T:OpcRcw.Da.OPCITEMRESULT">
+            <exclude />
+        </member>
+        <member name="T:OpcRcw.Da.OPCITEMPROPERTY">
+            <exclude />
+        </member>
+        <member name="T:OpcRcw.Da.OPCITEMPROPERTIES">
+            <exclude />
+        </member>
+        <member name="T:OpcRcw.Da.OPCBROWSEELEMENT">
+            <exclude />
+        </member>
+        <member name="T:OpcRcw.Da.OPCITEMVQT">
+            <exclude />
+        </member>
+        <member name="T:OpcRcw.Da.OPCBROWSEFILTER">
+            <exclude />
+        </member>
+        <member name="T:OpcRcw.Da.IOPCServer">
+            <exclude />
+        </member>
+        <member name="T:OpcRcw.Da.IOPCServerPublicGroups">
+            <exclude />
+        </member>
+        <member name="T:OpcRcw.Da.IOPCBrowseServerAddressSpace">
+            <exclude />
+        </member>
+        <member name="T:OpcRcw.Da.IOPCGroupStateMgt">
+            <exclude />
+        </member>
+        <member name="T:OpcRcw.Da.IOPCPublicGroupStateMgt">
+            <exclude />
+        </member>
+        <member name="T:OpcRcw.Da.IOPCSyncIO">
+            <exclude />
+        </member>
+        <member name="T:OpcRcw.Da.IOPCAsyncIO">
+            <exclude />
+        </member>
+        <member name="T:OpcRcw.Da.IOPCItemMgt">
+            <exclude />
+        </member>
+        <member name="T:OpcRcw.Da.IEnumOPCItemAttributes">
+            <exclude />
+        </member>
+        <member name="T:OpcRcw.Da.IOPCDataCallback">
+            <exclude />
+        </member>
+        <member name="T:OpcRcw.Da.IOPCAsyncIO2">
+            <exclude />
+        </member>
+        <member name="T:OpcRcw.Da.IOPCItemProperties">
+            <exclude />
+        </member>
+        <member name="T:OpcRcw.Da.IOPCItemDeadbandMgt">
+            <exclude />
+        </member>
+        <member name="T:OpcRcw.Da.IOPCItemSamplingMgt">
+            <exclude />
+        </member>
+        <member name="T:OpcRcw.Da.IOPCBrowse">
+            <exclude />
+        </member>
+        <member name="T:OpcRcw.Da.IOPCItemIO">
+            <exclude />
+        </member>
+        <member name="T:OpcRcw.Da.IOPCSyncIO2">
+            <exclude />
+        </member>
+        <member name="T:OpcRcw.Da.IOPCAsyncIO3">
+            <exclude />
+        </member>
+        <member name="T:OpcRcw.Da.IOPCGroupStateMgt2">
+            <exclude />
+        </member>
+        <member name="T:OpcRcw.Da.Constants">
+            <exclude />
+        </member>
+        <member name="T:OpcRcw.Da.Qualities">
+            <exclude />
+        </member>
+        <member name="T:OpcRcw.Da.Properties">
+            <exclude />
+        </member>
+        <member name="T:OpcRcw.Hda.CATID_OPCHDAServer10">
+            <exclude />
+        </member>
+        <member name="T:OpcRcw.Hda.OPCHDA_FILETIME">
+            <exclude />
+        </member>
+        <member name="T:OpcRcw.Hda.OPCHDA_SERVERSTATUS">
+            <exclude />
+        </member>
+        <member name="T:OpcRcw.Hda.OPCHDA_BROWSEDIRECTION">
+            <exclude />
+        </member>
+        <member name="T:OpcRcw.Hda.OPCHDA_BROWSETYPE">
+            <exclude />
+        </member>
+        <member name="T:OpcRcw.Hda.OPCHDA_ANNOTATIONCAPABILITIES">
+            <exclude />
+        </member>
+        <member name="T:OpcRcw.Hda.OPCHDA_UPDATECAPABILITIES">
+            <exclude />
+        </member>
+        <member name="T:OpcRcw.Hda.OPCHDA_OPERATORCODES">
+            <exclude />
+        </member>
+        <member name="T:OpcRcw.Hda.OPCHDA_EDITTYPE">
+            <exclude />
+        </member>
+        <member name="T:OpcRcw.Hda.OPCHDA_AGGREGATE">
+            <exclude />
+        </member>
+        <member name="T:OpcRcw.Hda.OPCHDA_ANNOTATION">
+            <exclude />
+        </member>
+        <member name="T:OpcRcw.Hda.OPCHDA_MODIFIEDITEM">
+            <exclude />
+        </member>
+        <member name="T:OpcRcw.Hda.OPCHDA_ATTRIBUTE">
+            <exclude />
+        </member>
+        <member name="T:OpcRcw.Hda.OPCHDA_TIME">
+            <exclude />
+        </member>
+        <member name="T:OpcRcw.Hda.OPCHDA_ITEM">
+            <exclude />
+        </member>
+        <member name="T:OpcRcw.Hda.IOPCHDA_Browser">
+            <exclude />
+        </member>
+        <member name="T:OpcRcw.Hda.IOPCHDA_Server">
+            <exclude />
+        </member>
+        <member name="T:OpcRcw.Hda.IOPCHDA_SyncRead">
+            <exclude />
+        </member>
+        <member name="T:OpcRcw.Hda.IOPCHDA_SyncUpdate">
+            <exclude />
+        </member>
+        <member name="T:OpcRcw.Hda.IOPCHDA_SyncAnnotations">
+            <exclude />
+        </member>
+        <member name="T:OpcRcw.Hda.IOPCHDA_AsyncRead">
+            <exclude />
+        </member>
+        <member name="T:OpcRcw.Hda.IOPCHDA_AsyncUpdate">
+            <exclude />
+        </member>
+        <member name="T:OpcRcw.Hda.IOPCHDA_AsyncAnnotations">
+            <exclude />
+        </member>
+        <member name="T:OpcRcw.Hda.IOPCHDA_Playback">
+            <exclude />
+        </member>
+        <member name="T:OpcRcw.Hda.IOPCHDA_DataCallback">
+            <exclude />
+        </member>
+        <member name="T:OpcRcw.Hda.Constants">
+            <exclude />
+        </member>
+        <member name="T:OpcRcw.Security.IOPCSecurityNT">
+            <exclude />
+        </member>
+        <member name="T:OpcRcw.Security.IOPCSecurityPrivate">
+            <exclude />
+        </member>
+        <member name="T:AssemblyVersionInfo">
+            <summary>
+            Defines string constants for SDK version information.
+            </summary>
+        </member>
+        <member name="F:AssemblyVersionInfo.Copyright">
+            <summary>
+            The current copy right notice.
+            </summary>
+        </member>
+        <member name="F:AssemblyVersionInfo.CurrentVersion">
+            <summary>
+            The current build version.
+            </summary>
+        </member>
+        <member name="F:AssemblyVersionInfo.CurrentFileVersion">
+            <summary>
+            The current build file version.
+            </summary>
+        </member>
+    </members>
+</doc>

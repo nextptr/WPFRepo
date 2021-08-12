@@ -90,6 +90,10 @@
       <DependentUpon>MainView.xaml</DependentUpon>
     </Compile>
     <Compile Include="MainViewModel.cs" />
+    <Compile Include="UItest\CanvasTestView.xaml.cs">
+      <DependentUpon>CanvasTestView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UItest\CanvasTestViewModel.cs" />
     <Compile Include="状态机\StatusMachineView.xaml.cs">
       <DependentUpon>StatusMachineView.xaml</DependentUpon>
     </Compile>
@@ -104,6 +108,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="MainView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UItest\CanvasTestView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

@@ -117,6 +117,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "流程控制", "流程控�
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MotionDemo", "MotionDemo\MotionDemo.csproj", "{6C577A97-F855-4A0D-92F3-CD4361CEEF93}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TraceDemo", "TraceDemo\TraceDemo.csproj", "{C09A69DF-989E-4974-9D1C-0377AEA82201}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -405,6 +407,14 @@ Global
 		{6C577A97-F855-4A0D-92F3-CD4361CEEF93}.Release|Any CPU.Build.0 = Release|Any CPU
 		{6C577A97-F855-4A0D-92F3-CD4361CEEF93}.Release|x64.ActiveCfg = Release|Any CPU
 		{6C577A97-F855-4A0D-92F3-CD4361CEEF93}.Release|x64.Build.0 = Release|Any CPU
+		{C09A69DF-989E-4974-9D1C-0377AEA82201}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C09A69DF-989E-4974-9D1C-0377AEA82201}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C09A69DF-989E-4974-9D1C-0377AEA82201}.Debug|x64.ActiveCfg = Debug|x64
+		{C09A69DF-989E-4974-9D1C-0377AEA82201}.Debug|x64.Build.0 = Debug|x64
+		{C09A69DF-989E-4974-9D1C-0377AEA82201}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C09A69DF-989E-4974-9D1C-0377AEA82201}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C09A69DF-989E-4974-9D1C-0377AEA82201}.Release|x64.ActiveCfg = Release|Any CPU
+		{C09A69DF-989E-4974-9D1C-0377AEA82201}.Release|x64.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -443,6 +453,7 @@ Global
 		{8F245568-A007-423F-95C0-F0141498E074} = {9D3C0CC3-E8E1-4657-A540-9969806E09C2}
 		{4B5F7D7B-7874-4157-BB74-6939EE6E65FA} = {9D3C0CC3-E8E1-4657-A540-9969806E09C2}
 		{6C577A97-F855-4A0D-92F3-CD4361CEEF93} = {B9845AAE-A90B-49B8-802C-33B60E82435C}
+		{C09A69DF-989E-4974-9D1C-0377AEA82201} = {351BD20E-CE21-49A7-B4D9-2E696D627A6D}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {88B71059-CDA1-4785-93B7-89A3C10C0AB0}

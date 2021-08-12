@@ -1,0 +1,769 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>h-opc</name>
+    </assembly>
+    <members>
+        <member name="T:Hylasoft.Opc.Common.ClientExtensions">
+            <summary>
+            Useful extension methods for OPC Clients
+            </summary>
+        </member>
+        <member name="M:Hylasoft.Opc.Common.ClientExtensions.ReadOrdefault``1(Hylasoft.Opc.Common.IOpcClient,System.String,``0)">
+            <summary>
+            Reads a tag from the OPC. If for whatever reason the read fails (Tag doesn't exist, server not available) returns a default value
+            </summary>
+            <param name="client">the opc client to use for the read</param>
+            <param name="tag">The fully qualified identifier of the tag</param>
+            <param name="defaultValue">the default value to read if the read fails</param>
+            <returns></returns>
+        </member>
+        <member name="T:Hylasoft.Opc.Common.ReadEvent">
+            <summary>
+            Base class representing a monitor event on the OPC server
+            </summary>
+        </member>
+        <member name="P:Hylasoft.Opc.Common.ReadEvent.Value">
+            <summary>
+            Gets the value that was read from the server
+            </summary>
+        </member>
+        <member name="P:Hylasoft.Opc.Common.ReadEvent.Quality">
+            <summary>
+            Gets the quality of the signal from the server
+            </summary>
+        </member>
+        <member name="P:Hylasoft.Opc.Common.ReadEvent.SourceTimestamp">
+            <summary>
+            Gets the source timestamp on when the event ocurred
+            </summary>
+        </member>
+        <member name="P:Hylasoft.Opc.Common.ReadEvent.ServerTimestamp">
+            <summary>
+            Gets the server timestamp on when the event ocurred
+            </summary>
+        </member>
+        <member name="T:Hylasoft.Opc.Common.ReadEvent`1">
+            <summary>
+            Base class representing a monitor event on the OPC server
+            </summary>
+            <typeparam name="T"></typeparam>
+        </member>
+        <member name="P:Hylasoft.Opc.Common.ReadEvent`1.Value">
+            <summary>
+            Gets the value that was read from the server
+            </summary>
+        </member>
+        <member name="P:Hylasoft.Opc.Common.ReadEvent`1.Quality">
+            <summary>
+            Gets the quality of the signal from the server
+            </summary>
+        </member>
+        <member name="P:Hylasoft.Opc.Common.ReadEvent`1.SourceTimestamp">
+            <summary>
+            Gets the source timestamp on when the event ocurred
+            </summary>
+        </member>
+        <member name="P:Hylasoft.Opc.Common.ReadEvent`1.ServerTimestamp">
+            <summary>
+            Gets the server timestamp on when the event ocurred
+            </summary>
+        </member>
+        <member name="T:Hylasoft.Opc.Common.Node">
+            <summary>
+            Base class representing a node on the OPC server
+            </summary>
+        </member>
+        <member name="P:Hylasoft.Opc.Common.Node.Name">
+            <summary>
+            Gets the displayed name of the node
+            </summary>
+        </member>
+        <member name="P:Hylasoft.Opc.Common.Node.Tag">
+            <summary>
+            Gets the dot-separated fully qualified tag of the node
+            </summary>
+        </member>
+        <member name="P:Hylasoft.Opc.Common.Node.Parent">
+            <summary>
+            Gets the parent node. If the node is root, returns null
+            </summary>
+        </member>
+        <member name="M:Hylasoft.Opc.Common.Node.#ctor(System.String,Hylasoft.Opc.Common.Node)">
+            <summary>
+            Creates a new node
+            </summary>
+            <param name="name">the name of the node</param>
+            <param name="parent">The parent node</param>
+        </member>
+        <member name="M:Hylasoft.Opc.Common.Node.ToString">
+            <summary>
+            Overrides ToString()
+            </summary>
+        </member>
+        <member name="T:Hylasoft.Opc.Common.IOpcClient">
+            <summary>
+            OPC Client Interface
+            </summary>
+        </member>
+        <member name="P:Hylasoft.Opc.Common.IOpcClient.MonitorInterval">
+            <summary>
+            Monitor interval in Milliseconds
+            </summary>
+        </member>
+        <member name="P:Hylasoft.Opc.Common.IOpcClient.Status">
+            <summary>
+            Gets the current status of the OPC Client
+            </summary>
+        </member>
+        <member name="M:Hylasoft.Opc.Common.IOpcClient.Connect">
+            <summary>
+            Connect the client to the OPC Server
+            </summary>
+        </member>
+        <member name="M:Hylasoft.Opc.Common.IOpcClient.GetDataType(System.String)">
+            <summary>
+            Gets the datatype of an OPC tag
+            </summary>
+            <param name="tag">Tag to get datatype of</param>
+            <returns>System Type</returns>
+        </member>
+        <member name="M:Hylasoft.Opc.Common.IOpcClient.Read(System.String)">
+            <summary>
+            Read a tag
+            </summary>
+            <param name="tag">The fully-qualified identifier of the tag. You can specify a subfolder by using a comma delimited name.
+            E.g: the tag `foo.bar` reads the tag `bar` on the folder `foo`</param>
+            <returns>The value retrieved from the OPC</returns>
+        </member>
+        <member name="M:Hylasoft.Opc.Common.IOpcClient.Read``1(System.String)">
+            <summary>
+            Read a tag
+            </summary>
+            <typeparam name="T">The type of tag to read</typeparam>
+            <param name="tag">The fully-qualified identifier of the tag. You can specify a subfolder by using a comma delimited name.
+            E.g: the tag `foo.bar` reads the tag `bar` on the folder `foo`</param>
+            <returns>The value retrieved from the OPC</returns>
+        </member>
+        <member name="M:Hylasoft.Opc.Common.IOpcClient.ReadAsync``1(System.String)">
+            <summary>
+            Read a tag asynchronusly
+            </summary>
+        </member>
+        <member name="M:Hylasoft.Opc.Common.IOpcClient.Read(System.Collections.Generic.IEnumerable{System.String})">
+            <summary>
+            Read tags
+            </summary>
+            <param name="tags">The fully-qualified identifiers of the tags. You can specify a subfolder by using a comma delimited name.
+            E.g: the tag `foo.bar` reads the tag `bar` on the folder `foo`</param>
+            <returns>The key value pairs retrieved from the OPC</returns>
+        </member>
+        <member name="M:Hylasoft.Opc.Common.IOpcClient.Write``1(System.String,``0)">
+            <summary>
+            Write a value on the specified opc tag
+            </summary>
+            <typeparam name="T">The type of tag to write on</typeparam>
+            <param name="tag">The fully-qualified identifier of the tag. You can specify a subfolder by using a comma delimited name.
+            E.g: the tag `foo.bar` writes on the tag `bar` on the folder `foo`</param>
+            <param name="item"></param>
+        </member>
+        <member name="M:Hylasoft.Opc.Common.IOpcClient.WriteAsync``1(System.String,``0)">
+            <summary>
+            Write a value on the specified opc tag asynchronously
+            </summary>
+        </member>
+        <member name="M:Hylasoft.Opc.Common.IOpcClient.Monitor(System.String,System.Action{Hylasoft.Opc.Common.ReadEvent,System.Action})">
+            <summary>
+            Monitor the specified tag for changes
+            </summary>
+            <param name="tag">The fully-qualified identifier of the tag. You can specify a subfolder by using a comma delimited name.
+            E.g: the tag `foo.bar` monitors the tag `bar` on the folder `foo`</param>
+            <param name="callback">the callback to execute when the value is changed.
+            The first parameter is the new value of the node, the second is an `unsubscribe` function to unsubscribe the callback</param>
+        </member>
+        <member name="M:Hylasoft.Opc.Common.IOpcClient.Monitor``1(System.String,System.Action{Hylasoft.Opc.Common.ReadEvent{``0},System.Action})">
+            <summary>
+            Monitor the specified tag for changes
+            </summary>
+            <typeparam name="T">the type of tag to monitor</typeparam>
+            <param name="tag">The fully-qualified identifier of the tag. You can specify a subfolder by using a comma delimited name.
+            E.g: the tag `foo.bar` monitors the tag `bar` on the folder `foo`</param>
+            <param name="callback">the callback to execute when the value is changed.
+            The first parameter is the new value of the node, the second is an `unsubscribe` function to unsubscribe the callback</param>
+        </member>
+        <member name="M:Hylasoft.Opc.Common.IOpcClient.Monitor(System.Collections.Generic.IEnumerable{System.String},System.Action{System.Collections.Generic.IDictionary{System.String,Hylasoft.Opc.Common.ReadEvent},System.Action})">
+            <summary>
+            Monitor the specified tags for changes
+            </summary>
+            <param name="tags">The fully-qualified identifier of the tag. You can specify a subfolder by using a comma delimited name.
+            E.g: the tag `foo.bar` monitors the tag `bar` on the folder `foo`</param>
+            <param name="callback">the callback to execute when the value is changed.
+            The first parameter is the new values of the nodes, the second is an `unsubscribe` function to unsubscribe the callback</param>
+        </member>
+        <member name="M:Hylasoft.Opc.Common.IOpcClient.MonitorChanges(System.Collections.Generic.IEnumerable{System.String},System.Action{System.Collections.Generic.IDictionary{System.String,Hylasoft.Opc.Common.ReadEvent},System.Action})">
+            <summary>
+            Monitor the specified tags for changes
+            </summary>
+            <param name="tags">The fully-qualified identifier of the tag. You can specify a subfolder by using a comma delimited name.
+            E.g: the tag `foo.bar` monitors the tag `bar` on the folder `foo`</param>
+            <param name="callback">the callback to execute when the value is changed.
+            The first parameter is the new values of the nodes, the second is an `unsubscribe` function to unsubscribe the callback</param>
+        </member>
+        <member name="T:Hylasoft.Opc.Common.OpcException">
+            <summary>
+            Identifies an exception occurred during OPC Communication
+            </summary>
+        </member>
+        <member name="M:Hylasoft.Opc.Common.OpcException.#ctor">
+            <summary>
+            Initialize a new instance of the OpcException class
+            </summary>
+        </member>
+        <member name="M:Hylasoft.Opc.Common.OpcException.#ctor(System.String)">
+            <summary>
+            Initialize a new instance of the OpcException class
+            </summary>
+        </member>
+        <member name="P:Hylasoft.Opc.Common.OpcException.Status">
+            <summary>
+            Returns an (optional) associated OPC UA StatusCode for the exception.
+            </summary>
+        </member>
+        <member name="M:Hylasoft.Opc.Common.OpcException.#ctor(System.String,Opc.Ua.StatusCode)">
+            <summary>
+            Initialize a new instance of the OpcException class
+            </summary>
+        </member>
+        <member name="M:Hylasoft.Opc.Common.OpcException.#ctor(System.String,System.Exception)">
+            <summary>
+            Initialize a new instance of the OpcException class
+            </summary>
+        </member>
+        <member name="M:Hylasoft.Opc.Common.OpcException.#ctor(System.Runtime.Serialization.SerializationInfo,System.Runtime.Serialization.StreamingContext)">
+            <summary>
+            Initialize a new instance of the OpcException class
+            </summary>
+        </member>
+        <member name="M:Hylasoft.Opc.Common.OpcException.GetObjectData(System.Runtime.Serialization.SerializationInfo,System.Runtime.Serialization.StreamingContext)">
+            <summary>
+            Sets the System.Runtime.Serialization.SerializationInfo with information about the exception.
+            </summary>
+            <param name="info">The System.Runtime.Serialization.SerializationInfo that holds the serialized object data about the exception being thrown.</param>
+            <param name="context">The System.Runtime.Serialization.StreamingContext that contains contextual information about the source or destination.</param>
+        </member>
+        <member name="T:Hylasoft.Opc.Common.OpcStatus">
+            <summary>
+            Identifies the status of an OPC connector
+            </summary>
+        </member>
+        <member name="F:Hylasoft.Opc.Common.OpcStatus.NotConnected">
+            <summary>
+            The client is not connected
+            </summary>
+        </member>
+        <member name="F:Hylasoft.Opc.Common.OpcStatus.Connected">
+            <summary>
+            The client is connected
+            </summary>
+        </member>
+        <member name="T:Hylasoft.Opc.Common.Quality">
+            <summary>
+            Represents the quality of the value captured
+            </summary>
+        </member>
+        <member name="F:Hylasoft.Opc.Common.Quality.Unknown">
+            <summary>
+            Quality: Unknown, the value of the quality could not be inferred by the library
+            </summary>
+        </member>
+        <member name="F:Hylasoft.Opc.Common.Quality.Good">
+            <summary>
+            Quality: Good
+            </summary>
+        </member>
+        <member name="F:Hylasoft.Opc.Common.Quality.Bad">
+            <summary>
+            Quality: Bad
+            </summary>
+        </member>
+        <member name="T:Hylasoft.Opc.Da.DaClient">
+            <summary>
+            Client Implementation for DA
+            </summary>
+        </member>
+        <member name="F:Hylasoft.Opc.Da.DaClient.DefaultMonitorInterval">
+            <summary>
+            Default monitor interval in Milliseconds
+            </summary>
+        </member>
+        <member name="F:Hylasoft.Opc.Da.DaClient._url">
+            <summary>
+            OPC URL
+            </summary>
+        </member>
+        <member name="F:Hylasoft.Opc.Da.DaClient._server">
+            <summary>
+            OpcDa underlying server object
+            </summary>
+        </member>
+        <member name="F:Hylasoft.Opc.Da.DaClient._sub">
+            <summary>
+            Subscription auto identifier
+            </summary>
+        </member>
+        <member name="M:Hylasoft.Opc.Da.DaClient.#ctor(System.Uri)">
+            <summary>
+            Initialize a new Data Access Client
+            </summary>
+            <param name="serverUrl">The url of the server to connect to. WARNING: If server URL includes
+            spaces (ex. "RSLinx OPC Server") then pass the server URL in to the constructor as an Opc.URL object
+            directly instead.</param>
+        </member>
+        <member name="M:Hylasoft.Opc.Da.DaClient.#ctor(Opc.URL)">
+            <summary>
+            Initialize a new Data Access Client
+            </summary>
+            <param name="serverUrl">The url of the server to connect to</param>
+        </member>
+        <member name="P:Hylasoft.Opc.Da.DaClient.MonitorInterval">
+            <summary>
+            Monitor interval in Milliseconds
+            </summary>
+        </member>
+        <member name="P:Hylasoft.Opc.Da.DaClient.Status">
+            <summary>
+            Gets the current status of the OPC Client
+            </summary>
+        </member>
+        <member name="P:Hylasoft.Opc.Da.DaClient.Server">
+            <summary>
+            OpcDa underlying server object
+            </summary>
+        </member>
+        <member name="M:Hylasoft.Opc.Da.DaClient.Connect">
+            <summary>
+            Connect the client to the OPC Server
+            </summary>
+        </member>
+        <member name="M:Hylasoft.Opc.Da.DaClient.GetDataType(System.String)">
+            <summary>
+            Gets the datatype of an OPC tag
+            </summary>
+            <param name="tag">Tag to get datatype of</param>
+            <returns>System Type</returns>
+        </member>
+        <member name="M:Hylasoft.Opc.Da.DaClient.Read(System.String)">
+            <summary>
+            Read a tag
+            </summary>
+            <param name="tag">The fully-qualified identifier of the tag. You can specify a subfolder by using a comma delimited name.
+            E.g: the tag `foo.bar` reads the tag `bar` on the folder `foo`</param>
+            <returns>The value retrieved from the OPC</returns>
+        </member>
+        <member name="M:Hylasoft.Opc.Da.DaClient.Read``1(System.String)">
+            <summary>
+            Read a tag
+            </summary>
+            <typeparam name="T">The type of tag to read</typeparam>
+            <param name="tag">The fully-qualified identifier of the tag. You can specify a subfolder by using a comma delimited name.
+            E.g: the tag `foo.bar` reads the tag `bar` on the folder `foo`</param>
+            <returns>The value retrieved from the OPC</returns>
+        </member>
+        <member name="M:Hylasoft.Opc.Da.DaClient.ReadAsync``1(System.String)">
+            <summary>
+            Read a tag asynchronusly
+            </summary>
+        </member>
+        <member name="M:Hylasoft.Opc.Da.DaClient.Read(System.Collections.Generic.IEnumerable{System.String})">
+            <summary>
+            Read tags
+            </summary>
+            <param name="tags">The fully-qualified identifiers of the tags. You can specify a subfolder by using a comma delimited name.
+            E.g: the tag `foo.bar` reads the tag `bar` on the folder `foo`</param>
+            <returns>The key value pairs retrieved from the OPC</returns>
+        </member>
+        <member name="M:Hylasoft.Opc.Da.DaClient.Write``1(System.String,``0)">
+            <summary>
+            Write a value on the specified opc tag
+            </summary>
+            <typeparam name="T">The type of tag to write on</typeparam>
+            <param name="tag">The fully-qualified identifier of the tag. You can specify a subfolder by using a comma delimited name.
+            E.g: the tag `foo.bar` writes on the tag `bar` on the folder `foo`</param>
+            <param name="item"></param>
+        </member>
+        <member name="M:Hylasoft.Opc.Da.DaClient.WriteAsync``1(System.String,``0)">
+            <summary>
+            Write a value on the specified opc tag asynchronously
+            </summary>
+        </member>
+        <member name="M:Hylasoft.Opc.Da.DaClient.Monitor(System.String,System.Action{Hylasoft.Opc.Common.ReadEvent,System.Action})">
+            <summary>
+            Monitor the specified tag for changes
+            </summary>
+            <param name="tag">The fully-qualified identifier of the tag. You can specify a subfolder by using a comma delimited name.
+            E.g: the tag `foo.bar` monitors the tag `bar` on the folder `foo`</param>
+            <param name="callback">the callback to execute when the value is changed.
+            The first parameter is a MonitorEvent object which represents the data point, the second is an `unsubscribe` function to unsubscribe the callback</param>
+        </member>
+        <member name="M:Hylasoft.Opc.Da.DaClient.Monitor``1(System.String,System.Action{Hylasoft.Opc.Common.ReadEvent{``0},System.Action})">
+            <summary>
+            Monitor the specified tag for changes
+            </summary>
+            <typeparam name="T">the type of tag to monitor</typeparam>
+            <param name="tag">The fully-qualified identifier of the tag. You can specify a subfolder by using a comma delimited name.
+            E.g: the tag `foo.bar` monitors the tag `bar` on the folder `foo`</param>
+            <param name="callback">the callback to execute when the value is changed.
+            The first parameter is a MonitorEvent object which represents the data point, the second is an `unsubscribe` function to unsubscribe the callback</param>
+        </member>
+        <member name="M:Hylasoft.Opc.Da.DaClient.Monitor(System.Collections.Generic.IEnumerable{System.String},System.Action{System.Collections.Generic.IDictionary{System.String,Hylasoft.Opc.Common.ReadEvent},System.Action})">
+            <summary>
+            Monitor the specified tags for changes
+            </summary>
+            <param name="tags">The fully-qualified identifier of the tag. You can specify a subfolder by using a comma delimited name.
+            E.g: the tag `foo.bar` monitors the tag `bar` on the folder `foo`</param>
+            <param name="callback">the callback to execute when the value is changed.
+            The first parameter is the new values of the nodes, the second is an `unsubscribe` function to unsubscribe the callback</param>
+        </member>
+        <member name="M:Hylasoft.Opc.Da.DaClient.MonitorChanges(System.Collections.Generic.IEnumerable{System.String},System.Action{System.Collections.Generic.IDictionary{System.String,Hylasoft.Opc.Common.ReadEvent},System.Action})">
+            <summary>
+            Monitor the specified tags for changes
+            </summary>
+            <param name="tags">The fully-qualified identifier of the tag. You can specify a subfolder by using a comma delimited name.
+            E.g: the tag `foo.bar` monitors the tag `bar` on the folder `foo`</param>
+            <param name="callback">the callback to execute when the value is changed.
+            The first parameter is the new values of the nodes, the second is an `unsubscribe` function to unsubscribe the callback</param>
+        </member>
+        <member name="M:Hylasoft.Opc.Da.DaClient.Dispose">
+            <summary>
+            Performs application-defined tasks associated with freeing, releasing, or resetting unmanaged resources.
+            </summary>
+        </member>
+        <member name="M:Hylasoft.Opc.Da.DaClient.TryCastResult``1(System.Object)">
+            <summary>
+            Casts result of monitoring and reading values
+            </summary>
+            <param name="value">Value to convert</param>
+            <typeparam name="T">Type of object to try to cast</typeparam>
+            <returns>The casted result</returns>
+        </member>
+        <member name="T:Hylasoft.Opc.Ua.ClientUtils">
+            <summary>
+            List of static utility methods
+            </summary>
+        </member>
+        <member name="T:Hylasoft.Opc.Ua.UaClientOptions">
+            <summary>
+            This class defines the configuration options for the setup of the UA client session
+            </summary>
+        </member>
+        <member name="P:Hylasoft.Opc.Ua.UaClientOptions.ApplicationCertificate">
+            <summary>
+            Specifies the (optional) certificate for the application to connect to the server
+            </summary>
+        </member>
+        <member name="P:Hylasoft.Opc.Ua.UaClientOptions.ApplicationName">
+            <summary>
+            Specifies the ApplicationName for the client application.
+            </summary>
+        </member>
+        <member name="P:Hylasoft.Opc.Ua.UaClientOptions.AutoAcceptUntrustedCertificates">
+            <summary>
+            Should untrusted certificates be silently accepted by the client?
+            </summary>
+        </member>
+        <member name="P:Hylasoft.Opc.Ua.UaClientOptions.ConfigSectionName">
+            <summary>
+            Specifies the ConfigSectionName for the client configuration.
+            </summary>
+        </member>
+        <member name="P:Hylasoft.Opc.Ua.UaClientOptions.SessionName">
+            <summary>
+            Specifies a name to be associated with the created sessions.
+            </summary>
+        </member>
+        <member name="P:Hylasoft.Opc.Ua.UaClientOptions.SessionTimeout">
+            <summary>
+            Specifies the timeout for the sessions.
+            </summary>
+        </member>
+        <member name="P:Hylasoft.Opc.Ua.UaClientOptions.UseMessageSecurity">
+            <summary>
+            Specify whether message exchange should be secured.
+            </summary>
+        </member>
+        <member name="P:Hylasoft.Opc.Ua.UaClientOptions.SubscriptionLifetimeCount">
+            <summary>
+            The maximum number of notifications per publish request.
+            The client’s responsibility is to send PublishRequests to the server,
+            in order to enable the server to send PublishResponses back.
+            The PublishResponses are used to deliver the notifications: but if there
+            are no PublishRequests, the server cannot send a notification to the client.
+            The server will also verify that the client is alive by checking that
+            new PublishRequests are received – LifeTimeCount defines the number of
+            PublishingIntervals to wait for a new PublishRequest, before realizing
+            that the client is no longer active.The Subscription is then removed from
+            the server.
+            </summary>
+        </member>
+        <member name="P:Hylasoft.Opc.Ua.UaClientOptions.SubscriptionKeepAliveCount">
+            <summary>
+            If there is no data to send after the next PublishingInterval,
+            the server will skip it. But KeepAlive defines how many intervals may be skipped,
+            before an empty notification is sent anyway: to give the client a hint that
+            the subscription is still alive in the server and that there just has not been
+            any data arriving to the client.
+            </summary>
+        </member>
+        <member name="P:Hylasoft.Opc.Ua.UaClientOptions.MaxSubscriptionCount">
+            <summary>
+            Gets or sets the max subscription count.
+            </summary>
+        </member>
+        <member name="P:Hylasoft.Opc.Ua.UaClientOptions.MaxMessageQueueSize">
+            <summary>
+            The maximum number of messages saved in the queue for each subscription.
+            </summary>
+        </member>
+        <member name="P:Hylasoft.Opc.Ua.UaClientOptions.MaxNotificationQueueSize">
+            <summary>
+            The maximum number of notificates saved in the queue for each monitored item.
+            </summary>
+        </member>
+        <member name="P:Hylasoft.Opc.Ua.UaClientOptions.MaxPublishRequestCount">
+            <summary>
+            Gets or sets the max publish request count.
+            </summary>
+        </member>
+        <member name="P:Hylasoft.Opc.Ua.UaClientOptions.UserIdentity">
+            <summary>
+            The identity to connect to the OPC server as
+            </summary>
+        </member>
+        <member name="M:Hylasoft.Opc.Ua.UaClientOptions.#ctor">
+            <summary>
+            Creates a client options object
+            </summary>
+        </member>
+        <member name="T:Hylasoft.Opc.Ua.UaClient">
+            <summary>
+            Client Implementation for UA
+            </summary>
+        </member>
+        <member name="F:Hylasoft.Opc.Ua.UaClient.DefaultMonitorInterval">
+            <summary>
+            Default monitor interval in Milliseconds
+            </summary>
+        </member>
+        <member name="E:Hylasoft.Opc.Ua.UaClient.ServerConnectionLost">
+            <summary>
+            This event is raised when the connection to the OPC server is lost.
+            </summary>
+        </member>
+        <member name="E:Hylasoft.Opc.Ua.UaClient.ServerConnectionRestored">
+            <summary>
+            This event is raised when the connection to the OPC server is restored.
+            </summary>
+        </member>
+        <member name="F:Hylasoft.Opc.Ua.UaClient._options">
+            <summary>
+            Options to configure the UA client session
+            </summary>
+        </member>
+        <member name="F:Hylasoft.Opc.Ua.UaClient._serverUrl">
+            <summary>
+            OPC Server URL
+            </summary>
+        </member>
+        <member name="F:Hylasoft.Opc.Ua.UaClient._session">
+            <summary>
+            OPC Foundation underlying session object
+            </summary>
+        </member>
+        <member name="M:Hylasoft.Opc.Ua.UaClient.#ctor(System.Uri)">
+            <summary>
+            Creates a server object
+            </summary>
+            <param name="serverUrl">the url of the server to connect to</param>
+        </member>
+        <member name="M:Hylasoft.Opc.Ua.UaClient.#ctor(System.Uri,Hylasoft.Opc.Ua.UaClientOptions)">
+            <summary>
+            Creates a server object
+            </summary>
+            <param name="serverUrl">the url of the server to connect to</param>
+            <param name="options">custom options to use with ua client</param>
+        </member>
+        <member name="P:Hylasoft.Opc.Ua.UaClient.MonitorInterval">
+            <summary>
+            Monitor interval in Milliseconds
+            </summary>
+        </member>
+        <member name="P:Hylasoft.Opc.Ua.UaClient.Status">
+            <summary>
+            Gets the current status of the OPC Client
+            </summary>
+        </member>
+        <member name="P:Hylasoft.Opc.Ua.UaClient.Session">
+            <summary>
+            OPC Foundation underlying session object
+            </summary>
+        </member>
+        <member name="P:Hylasoft.Opc.Ua.UaClient.Options">
+            <summary>
+            Options to configure the UA client session
+            </summary>
+        </member>
+        <member name="M:Hylasoft.Opc.Ua.UaClient.Connect">
+            <summary>
+            Connect the client to the OPC Server
+            </summary>
+        </member>
+        <member name="M:Hylasoft.Opc.Ua.UaClient.GetDataType(System.String)">
+            <summary>
+            Gets the datatype of an OPC tag
+            </summary>
+            <param name="tag">Tag to get datatype of</param>
+            <returns>System Type</returns>
+        </member>
+        <member name="M:Hylasoft.Opc.Ua.UaClient.Read(System.String)">
+            <summary>
+            Read a tag
+            </summary>
+            <param name="tag">The fully-qualified identifier of the tag. You can specify a subfolder by using a comma delimited name.
+            E.g: the tag `foo.bar` reads the tag `bar` on the folder `foo`</param>
+            <returns>The value retrieved from the OPC</returns>
+        </member>
+        <member name="M:Hylasoft.Opc.Ua.UaClient.Read``1(System.String)">
+            <summary>
+            Read a tag
+            </summary>
+            <typeparam name="T">The type of tag to read</typeparam>
+            <param name="tag">The fully-qualified identifier of the tag. You can specify a subfolder by using a comma delimited name.
+            E.g: the tag `foo.bar` reads the tag `bar` on the folder `foo`</param>
+            <returns>The value retrieved from the OPC</returns>
+        </member>
+        <member name="M:Hylasoft.Opc.Ua.UaClient.ReadAsync``1(System.String)">
+            <summary>
+            Read a tag asynchronously
+            </summary>
+            <typeparam name="T">The type of tag to read</typeparam>
+            <param name="tag">The fully-qualified identifier of the tag. You can specify a subfolder by using a comma delimited name.
+            E.g: the tag `foo.bar` reads the tag `bar` on the folder `foo`</param>
+            <returns>The value retrieved from the OPC</returns>
+        </member>
+        <member name="M:Hylasoft.Opc.Ua.UaClient.Read(System.Collections.Generic.IEnumerable{System.String})">
+            <summary>
+            Read tags
+            </summary>
+            <param name="tags">The fully-qualified identifiers of the tags. You can specify a subfolder by using a comma delimited name.
+            E.g: the tag `foo.bar` reads the tag `bar` on the folder `foo`</param>
+            <returns>The key value pairs retrieved from the OPC</returns>
+        </member>
+        <member name="M:Hylasoft.Opc.Ua.UaClient.Write``1(System.String,``0)">
+            <summary>
+            Write a value on the specified opc tag
+            </summary>
+            <typeparam name="T">The type of tag to write on</typeparam>
+            <param name="tag">The fully-qualified identifier of the tag. You can specify a subfolder by using a comma delimited name.
+            E.g: the tag `foo.bar` writes on the tag `bar` on the folder `foo`</param>
+            <param name="item">The value for the item to write</param>
+        </member>
+        <member name="M:Hylasoft.Opc.Ua.UaClient.WriteAsync``1(System.String,``0)">
+            <summary>
+            Write a value on the specified opc tag asynchronously
+            </summary>
+            <typeparam name="T">The type of tag to write on</typeparam>
+            <param name="tag">The fully-qualified identifier of the tag. You can specify a subfolder by using a comma delimited name.
+            E.g: the tag `foo.bar` writes on the tag `bar` on the folder `foo`</param>
+            <param name="item">The value for the item to write</param>
+        </member>
+        <member name="M:Hylasoft.Opc.Ua.UaClient.Monitor(System.String,System.Action{Hylasoft.Opc.Common.ReadEvent,System.Action})">
+            <summary>
+            Monitor the specified tag for changes
+            </summary>
+            <param name="tag">The fully-qualified identifier of the tag. You can specify a subfolder by using a comma delimited name.
+            E.g: the tag `foo.bar` monitors the tag `bar` on the folder `foo`</param>
+            <param name="callback">the callback to execute when the value is changed.
+            The first parameter is a MonitorEvent object which represents the data point, the second is an `unsubscribe` function to unsubscribe the callback</param>
+        </member>
+        <member name="M:Hylasoft.Opc.Ua.UaClient.Monitor``1(System.String,System.Action{Hylasoft.Opc.Common.ReadEvent{``0},System.Action})">
+            <summary>
+            Monitor the specified tag for changes
+            </summary>
+            <typeparam name="T">the type of tag to monitor</typeparam>
+            <param name="tag">The fully-qualified identifier of the tag. You can specify a subfolder by using a comma delimited name.
+            E.g: the tag `foo.bar` monitors the tag `bar` on the folder `foo`</param>
+            <param name="callback">the callback to execute when the value is changed.
+            The first parameter is a MonitorEvent object which represents the data point, the second is an `unsubscribe` function to unsubscribe the callback</param>
+        </member>
+        <member name="M:Hylasoft.Opc.Ua.UaClient.Monitor(System.Collections.Generic.IEnumerable{System.String},System.Action{System.Collections.Generic.IDictionary{System.String,Hylasoft.Opc.Common.ReadEvent},System.Action})">
+            <summary>
+            Monitor the specified tags for changes
+            </summary>
+            <param name="tags">The fully-qualified identifier of the tag. You can specify a subfolder by using a comma delimited name.
+            E.g: the tag `foo.bar` monitors the tag `bar` on the folder `foo`</param>
+            <param name="callback">the callback to execute when the value is changed.
+            The first parameter is the new values of the nodes, the second is an `unsubscribe` function to unsubscribe the callback</param>
+        </member>
+        <member name="M:Hylasoft.Opc.Ua.UaClient.MonitorChanges(System.Collections.Generic.IEnumerable{System.String},System.Action{System.Collections.Generic.IDictionary{System.String,Hylasoft.Opc.Common.ReadEvent},System.Action})">
+            <summary>
+            Monitor the specified tags for changes
+            </summary>
+            <param name="tags">The fully-qualified identifier of the tag. You can specify a subfolder by using a comma delimited name.
+            E.g: the tag `foo.bar` monitors the tag `bar` on the folder `foo`</param>
+            <param name="callback">the callback to execute when the value is changed.
+            The first parameter is the new values of the nodes, the second is an `unsubscribe` function to unsubscribe the callback</param>
+        </member>
+        <member name="M:Hylasoft.Opc.Ua.UaClient.Dispose">
+            <summary>
+            Performs application-defined tasks associated with freeing, releasing, or resetting unmanaged resources.
+            </summary>
+        </member>
+        <member name="M:Hylasoft.Opc.Ua.UaClient.ReConnect">
+            <summary>
+            Reconnect the OPC session
+            </summary>
+        </member>
+        <member name="M:Hylasoft.Opc.Ua.UaClient.RecreateSession">
+            <summary>
+            Create a new OPC session, based on the current session parameters.
+            </summary>
+        </member>
+        <member name="M:Hylasoft.Opc.Ua.UaClient.InitializeSession(System.Uri)">
+            <summary>
+            Crappy method to initialize the session. I don't know what many of these things do, sincerely.
+            </summary>
+        </member>
+        <member name="M:Hylasoft.Opc.Ua.UaClient.GetIdentity(System.Uri)">
+            <summary>
+            Return identity login object for a given URI.
+            </summary>
+            <param name="url">Login URI</param>
+            <returns>AnonUser or User with name and password</returns>
+        </member>
+        <member name="M:Hylasoft.Opc.Ua.UaClient.BuildReadValueIdCollection(System.String,System.UInt32)">
+            <summary>
+            To build nodeId collection to read
+            </summary>
+        </member>
+        <member name="M:Hylasoft.Opc.Ua.UaClient.BuildWriteValueCollection(System.String,System.UInt32,System.Object)">
+            <summary>
+            To build nodeId collection to write
+            </summary>
+        </member>
+        <member name="M:Hylasoft.Opc.Ua.UaClient.CheckReturnValue(Opc.Ua.StatusCode)">
+            <summary>
+            To check the return value
+            </summary>
+        </member>
+        <member name="M:Hylasoft.Opc.Ua.UaClient.OnSessionKeepAlive(Opc.Ua.Client.Session,Opc.Ua.Client.KeepAliveEventArgs)">
+            <summary>
+            SessionKeepAlive event handler
+            </summary>
+        </member>
+        <member name="M:Hylasoft.Opc.Ua.UaClient.OnSessionClosing(System.Object,System.EventArgs)">
+            <summary>
+            SessionClosing event handler
+            </summary>
+        </member>
+    </members>
+</doc>

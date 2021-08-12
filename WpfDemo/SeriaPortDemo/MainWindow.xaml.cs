@@ -30,7 +30,7 @@ namespace SeriaPortDemo
             btnConnect.Click += BtnConnect_Click;
             btn_AscSend.Click += Btn_AscSend_Click;
             btn_DeftSend.Click += Btn_DeftSend_Click;
-            btn_HexSend1.Click += Btn_HexSend1_Click;
+            btn_StringSend.Click += Btn_StringSend_Click;
             btn_HexSend2.Click += Btn_HexSend2_Click;
             btn_clean.Click += Btn_clean_Click;
 
@@ -97,8 +97,10 @@ namespace SeriaPortDemo
             string cmd = txt_AscCommand2.Text + "\r\n";
             comSeriaPort.SendDefaultCommand(cmd);
         }
-        private void Btn_HexSend1_Click(object sender, RoutedEventArgs e)
+        private void Btn_StringSend_Click(object sender, RoutedEventArgs e)
         {
+            string cmd = txt_StringCommand.Text;
+            comSeriaPort.SendStringCommand(cmd);
         }
         private void Btn_HexSend2_Click(object sender, RoutedEventArgs e)
         {

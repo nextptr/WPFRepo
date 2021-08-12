@@ -1,0 +1,24 @@
+﻿<UserControl x:Class="WpfThread.LockMonitorResetEventPanel"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:WpfThread"
+             mc:Ignorable="d" 
+             d:DesignHeight="300" d:DesignWidth="300">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+        <ListBox Name="ls_box"/>
+        <WrapPanel Grid.Column="1" Orientation="Horizontal">
+            <StackPanel Orientation="Horizontal">
+                <Button Content="LockTest" Click="btnLockTest" Width="80" Height="35" Margin="5"/>
+                <Button Content="MonitorTest" Click="btnMonitorTest" Width="80" Height="35" Margin="5"/>
+                <Button Content="MonitorTest" Click="btnTryMonitorTest" Width="80" Height="35" Margin="5"/>
+                <Button Content="BlogTest" Click="btnBlogTest" Width="80" Height="35" Margin="5"/>
+            </StackPanel>
+        </WrapPanel>
+    </Grid>
+</UserControl>
