@@ -25,7 +25,9 @@ namespace WpfThread
         {
             InitializeComponent();
             btnAsync.Click += BtnAsync_Click;
+            btnDefAsync.Click += BtnDefAsync_Click;
         }
+
         private void msg(object obj)
         {
             Thread tt = new Thread(() =>
@@ -51,6 +53,39 @@ namespace WpfThread
             {
                 msg("thread run");
             });
+            tt.Start();
+        }
+
+        private async void BtnDefAsync_Click(object sender, RoutedEventArgs e)
+        {
+            msg("test start");
+            await AsyncMethod();
+            msg("test finish");
+        }
+
+        private Task<bool> AsyncMethod()
+        {
+            var tsk = Task.Run(() =>
+            {
+                try
+                {
+                    Thread.Sleep(3000);
+                    msg("Task ok");
+                    if (1 > 2)
+                    {
+                        return false;
+                    }
+                    else
+                    {
+                        return true;
+                    }
+                }
+                catch
+                {
+                    return false;
+                }
+            });
+            return tsk;
         }
     }
 }

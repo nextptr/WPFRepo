@@ -246,5 +246,6 @@ namespace WpfApp
             List<string> rawLs = getMemRawData(obj);
             saveAsRawData(obj, rawLs, "内存数据");
         }
+
     }
 }

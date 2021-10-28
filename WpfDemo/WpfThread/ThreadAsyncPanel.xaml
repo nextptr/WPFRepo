@@ -26,6 +26,7 @@
                 <ColumnDefinition Width="*"/>
             </Grid.ColumnDefinitions>
             <Button Grid.Row="0" Grid.Column="0" Margin="2" Content="async" Name="btnAsync" />
+            <Button Grid.Row="0" Grid.Column="1" Margin="2" Content="自定义Async" Name="btnDefAsync" />
         </Grid>
     </Grid>
 </UserControl>

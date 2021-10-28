@@ -89,6 +89,7 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="ResultAttach.cs" />
     <Compile Include="可停靠控件\FreeDockPanel.xaml.cs">
       <DependentUpon>FreeDockPanel.xaml</DependentUpon>
     </Compile>

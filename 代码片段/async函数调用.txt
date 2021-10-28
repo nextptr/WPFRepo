@@ -1,0 +1,17 @@
+public async void btnGoToPosition()
+{
+    try
+    {
+        _goToPosition();
+        await Task.Run(() =>
+        {
+            AxisX.WaitPosition(10000);
+            AxisY.WaitPosition(10000);
+            AxisZ.WaitPosition(10000);
+        });
+    }
+    catch (Exception ex)
+    {
+        MessageBox.Show("轴到位异常:" + ex.InnerException?.Message, null, "异常", MessageBoxButton.OK, MessageBoxImage.Information, MessageBoxResult.OK);
+    }
+}

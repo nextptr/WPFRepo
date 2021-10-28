@@ -29,8 +29,6 @@ namespace DatabaseHelper.Common
     {
         public string TableName = "";
     }
-
-
     public class SQLiteHelper
     {
         protected string DbPath = "";

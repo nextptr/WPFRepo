@@ -45,6 +45,12 @@
                 <ToggleButton Margin="5" Style="{StaticResource YellowToggleButton}" Content="ToggleButton"/>
             </UniformGrid>
         </GroupBox>
+        <GroupBox Header="AttachToggleButton">
+            <WrapPanel>
+                <Button Width="120" Height="35" Margin="5" Name="attBtn" local:ResultAttach.Result="{Binding PropResult}" Tag="机械臂"/>
+                <ToggleButton Width="120" Height="35" Margin="5" Name="testBtn" Content="Test"/>
+            </WrapPanel>
+        </GroupBox>
     </UniformGrid>
     <x:Code>
         <![CDATA[

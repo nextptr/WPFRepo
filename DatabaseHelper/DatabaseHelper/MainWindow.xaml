@@ -5,8 +5,25 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:DatabaseHelper"
         mc:Ignorable="d"
-         Title="MainWindow" Height="450" Width="800">
-    <Grid Margin="0,30,0,0">
+        Title="MainWindow" Height="450" Width="800">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="auto"/>
+        </Grid.ColumnDefinitions>
         <ListBox Name="ls_box"/>
+        <Grid Grid.Column="1">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="auto"/>
+                <RowDefinition Height="auto"/>
+                <RowDefinition Height="auto"/>
+                <RowDefinition Height="auto"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+            <Button Grid.Row="0" Height="35" Width="120" Margin="5" Click="btnEmpty300"       Content="前300空文件"/>
+            <Button Grid.Row="1" Height="35" Width="120" Margin="5" Click="btnReplaceApp"     Content="替换软件报错"/>
+            <Button Grid.Row="2" Height="35" Width="120" Margin="5" Click="btnReplaceWarning" Content="替换Warning文件"/>
+            <Button Grid.Row="3" Height="35" Width="120" Margin="5" Click="btnReplaceAlarm"   Content="替换Alarm文件"/>
+        </Grid>
     </Grid>
 </Window>

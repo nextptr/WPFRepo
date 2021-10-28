@@ -1,0 +1,7 @@
+xmlns:Interaction="http://schemas.microsoft.com/expression/2010/interactions"
+xmlns:Interactivity="http://schemas.microsoft.com/expression/2010/interactivity"
+<Interactivity:Interaction.Triggers>
+    <Interactivity:EventTrigger EventName="Loaded">
+        <Interaction:CallMethodAction TargetObject="{Binding}" MethodName="LoadedCommand"/>
+    </Interactivity:EventTrigger>
+</Interactivity:Interaction.Triggers>

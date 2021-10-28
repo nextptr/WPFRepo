@@ -2,6 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.IO;
+using System.Threading.Tasks;
 using System.Windows;
 
 namespace DatabaseHelper
@@ -14,7 +15,6 @@ namespace DatabaseHelper
         public MainWindow()
         {
             InitializeComponent();
-            meission();
         }
         private void addMsg(object str)
         {
@@ -48,8 +48,8 @@ namespace DatabaseHelper
 
             addMsg($"ok");
         }
-        List<List<object>> lsRawData = new List<List<object>>();
 
+        List<List<object>> lsRawData = new List<List<object>>();
         public bool OpenDatabase(string dbName)
         {
             try
@@ -114,10 +114,26 @@ namespace DatabaseHelper
                 lsobj.Add("Solution");
                 lsobj.Add("Device");
                 lsobj.Add("Alarm");
-                for (int i = 37; i <= 300; i++)
+                for (int i = 0; i <= 300; i++)
                 {
                     lsobj[0] = i;
                     SQLiteHelper.Instance.AtomInsertTableValue("AlarmLookupTab", lsobj);
+                }
+                return true;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+                return false;
+            }
+        }
+        public bool replaceEmptyDateToDatabase()
+        {
+            try
+            {
+                for (int i = 0; i <= 300; i++)
+                {
+                    SQLiteHelper.Instance.UpdateTableValue("AlarmLookupTab", "AlarmMessage", "Null", "AlarmID", i);
                 }
                 return true;
             }
@@ -132,10 +148,8 @@ namespace DatabaseHelper
         {
             try
             {
-             
                 foreach (var item in lsRawData)
                 {
-                    SQLiteHelper.Instance.ExecuteInsertTableValue(item);
                     SQLiteHelper.Instance.UpdateTableValue(tabName, "AlarmMessage", item[1], "AlarmID", item[0]);
                 }
                 return true;
@@ -145,6 +159,134 @@ namespace DatabaseHelper
                 MessageBox.Show(ex.Message);
                 return false;
             }
+        }
+
+        private static object lck = new object();
+        public void btnEmpty300(object sender, RoutedEventArgs e)
+        {
+            Task.Factory.StartNew(() =>
+            {
+                if (System.Threading.Monitor.TryEnter(lck, 50))
+                {
+                    try
+                    {
+                        //打开数据库
+                        if (!OpenDatabase("MaxwellDatabase.db"))
+                            return;
+                        //替换300空文件
+                        if (replaceEmptyDateToDatabase())
+                        {
+                            addMsg($"替换300空文件 ok");
+                        }
+                        else
+                        {
+                            addMsg($"替换300空文件 fail");
+                        }
+                        //补充300空文件                       
+                        //if (writeEmptyDateToDatabase("MaxwellDatabase.db"))
+                        //    return;
+                        addMsg($"写入300空文件 ok");
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show("写入空文件错误：" + ex.Message);
+                    }
+                    finally
+                    {
+                        System.Threading.Monitor.Exit(lck);
+                    }
+                }
+            });
+        }
+        public void btnReplaceApp(object sender, RoutedEventArgs e)
+        {
+            Task.Factory.StartNew(() =>
+            {
+                if (System.Threading.Monitor.TryEnter(lck, 50))
+                {
+                    try
+                    {
+                        //打开数据库
+                        if (!OpenDatabase("MaxwellDatabase.db"))
+                            return;
+                        //获取数据
+                        if (!analyseCsvFile("AppData.csv"))
+                            return;
+                        //修改数据库文件
+                        if (!replaceDatabase("MaxwellDatabase.db", "AlarmLookupTab"))
+                            return;
+                        addMsg($"替换软件报警文件 ok");
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show("写入空文件错误：" + ex.Message);
+                    }
+                    finally
+                    {
+                        System.Threading.Monitor.Exit(lck);
+                    }
+                }
+            });
+        }
+        public void btnReplaceWarning(object sender, RoutedEventArgs e)
+        {
+            Task.Factory.StartNew(() =>
+            {
+                if (System.Threading.Monitor.TryEnter(lck, 50))
+                {
+                    try
+                    {
+                        //打开数据库
+                        if (!OpenDatabase("MaxwellDatabase.db"))
+                            return;
+                        //获取数据
+                        if (!analyseCsvFile("WarningPlcData.csv"))
+                            return;
+                        //修改数据库文件
+                        if (!replaceDatabase("MaxwellDatabase.db", "AlarmLookupTab"))
+                            return;
+                        addMsg($"替换PlcWarning文件 ok");
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show("写入空文件错误：" + ex.Message);
+                    }
+                    finally
+                    {
+                        System.Threading.Monitor.Exit(lck);
+                    }
+                }
+            });
+        }
+        public void btnReplaceAlarm(object sender, RoutedEventArgs e)
+        {
+            Task.Factory.StartNew(() =>
+            {
+                if (System.Threading.Monitor.TryEnter(lck, 50))
+                {
+                    try
+                    {
+                        //打开数据库
+                        if (!OpenDatabase("MaxwellDatabase.db"))
+                            return;
+                        //获取数据
+                        if (!analyseCsvFile("AlarmPlcData.csv"))
+                            return;
+                        //修改数据库文件
+                        if (!replaceDatabase("MaxwellDatabase.db", "AlarmLookupTab"))
+                            return;
+                        addMsg($"替换PlcAlarm文件 ok");
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show("写入空文件错误：" + ex.Message);
+                    }
+                    finally
+                    {
+                        System.Threading.Monitor.Exit(lck);
+                    }
+                }
+            });
         }
     }
 }

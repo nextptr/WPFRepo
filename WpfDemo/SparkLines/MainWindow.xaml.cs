@@ -69,9 +69,11 @@ namespace SparkLines
                 while (WorkFlag)
                 {
                     index++;
+                    if (index < 200)
+                        continue;
                     index = index % indexCount;
                     WaveLine.Add(testVal[index]);
-                    Thread.Sleep(300);
+                    Thread.Sleep(600);
                 }
             }
 

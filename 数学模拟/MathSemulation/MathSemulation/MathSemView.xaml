@@ -1,0 +1,52 @@
+﻿<UserControl x:Class="MathSemulation.MathSemView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:MathSemulation"
+             xmlns:s="https://github.com/canton7/Stylet"
+             mc:Ignorable="d" 
+             d:DesignHeight="650" d:DesignWidth="750">
+    <UserControl.Resources>
+        <ResourceDictionary>
+            <local:VisibilityConverter x:Key="vsiCvt"/>
+        </ResourceDictionary>
+    </UserControl.Resources>
+    <Grid Background="White" SnapsToDevicePixels="True">
+        <Viewbox Stretch="Uniform">
+            <Canvas Name="canvas" Background="White" Height="550" Width="650">
+                <Polyline Stroke="Black" StrokeThickness="2" Points="100,100,100,400,500,400,100,100"  />
+                <Polyline Stroke="Black" StrokeThickness="2" StrokeDashArray="5 3" Points="100,100,100,400,500,400,100,100"  />
+                <Label FontSize="17" Foreground="Black" Width="70" Canvas.Left="60" Canvas.Top="70"  Content="B(0,6)" HorizontalContentAlignment="Right"/>
+                <Label FontSize="17" Foreground="Black" Width="70" Canvas.Left="60" Canvas.Top="400" Content="O(0,0)" HorizontalContentAlignment="Right"/>
+                <Label FontSize="17" Foreground="Black" Width="70" Canvas.Left="460" Canvas.Top="400" Content="A(8,0)" HorizontalContentAlignment="Right"/>
+                <Ellipse Width="200" Height="200" Canvas.Left="100" Canvas.Top="200" Stroke="Black" StrokeThickness="2"/>
+
+                <!--<Polyline Stroke="Red"   StrokeThickness="1" Points="100,100,200,300"/>
+                <Polyline Stroke="Green" StrokeThickness="1" Points="100,400,200,300"/>
+                <Polyline Stroke="Blue"  StrokeThickness="1" Points="500,400,200,300"/>-->
+
+                <Polyline Stroke="Red"   StrokeThickness="1" Points="{Binding LinesB}"/>
+                <Polyline Stroke="Green" StrokeThickness="1" Points="{Binding LinesO}"/>
+                <Polyline Stroke="Blue"  StrokeThickness="1" Points="{Binding LinesA}"/>
+                <UniformGrid Rows="3" Canvas.Top="130" Canvas.Left="300">
+                    <StackPanel Orientation="Horizontal">
+                        <Label FontSize="17" Foreground="Black" Content="实时面积:"/>
+                        <Label FontSize="17" Foreground="Black" Content="{Binding Area}"/>
+                    </StackPanel>
+                    <StackPanel Orientation="Horizontal">
+                        <Label FontSize="17" Foreground="Black" Content="最大面积:"/>
+                        <Label FontSize="17" Foreground="Black" Content="{Binding MaxArea}"/>
+                    </StackPanel>
+                    <StackPanel Orientation="Horizontal">
+                        <Label FontSize="17" Foreground="Black" Content="最小面积:"/>
+                        <Label FontSize="17" Foreground="Black" Content="{Binding MinArea}"/>
+                    </StackPanel>
+                </UniformGrid>
+                <Label FontSize="17" Canvas.Top="270" Canvas.Left="100" Foreground="Black" Content="最大位置(2,2)面积88" Visibility="{Binding Visb, Converter={StaticResource vsiCvt}}"/>
+                <Label FontSize="17" Canvas.Top="270" Canvas.Left="300" Foreground="Black" Content="最小位置(4,2)面积72" Visibility="{Binding Visb, Converter={StaticResource vsiCvt}}"/>
+                <Button Content="test" Canvas.Top="70" Click="{s:Action btnTest}" Canvas.Left="300" Width="80" Height="40"/>
+            </Canvas>
+        </Viewbox>
+    </Grid>
+</UserControl>

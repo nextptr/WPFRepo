@@ -77,10 +77,17 @@
     <Compile Include="BlackSparkLine.xaml.cs">
       <DependentUpon>BlackSparkLine.xaml</DependentUpon>
     </Compile>
+    <Compile Include="FullDataSparkLine.xaml.cs">
+      <DependentUpon>FullDataSparkLine.xaml</DependentUpon>
+    </Compile>
     <Compile Include="WhiteSparkLine.xaml.cs">
       <DependentUpon>WhiteSparkLine.xaml</DependentUpon>
     </Compile>
     <Page Include="BlackSparkLine.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="FullDataSparkLine.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
