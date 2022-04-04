@@ -11,9 +11,9 @@
             <ColumnDefinition />
             <ColumnDefinition Width="240" />
         </Grid.ColumnDefinitions>
-        <Border Grid.Column="0" Name="bord" BorderThickness="2" BorderBrush="Gold">
-            <Viewbox Stretch="Fill">
-                <Grid Name="grid"/>
+        <Border Grid.Column="0" Name="bord" BorderThickness="2" BorderBrush="Gold" Width="auto" Height="auto" HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
+            <Viewbox Stretch="Fill" Width="auto" Height="auto" HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
+                <Grid Name="grid" Width="auto" Height="auto" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"/>
             </Viewbox>
         </Border>
         <Border Margin="-2,0,0,0" Name="bord_btn" Grid.Column="1" BorderThickness="2" BorderBrush="Gold">

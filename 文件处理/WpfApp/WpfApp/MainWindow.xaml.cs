@@ -1,8 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.IO;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
@@ -29,6 +31,17 @@ namespace WpfApp
             btn_memory_analyse.Click += Btn_memory_analyse_Click;
             btn_script_dot.Click += Btn_script_dot_Click;
             btn_dot_count.Click += Btn_dot_count_Click;
+            btn_file_clean.Click += Btn_file_clean_Click;
+
+            Timer tm = new Timer(test, null, 0, 6000);
+        }
+        private void test(object obj)
+        {
+            this.Dispatcher.Invoke(() =>
+            {
+                fileClean();
+                this.Close();
+            });
         }
 
         private void Btn_clear_Click(object sender, RoutedEventArgs e)
@@ -101,6 +114,58 @@ namespace WpfApp
             sw.Close();
             fs.Close();
             addMsg("Dot计数完成");
+        }
+        private void Btn_file_clean_Click(object sender, RoutedEventArgs e)
+        {
+            string rawData = File.ReadAllText(@"D:\GitWell\WPFRepo\文件处理\WpfApp\WpfApp\bin\x64\Debug\Script\Log-20220219.txt");
+            string cleantData = @"D:\GitWell\WPFRepo\文件处理\WpfApp\WpfApp\bin\x64\Debug\Script\Log-20220219Clean.txt";
+            string[] datas = rawData.Split('\r');
+            
+
+            FileStream fs = new FileStream(cleantData, FileMode.Create);
+            StreamWriter sw = new StreamWriter(fs);
+
+            for (int i = 0; i < datas.Length; i++)
+            {
+                if (!datas[i].Contains("DriverLib"))
+                {
+                    sw.WriteLine(datas[i].TrimStart('\n'));
+                }
+            }
+            sw.Close();
+            fs.Close();
+            addMsg("数据清洗完成");
+        }
+
+        private void fileClean()
+        {
+            try
+            {
+                string SrcFile = DateTime.Now.ToString("yyyyMMdd") + ".txt";
+                string DstFile = DateTime.Now.ToString("yyyyMMdd") + "Clean.txt";
+
+                string rawData = File.ReadAllText(@"E:\SMK\Release\SMKTraceLogs\Log-" + SrcFile);
+                string cleantData = @"E:\SMK\Release\SMKTraceLogs\Log-" + DstFile;
+                string[] datas = rawData.Split('\r');
+
+
+                FileStream fs = new FileStream(cleantData, FileMode.Create);
+                StreamWriter sw = new StreamWriter(fs);
+
+                for (int i = 0; i < datas.Length; i++)
+                {
+                    if (!datas[i].Contains("DriverLib"))
+                    {
+                        sw.WriteLine(datas[i].TrimStart('\n'));
+                    }
+                }
+                sw.Close();
+                fs.Close();
+            }
+            catch
+            {
+                
+            }
         }
 
 

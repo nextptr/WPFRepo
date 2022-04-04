@@ -73,9 +73,9 @@ namespace WpfLifeGame.CellBase
         }
         public void InitBinding(int count)
         {
-            double wid = grid.ActualHeight / count;
-            double grid_width = grid.ActualWidth;
-            double grid_height = grid.ActualHeight;
+            double wid = bord.ActualHeight / count;
+            double grid_width = bord.ActualWidth;
+            double grid_height = bord.ActualHeight;
             for (int i = 0; i < count; i++)
             {
                 for (int j = 0; j < count; j++)

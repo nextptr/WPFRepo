@@ -1,0 +1,19 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>WinExe</OutputType>
+    <TargetFramework>net5.0-windows</TargetFramework>
+    <UseWPF>true</UseWPF>
+    <Platforms>AnyCPU;x64</Platforms>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <None Remove="Image\打标偏斜.bmp" />
+    <None Remove="Image\打标偏斜.jpg" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Resource Include="Image\打标偏斜.jpg" />
+  </ItemGroup>
+
+</Project>

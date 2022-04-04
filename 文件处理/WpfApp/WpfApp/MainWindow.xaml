@@ -5,18 +5,22 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:WpfApp"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
-    <UniformGrid Columns="2">
-        <Grid>
-            <ListBox Name="ls_box"/>
-            <Button Name="btn_clear" Content="clear" VerticalAlignment="Bottom" HorizontalAlignment="Right"/>
-        </Grid>
-        <UniformGrid Rows="10" Columns="4">
-            <Button Name="btn_motion_analyse" Content="流程数据分析"/>
-            <Button Name="btn_align_analyse" Content="对位数据分析"/>
-            <Button Name="btn_memory_analyse" Content="内存数据分析"/>
-            <Button Name="btn_script_dot" Content="脚本Dot处理"/>
-            <Button Name="btn_dot_count" Content="Dot计数"/>
+        Title="MainWindow" Height="300" Width="400">
+    <Grid>
+        <Label VerticalAlignment="Center" HorizontalAlignment="Center" Content="正在清洗Log文件" FontSize="30"/>
+        <UniformGrid Columns="2" Visibility="Collapsed">
+            <Grid>
+                <ListBox Name="ls_box"/>
+                <Button Name="btn_clear" Content="clear" VerticalAlignment="Bottom" HorizontalAlignment="Right"/>
+            </Grid>
+            <UniformGrid Rows="10" Columns="4">
+                <Button Name="btn_motion_analyse" Content="流程数据分析"/>
+                <Button Name="btn_align_analyse" Content="对位数据分析"/>
+                <Button Name="btn_memory_analyse" Content="内存数据分析"/>
+                <Button Name="btn_script_dot" Content="脚本Dot处理"/>
+                <Button Name="btn_dot_count" Content="Dot计数"/>
+                <Button Name="btn_file_clean" Content="数据清洗"/>
+            </UniformGrid>
         </UniformGrid>
-    </UniformGrid>
+    </Grid>
 </Window>
