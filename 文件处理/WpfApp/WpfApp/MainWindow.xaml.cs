@@ -1,5 +1,7 @@
-﻿using System;
+﻿using Microsoft.Win32;
+using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Diagnostics;
 using System.IO;
 using System.Linq;
@@ -20,33 +22,26 @@ namespace WpfApp
     /// <summary>
     /// MainWindow.xaml 的交互逻辑
     /// </summary>
-    public partial class MainWindow : Window
+    public partial class MainWindow : Window,INotifyPropertyChanged
     {
+        public event PropertyChangedEventHandler PropertyChanged;
+        public DelegateCommand ClickCommand { get; set; }
+        private bool hasFile = false;
+        public bool HasFile
+        {
+            get { return hasFile; }
+            set
+            {
+                hasFile = value;
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(nameof(HasFile)));
+            }
+        }
+
         public MainWindow()
         {
             InitializeComponent();
-            btn_clear.Click += Btn_clear_Click;
-            btn_motion_analyse.Click += Btn_motion_analyse_Click;
-            btn_align_analyse.Click += Btn_align_analyse_Click;
-            btn_memory_analyse.Click += Btn_memory_analyse_Click;
-            btn_script_dot.Click += Btn_script_dot_Click;
-            btn_dot_count.Click += Btn_dot_count_Click;
-            btn_file_clean.Click += Btn_file_clean_Click;
-
-            Timer tm = new Timer(test, null, 0, 6000);
-        }
-        private void test(object obj)
-        {
-            this.Dispatcher.Invoke(() =>
-            {
-                fileClean();
-                this.Close();
-            });
-        }
-
-        private void Btn_clear_Click(object sender, RoutedEventArgs e)
-        {
-            ls_box.Items.Clear();
+            ClickCommand = new DelegateCommand(Button_Click);
+            this.DataContext = this;
         }
         private void addMsg(string str)
         {
@@ -56,11 +51,147 @@ namespace WpfApp
             }));
         }
 
+        private string filePath;
+        private string fileName;
+        private string fileFullPath;
+        private void openFile()
+        {
+            OpenFileDialog openFileDialog1 = new OpenFileDialog();
+            if (openFileDialog1.ShowDialog().Value)
+            {
+                fileFullPath = openFileDialog1.FileName;
+                fileName = openFileDialog1.SafeFileName;
+                filePath = fileFullPath.TrimEnd(fileName.ToCharArray());
+                addMsg(fileFullPath);
+                HasFile = true;
+            }
+        }
+        public void Button_Click(object obj)
+        {
+            string arg = (string)obj;
+            switch (arg)
+            {
+                case "clear":
+                    ls_box.Items.Clear();
+                    break;
+                case "t1":
+                    openFile();
+                    break;
+                case "t2":
+                    cutLine();
+                    break;
+                case "t3":
+                    clearStepData();
+                    break;
+                default:
+                    break;
+            }
+        }
+
+        private void cutLine()
+        {
+            FileStream fs = new FileStream(fileFullPath, FileMode.Open);
+            FileStream fw = new FileStream(Path.Combine(filePath, "New" + fileName), FileMode.Create);
+            StreamReader sr = new StreamReader(fs);
+            StreamWriter sw = new StreamWriter(fw);
+            string line = "";
+            while (!sr.EndOfStream)
+            {
+                line = sr.ReadLine();
+                if (line.Length > 55)
+                {
+                    var s1 = line.Substring(0, 55);
+                    line = line.Remove(0, 55);
+                    sw.WriteLine(s1);
+                    if (line.Length < 50)
+                    {
+                        sw.WriteLine("    " + line);
+                        continue;
+                    }
+                    do
+                    {
+                        s1 = "    " + line.Substring(0, 50);
+                        line = line.Remove(0, 50);
+                        sw.WriteLine(s1);
+                        if (line.Length < 50)
+                        {
+                            sw.WriteLine("    " + line);
+                            break;
+                        }
+                    } while (true);
+                }
+                else
+                {
+                    sw.WriteLine(line);
+                }
+            }
+            sw.Close();
+            sr.Close();
+            fw.Close();
+            fs.Close();
+            addMsg("全部修改位55字符长度");
+        }
+        private void clearStepData()
+        {
+            FileStream fs = new FileStream(fileFullPath, FileMode.Open);
+
+            string nam = fileName.Replace("txt", "csv");
+            FileStream fw = new FileStream(Path.Combine(filePath, "New" + nam), FileMode.Create);
+            StreamReader sr = new StreamReader(fs);
+            StreamWriter sw = new StreamWriter(fw);
+
+
+            List<string> buffer1 = new List<string>();
+            Dictionary<string, Dictionary<string, string>> dic = new Dictionary<string, Dictionary<string, string>>();
+            string line = "";
+            while (!sr.EndOfStream)
+            {
+                line = sr.ReadLine();
+                if (line.Contains("各流程计时"))
+                {
+                    buffer1.Add(line.Replace(" #", "#"));
+                }
+            }
+
+            string head="";
+            foreach (var item in buffer1)
+            {
+                head = "时间";
+                var arr = item.Split('#');
+                string ky = arr[0].Substring(0, 19);
+                dic[ky] = new Dictionary<string, string>();
+                for (int i = 1; i < arr.Length; i++)
+                {
+                    var tmp = arr[i].Split('*');
+                    dic[ky][tmp[0]] = tmp[1];
+                    head += $",{tmp[0]}";
+                }
+            }
+
+            string str;
+            sw.WriteLine(head);
+            foreach (var ky in dic.Keys)
+            {
+                str = ky;
+                foreach (var item in dic[ky].Values)
+                {
+                    str += $",{item}";
+                }
+                sw.WriteLine(str);
+            }
+            sw.Close();
+            sr.Close();
+            fw.Close();
+            fs.Close();
+            addMsg("数据清理完成");
+        }
+
+        #region old
         private void Btn_motion_analyse_Click(object sender, RoutedEventArgs e)
         {
             FileAnalyseHelper hp = new FileAnalyseHelper();
             filePathObj path = hp.SelectFileDialog();
-            addMsg("开始分析:"+path.fileName);
+            addMsg("开始分析:" + path.fileName);
             hp.analyseMotionData(path);
             addMsg("处理完成");
         }
@@ -120,7 +251,7 @@ namespace WpfApp
             string rawData = File.ReadAllText(@"D:\GitWell\WPFRepo\文件处理\WpfApp\WpfApp\bin\x64\Debug\Script\Log-20220219.txt");
             string cleantData = @"D:\GitWell\WPFRepo\文件处理\WpfApp\WpfApp\bin\x64\Debug\Script\Log-20220219Clean.txt";
             string[] datas = rawData.Split('\r');
-            
+
 
             FileStream fs = new FileStream(cleantData, FileMode.Create);
             StreamWriter sw = new StreamWriter(fs);
@@ -136,7 +267,6 @@ namespace WpfApp
             fs.Close();
             addMsg("数据清洗完成");
         }
-
         private void fileClean()
         {
             try
@@ -164,7 +294,7 @@ namespace WpfApp
             }
             catch
             {
-                
+
             }
         }
 
@@ -179,7 +309,7 @@ namespace WpfApp
             string nw = proc(ori, sett, BodyEditDotTo100, GeneralEdit);
 
             string wpth = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "Script/NewScript.txt");
-            FileStream fs = new FileStream(wpth,FileMode.OpenOrCreate);
+            FileStream fs = new FileStream(wpth, FileMode.OpenOrCreate);
             StreamWriter wfs = new StreamWriter(fs);
             wfs.Write(nw);
             wfs.Close();
@@ -187,7 +317,7 @@ namespace WpfApp
             addMsg("Dot处理结束");
         }
 
-        private string proc(string rawData, ScanSettingItem generalSetting, Func<string, string> bodyEdit,Func<string, ScanSettingItem, string> generalEdit)
+        private string proc(string rawData, ScanSettingItem generalSetting, Func<string, string> bodyEdit, Func<string, ScanSettingItem, string> generalEdit)
         {
             //1.文本解析
             bool flag = true;
@@ -430,6 +560,7 @@ namespace WpfApp
             string reverseData = strHead + reverseBody + strTail;
             return reverseData;
         }
+        #endregion
     }
 
     public class ScanSettingItem

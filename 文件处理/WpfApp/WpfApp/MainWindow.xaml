@@ -4,23 +4,28 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:WpfApp"
-        mc:Ignorable="d"
-        Title="MainWindow" Height="300" Width="400">
-    <Grid>
-        <Label VerticalAlignment="Center" HorizontalAlignment="Center" Content="正在清洗Log文件" FontSize="30"/>
-        <UniformGrid Columns="2" Visibility="Collapsed">
-            <Grid>
-                <ListBox Name="ls_box"/>
-                <Button Name="btn_clear" Content="clear" VerticalAlignment="Bottom" HorizontalAlignment="Right"/>
-            </Grid>
-            <UniformGrid Rows="10" Columns="4">
-                <Button Name="btn_motion_analyse" Content="流程数据分析"/>
-                <Button Name="btn_align_analyse" Content="对位数据分析"/>
-                <Button Name="btn_memory_analyse" Content="内存数据分析"/>
-                <Button Name="btn_script_dot" Content="脚本Dot处理"/>
-                <Button Name="btn_dot_count" Content="Dot计数"/>
-                <Button Name="btn_file_clean" Content="数据清洗"/>
-            </UniformGrid>
-        </UniformGrid>
-    </Grid>
+        mc:Ignorable="d" x:Name="rot" WindowStartupLocation="CenterScreen"
+        Title="MainWindow" Height="450" Width="800">
+    <Window.Resources>
+        <Style TargetType="Button">
+            <Setter Property="Margin" Value="5"/>
+            <Setter Property="Height" Value="35"/>
+            <Setter Property="Width" Value="80"/>
+        </Style>
+    </Window.Resources>
+    <UniformGrid Columns="2">
+        <Grid>
+            <ListBox Name="ls_box"/>
+            <Button Command="{Binding ElementName=rot, Path=DataContext.ClickCommand}" CommandParameter="clear" Content="clear" VerticalAlignment="Bottom" HorizontalAlignment="Right"/>
+        </Grid>
+        <WrapPanel Orientation="Vertical">
+            <Button Command="{Binding ElementName=rot, Path=DataContext.ClickCommand}" CommandParameter="t1" Content="打开文件"/>
+            <Button Command="{Binding ElementName=rot, Path=DataContext.ClickCommand}" CommandParameter="t3" Content="流程数据清洗" IsEnabled="{Binding HasFile}"/>
+        </WrapPanel>
+        <WrapPanel Orientation="Vertical" Visibility="Collapsed">
+            <Button Command="{Binding ElementName=rot, Path=DataContext.ClickCommand}" CommandParameter="t1" Content="打开文件"/>
+            <Button Command="{Binding ElementName=rot, Path=DataContext.ClickCommand}" CommandParameter="t2" Content="行长度修改" IsEnabled="{Binding HasFile}"/>
+        </WrapPanel>
+    </UniformGrid>
+
 </Window>
