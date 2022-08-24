@@ -20,11 +20,9 @@
         </Grid>
         <WrapPanel Orientation="Vertical">
             <Button Command="{Binding ElementName=rot, Path=DataContext.ClickCommand}" CommandParameter="t1" Content="打开文件"/>
-            <Button Command="{Binding ElementName=rot, Path=DataContext.ClickCommand}" CommandParameter="t3" Content="流程数据清洗" IsEnabled="{Binding HasFile}"/>
-        </WrapPanel>
-        <WrapPanel Orientation="Vertical" Visibility="Collapsed">
-            <Button Command="{Binding ElementName=rot, Path=DataContext.ClickCommand}" CommandParameter="t1" Content="打开文件"/>
             <Button Command="{Binding ElementName=rot, Path=DataContext.ClickCommand}" CommandParameter="t2" Content="行长度修改" IsEnabled="{Binding HasFile}"/>
+            <Button Command="{Binding ElementName=rot, Path=DataContext.ClickCommand}" CommandParameter="t3" Content="流程数据清洗" IsEnabled="{Binding HasFile}"/>
+            <Button Command="{Binding ElementName=rot, Path=DataContext.ClickCommand}" CommandParameter="t4" Content="HTML数据清洗" IsEnabled="{Binding HasFile}"/>
         </WrapPanel>
     </UniformGrid>
 

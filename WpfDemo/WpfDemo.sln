@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 15
-VisualStudioVersion = 15.0.27004.2002
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.32106.194
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WpfDemo", "WpfDemo\WpfDemo.csproj", "{77CD2DE9-5848-443D-AADE-6366F57832CD}"
 EndProject
@@ -118,6 +118,8 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MotionDemo", "MotionDemo\MotionDemo.csproj", "{6C577A97-F855-4A0D-92F3-CD4361CEEF93}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TraceDemo", "TraceDemo\TraceDemo.csproj", "{C09A69DF-989E-4974-9D1C-0377AEA82201}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "XLSDemo", "XLSDemo\XLSDemo.csproj", "{5A2DB83C-B140-4889-9FD1-E245C66C20FB}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -415,6 +417,14 @@ Global
 		{C09A69DF-989E-4974-9D1C-0377AEA82201}.Release|Any CPU.Build.0 = Release|Any CPU
 		{C09A69DF-989E-4974-9D1C-0377AEA82201}.Release|x64.ActiveCfg = Release|Any CPU
 		{C09A69DF-989E-4974-9D1C-0377AEA82201}.Release|x64.Build.0 = Release|Any CPU
+		{5A2DB83C-B140-4889-9FD1-E245C66C20FB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5A2DB83C-B140-4889-9FD1-E245C66C20FB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5A2DB83C-B140-4889-9FD1-E245C66C20FB}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{5A2DB83C-B140-4889-9FD1-E245C66C20FB}.Debug|x64.Build.0 = Debug|Any CPU
+		{5A2DB83C-B140-4889-9FD1-E245C66C20FB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5A2DB83C-B140-4889-9FD1-E245C66C20FB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5A2DB83C-B140-4889-9FD1-E245C66C20FB}.Release|x64.ActiveCfg = Release|Any CPU
+		{5A2DB83C-B140-4889-9FD1-E245C66C20FB}.Release|x64.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -454,6 +464,7 @@ Global
 		{4B5F7D7B-7874-4157-BB74-6939EE6E65FA} = {9D3C0CC3-E8E1-4657-A540-9969806E09C2}
 		{6C577A97-F855-4A0D-92F3-CD4361CEEF93} = {B9845AAE-A90B-49B8-802C-33B60E82435C}
 		{C09A69DF-989E-4974-9D1C-0377AEA82201} = {351BD20E-CE21-49A7-B4D9-2E696D627A6D}
+		{5A2DB83C-B140-4889-9FD1-E245C66C20FB} = {351BD20E-CE21-49A7-B4D9-2E696D627A6D}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {88B71059-CDA1-4785-93B7-89A3C10C0AB0}

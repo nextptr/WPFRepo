@@ -1,0 +1,13 @@
+ImageRuntimeVersion: v4.0.30319
+Assembly CVProxy, Version=0.0.*, Culture=固定语言(固定国家/地区): 
+	hash=SHA1, flags=PublicKey
+Assembly mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089: 
+	hash=None, flags=None
+Assembly System, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089: 
+	hash=None, flags=None
+Class CVAlgorithm.CVProxy: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
+  Fields:
+    CVAlgorithm.CVProxy CVProxyInstance : Public, Static
+  Methods:
+    CreateInstance(): PrivateScope, Public, Static, HideBySig
+    Test(): PrivateScope, Public, HideBySig

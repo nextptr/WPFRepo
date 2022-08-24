@@ -5,8 +5,15 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:WpfBase"
         xmlns:chapter2="clr-namespace:WpfBase.Chapter2"
-        mc:Ignorable="d"
+        mc:Ignorable="d" PreviewKeyDown="Window_PreviewKeyDown"
         Title="wpf编程宝典" Height="618" Width="1000" WindowStyle="None" >
+    <Window.Resources>
+        <ResourceDictionary>
+            <Style TargetType="Button">
+                <Setter Property="IsDefault" Value="False"/>
+            </Style>
+        </ResourceDictionary>
+    </Window.Resources>
     <Grid>
         <Grid>
             <Grid.RowDefinitions>

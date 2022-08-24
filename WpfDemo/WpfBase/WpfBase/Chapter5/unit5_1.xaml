@@ -37,7 +37,7 @@
                         <RadioButton  Name="radio_preview" GroupName="1" DockPanel.Dock="Right" Content="隧道路由" VerticalAlignment="Center" />
                         <RadioButton  Name="radio_bubble" IsChecked="True" GroupName="1" DockPanel.Dock="Right" Content="冒泡路由" VerticalAlignment="Center" />
                     </DockPanel>
-                    <Button Grid.Row="2" Margin="5" Padding="3" HorizontalAlignment="Right" Name="btn_clear" Content="Clear List"/>
+                    <Button Grid.Row="2" Margin="5" IsDefault="False" Padding="3" HorizontalAlignment="Right" Name="btn_clear" Content="Clear List"/>
                 </Grid>
             </Grid>
         </TabItem>

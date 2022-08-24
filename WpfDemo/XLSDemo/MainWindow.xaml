@@ -1,0 +1,16 @@
+﻿<Window x:Class="XLSDemo.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:XLSDemo"
+        mc:Ignorable="d" 
+        Title="MainWindow" Height="450" Width="800">
+    <UniformGrid Columns="2">
+        <ListBox Name="lsBox"/>
+        <WrapPanel>
+            <Button Width="120" Height="35" Margin="5" Name="btnTest"    Content="Test" />
+            <Button Width="120" Height="35" Margin="5" Name="btnReadPlc" Content="ReadPlc" />
+        </WrapPanel>
+    </UniformGrid>
+</Window>

@@ -6,6 +6,7 @@ using System.Diagnostics;
 using System.IO;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading;
 using System.Threading.Tasks;
 using System.Windows;
@@ -83,6 +84,9 @@ namespace WpfApp
                 case "t3":
                     clearStepData();
                     break;
+                case "t4":
+                    clearHtmlData();
+                    break;
                 default:
                     break;
             }
@@ -140,14 +144,13 @@ namespace WpfApp
             StreamReader sr = new StreamReader(fs);
             StreamWriter sw = new StreamWriter(fw);
 
-
             List<string> buffer1 = new List<string>();
             Dictionary<string, Dictionary<string, string>> dic = new Dictionary<string, Dictionary<string, string>>();
             string line = "";
             while (!sr.EndOfStream)
             {
                 line = sr.ReadLine();
-                if (line.Contains("各流程计时"))
+                if (line.Contains("各流程"))
                 {
                     buffer1.Add(line.Replace(" #", "#"));
                 }
@@ -184,6 +187,54 @@ namespace WpfApp
             fw.Close();
             fs.Close();
             addMsg("数据清理完成");
+        }
+
+        private void clearHtmlData()
+        {
+            FileStream fs = new FileStream(fileFullPath, FileMode.Open);
+            FileStream fw = new FileStream(Path.Combine(filePath, "New" + fileName), FileMode.Create);
+            StreamReader sr = new StreamReader(fs);
+            StreamWriter sw = new StreamWriter(fw);
+
+            string line = "";
+            while (!sr.EndOfStream)
+            {
+                line = sr.ReadLine();
+                var arr = RegxPait(line);
+                foreach (var item in arr)
+                {
+                    sw.WriteLine($"{item.Key}***{item.Value}");
+                }
+            }
+            sw.Close();
+            sr.Close();
+            fw.Close();
+            fs.Close();
+            addMsg("数据清理完成");
+        }
+        public static List<KeyValuePair<string, string>> RegxPait(string input)
+        {
+            List<KeyValuePair<string, string>> ls = new List<KeyValuePair<string, string>>();
+            var arr = Regex.Split(input, @"<tr>");
+            string tmpKey = "";
+            string tmpVal = "";
+            foreach (var item in arr)
+            {
+                var mach = Regex.Matches(item, @"(?<=((<td).*>))[^<>]*(?=</td>)");
+                for (int i = 0; i < mach.Count; i++)
+                {
+                    if (i % 2 == 0)
+                    {
+                        tmpKey = mach[i].ToString();
+                    }
+                    else
+                    {
+                        tmpVal = mach[i].ToString();
+                        ls.Add(new KeyValuePair<string, string>(tmpKey, tmpVal));
+                    }
+                }
+            }
+            return ls;
         }
 
         #region old

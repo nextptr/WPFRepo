@@ -1,0 +1,38 @@
+﻿<UserControl x:Class="CVbox.Panel.ProjPage.View.ImgCvtTestView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:CVbox.Panel.ProjPage.View"
+             xmlns:controls="clr-namespace:CVbox.Common.Controls"
+             xmlns:s="https://github.com/canton7/Stylet"
+             mc:Ignorable="d"
+             d:DesignHeight="450" d:DesignWidth="800">
+    <UserControl.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="/CVbox;component/Common/Controls/ImageViewControlStyle.xaml"/>
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+    </UserControl.Resources>
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>   
+            <ColumnDefinition Width="auto"/>
+        </Grid.ColumnDefinitions>
+        <controls:ImageViewControl Grid.Column="0" Title="原图"   SourceImg="{Binding SrcImg,UpdateSourceTrigger=PropertyChanged}" Margin="1" />
+        <controls:ImageViewControl Grid.Column="1" Title="效果图" SourceImg="{Binding DstImg,UpdateSourceTrigger=PropertyChanged}" Margin="1" />
+        <!--<ImageViewControl/>-->
+        <!--<Border Grid.Column="0" BorderThickness="1" BorderBrush="Black">
+            <Image Source="{Binding SrcImage}" />
+        </Border>-->
+        <!--<Border Grid.Column="1" BorderThickness="1" BorderBrush="Black">
+            <Image Source="{Binding DstImage}"/>
+        </Border>-->
+        <WrapPanel Grid.Column="2" Orientation="Vertical">
+            <Button Command="{s:Action btnCvt}" CommandParameter="1" Content="RGB随机图"/>
+            <Button Command="{s:Action btnCvt}" CommandParameter="2" Content="RGB转灰度图"/>
+        </WrapPanel>
+    </Grid>
+</UserControl>

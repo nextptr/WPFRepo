@@ -1,0 +1,25 @@
+﻿<UserControl x:Class="CVbox.Panel.Home.MainPageView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:CVbox.Panel.Home"
+             xmlns:s="https://github.com/canton7/Stylet"
+             mc:Ignorable="d" 
+             d:DesignHeight="600" d:DesignWidth="1200">
+    <UserControl.Resources>
+        <ResourceDictionary>
+            <DataTemplate DataType="{x:Type local:PageItem}">
+                <RadioButton Content="{Binding Name}" Click="{s:Action btnClick}" Background="Transparent" Margin="2" GroupName="1" Width="auto" HorizontalAlignment="Stretch"/>
+            </DataTemplate>
+        </ResourceDictionary>
+    </UserControl.Resources>
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="160"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+        <ListBox ItemsSource="{Binding Items}"/>
+        <ContentControl s:View.Model="{Binding ActiveItem}" Grid.Column="1" />
+    </Grid>
+</UserControl>
