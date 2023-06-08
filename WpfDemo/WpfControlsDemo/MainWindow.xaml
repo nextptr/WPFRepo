@@ -24,6 +24,18 @@
                 <Label Content="控件Style" Height="35" VerticalContentAlignment="Center" />
             </TabItem.Header>
             <local:StylePanel/>
-        </TabItem> 
+        </TabItem>
+        <TabItem>
+            <TabItem.Header>
+                <Label Content="异形控件" Height="35" VerticalContentAlignment="Center" />
+            </TabItem.Header>
+            <local:UnusualPanel/>
+        </TabItem>
+        <TabItem>
+            <TabItem.Header>
+                <Label Content="异形控件" Height="35" VerticalContentAlignment="Center" />
+            </TabItem.Header>
+            <local:UserDefinePanel/>
+        </TabItem>
     </TabControl>
 </Window>

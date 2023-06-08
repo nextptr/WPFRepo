@@ -5,6 +5,7 @@ using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows;
 
 namespace WpfApp
 {
@@ -17,6 +18,21 @@ namespace WpfApp
 
     public class FileAnalyseHelper
     {
+        private static FileAnalyseHelper _instance;
+        public static FileAnalyseHelper Instance
+        {
+            get
+            {
+                if (_instance == null)
+                {
+                    _instance = new FileAnalyseHelper();
+                }
+                return _instance;
+            }
+        }
+        private FileAnalyseHelper() { }
+
+
         public filePathObj SelectFileDialog()
         {
             string str = "";
@@ -247,5 +263,31 @@ namespace WpfApp
             saveAsRawData(obj, rawLs, "内存数据");
         }
 
+        public void CreateAlarmTxt(int count)
+        {
+            try
+            {
+                string root = Directory.GetCurrentDirectory();
+                string dstPth = Path.Combine(root, "Alarm.txt");
+                FileStream fs = new FileStream(dstPth, FileMode.Create, FileAccess.Write);
+                StreamWriter dstStreamWrite = new StreamWriter(fs);
+
+                dstStreamWrite.WriteLine("[Mode = Alarm]");
+                dstStreamWrite.WriteLine("SDC_DATA.SDC_DATA_Struct_Block()");
+                dstStreamWrite.WriteLine("{");
+                for (int i = 0; i < count; i++)
+                {
+                    dstStreamWrite.WriteLine("   Alarms() { bool " + $"Alarm_{i}( {i} ) : Alarm_{i}" + "}");
+                }
+                dstStreamWrite.WriteLine("}");
+
+                dstStreamWrite.Close();
+                fs.Close();
+            }
+            catch(Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+        }
     }
 }

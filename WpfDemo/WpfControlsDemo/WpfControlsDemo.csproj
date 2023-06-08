@@ -93,11 +93,20 @@
     <Compile Include="可停靠控件\FreeDockPanel.xaml.cs">
       <DependentUpon>FreeDockPanel.xaml</DependentUpon>
     </Compile>
+    <Compile Include="异形控件\ButtonDirectionAttach.cs" />
+    <Compile Include="异形控件\UnusualPanel.xaml.cs">
+      <DependentUpon>UnusualPanel.xaml</DependentUpon>
+    </Compile>
     <Compile Include="控件effect\EffectPanel.xaml.cs">
       <DependentUpon>EffectPanel.xaml</DependentUpon>
     </Compile>
     <Compile Include="控件Style\StylePanel.xaml.cs">
       <DependentUpon>StylePanel.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="自定义控件和动画\PasteTableControl.cs" />
+    <Compile Include="自定义控件和动画\PickerArmControl.cs" />
+    <Compile Include="自定义控件和动画\UserDefinePanel.xaml.cs">
+      <DependentUpon>UserDefinePanel.xaml</DependentUpon>
     </Compile>
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
@@ -127,6 +136,10 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
+    <Page Include="Resource\StatusCheckBox.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Resource\TabItemNoHeader.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -143,11 +156,27 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="异形控件\UnusualPanel.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="控件effect\EffectPanel.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="控件Style\StylePanel.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="自定义控件和动画\PasteTableControlStyle.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="自定义控件和动画\PickerArmControlStyle.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="自定义控件和动画\UserDefinePanel.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -179,6 +208,11 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <ProjectReference Include="..\Common\Common\Common.csproj">
+      <Project>{6929adf7-96f4-46bb-9392-afca7cab79dc}</Project>
+      <Name>Common</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

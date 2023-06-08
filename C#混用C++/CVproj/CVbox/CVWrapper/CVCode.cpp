@@ -1,6 +1,7 @@
 #include "pch.h"
 #include "CVCode.h"
 
+
 void CVCode::CVTest1(string path) //腐蚀
 {
 	//string filename = "lena.jpg";
@@ -267,10 +268,27 @@ void CVCode::ToolColorConvert(const Mat_CV& src, Mat_CV& dst)
 	cvtColor(matcolor, mpdst, COLOR_RGB2GRAY);
 }
 
-
-
 CVCode* _stdcall CreateCVHandle() //创建C#中的示例
 {
 	CVCode* newImp = new CVCode();
 	return newImp;
+}
+
+//****
+void CVCode::DrawMark(string path,string txt)
+{
+	cv::Mat src = cv::imread(path, 1);
+	int font_face = FONT_HERSHEY_COMPLEX;
+	double font_scale = 2;
+	int thickness = 2;
+	int baseLine;
+	cv::Size text_size = cv::getTextSize(txt, font_face, font_scale, thickness, &baseLine);
+
+	cv::Point origin;
+	origin.x = src.cols / 2 - text_size.width / 2;
+	origin.y = src.rows / 2 - text_size.height / 2;
+
+	cv::putText(src, txt,origin,font_face,font_scale,cv::Scalar(0,255,255),thickness,8,0);
+	cv::imwrite(path, src);
+	cv::waitKey(0);
 }

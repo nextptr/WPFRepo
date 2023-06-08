@@ -8,7 +8,7 @@ namespace Common.ComPort
 {
     public class ComSeriaPort : NotifyPropertyChanged
     {
-        public delegate void ReceiveDataEventHandle(object sender, object data);
+        public delegate void ReceiveDataEventHandle(object sender, params byte[] data);
         public event ReceiveDataEventHandle ReceiveDataEvent; //接受数据事件
 
         private SerialPort ComDevice = null;
@@ -149,6 +149,23 @@ namespace Common.ComPort
                 MessageBox.Show("关闭串口失败:" + e.Message);
             }
         }
+        public bool TestComConnect(string comPort)
+        {
+            try
+            {
+                if (ComDevice == null)
+                    ComDevice = new SerialPort();
+
+                ComDevice.PortName = comPort;
+                ComDevice.Open();
+                ComDevice.Close();
+                return true;
+            }
+            catch
+            {
+                return false;
+            }
+        }
 
         ///发送数据
         public void SendHexCommand(string command)
@@ -230,8 +247,7 @@ namespace Common.ComPort
             {
                 byte[] ReDatas = new byte[ComDevice.BytesToRead];
                 ComDevice.Read(ReDatas, 0, ReDatas.Length);//读取数据
-                SourceData = aSCIIEncoding.GetString(ReDatas);
-                ReceiveDataEvent?.Invoke(this, SourceData);
+                ReceiveDataEvent?.Invoke(this, ReDatas);
             }
             catch (Exception ex)
             {

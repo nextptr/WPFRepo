@@ -1,0 +1,12 @@
+ <Grid>
+        <Button Content="Custom" Width="120" Height="60">
+            <Button.Template>
+                <ControlTemplate TargetType="Button">
+                    <Grid>
+                        <Ellipse Stroke="DarkOrange" StrokeThickness="2" Fill="LightPink"/>
+                        <ContentPresenter Margin="10,20" VerticalAlignment="Center" HorizontalAlignment="Center" />
+                    </Grid>
+                </ControlTemplate>
+            </Button.Template>
+        </Button>
+    </Grid>

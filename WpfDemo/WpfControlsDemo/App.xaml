@@ -13,6 +13,7 @@
                 <ResourceDictionary Source="/Resource/TabItemNoHeader.xaml"/>
                 <ResourceDictionary Source="/Resource/TextBlock.xaml"/>
                 <ResourceDictionary Source="/Resource/ToggleButton.xaml"/>
+                <ResourceDictionary Source="/Resource/StatusCheckBox.xaml"/>
             </ResourceDictionary.MergedDictionaries>
         </ResourceDictionary>
     </Application.Resources>

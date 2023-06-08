@@ -65,6 +65,7 @@ namespace CVWrapper
 
 	public:
 		void CVTest1(System::String^ pth);
+		void AttachPrint(System::String^ pth, System::String^ txt);
 		void ToolBGR2Gray(Mat_CPP^ src, Mat_CPP^% dst);
 	};
 }

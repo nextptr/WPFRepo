@@ -5,7 +5,7 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:WpfControlsDemo"
              mc:Ignorable="d" 
-             d:DesignHeight="300" d:DesignWidth="300">
+             d:DesignHeight="600" d:DesignWidth="600">
     <UniformGrid Rows="3" Columns="3">
         <GroupBox Header="button">
             <UniformGrid Rows="3" Columns="3">
@@ -49,6 +49,13 @@
             <WrapPanel>
                 <Button Width="120" Height="35" Margin="5" Name="attBtn" local:ResultAttach.Result="{Binding PropResult}" Tag="机械臂"/>
                 <ToggleButton Width="120" Height="35" Margin="5" Name="testBtn" Content="Test"/>
+            </WrapPanel>
+        </GroupBox>
+        <GroupBox Header="StatusCheckBox">
+            <WrapPanel>
+                <CheckBox Style="{StaticResource StatusCheckBox}" Margin="2" Content="自定义CheckBox"/>
+                <CheckBox Style="{StaticResource StatusCheckBox}" Margin="2" Content="载台吸真空" />
+                <CheckBox Style="{StaticResource StatusCheckBox}" Margin="2" Content="安全门锁定" />
             </WrapPanel>
         </GroupBox>
     </UniformGrid>

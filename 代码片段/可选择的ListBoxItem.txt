@@ -1,0 +1,146 @@
+ <UserControl.Resources>
+        <ResourceDictionary>
+            <DataTemplate DataType="{x:Type param:SettingItem}">
+                <Border x:Name="bd" BorderBrush="LightGray" BorderThickness="1">
+                    <Grid >
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="auto"/>
+                            <ColumnDefinition Width="auto"/>
+                            <ColumnDefinition Width="auto"/>
+                            <ColumnDefinition Width="auto"/>
+                        </Grid.ColumnDefinitions>
+                        <Label       Grid.Column="0" Margin="1" Content="{Binding PosName}" VerticalAlignment="Center" HorizontalAlignment="Right"/>
+                        <TextBox     Grid.Column="1" Margin="1" Width="80"  Height="35" Text="{Binding Pos}" VerticalAlignment="Center"/>
+                        <Label       Grid.Column="2" Margin="1" Width="120" Height="35" Content="到位速度(mm/s)" HorizontalContentAlignment="Right" VerticalContentAlignment="Center"/>
+                        <s:NumberBox Grid.Column="3" Margin="1" Width="80"  Height="35" Value="{Binding Vel}" HorizontalAlignment="Left" />
+                        <Button      Grid.Column="4" Margin="1" Width="90"  Height="35" Content="设置为当前值" Click="{s:Action btnSetParam}"/>
+                    </Grid>
+                </Border>
+                <DataTemplate.Triggers>
+                    <!--<MultiDataTrigger>
+                        <MultiDataTrigger.Conditions>
+                            <Condition Binding="{Binding SelectProcess}" Value="true" />
+                            <Condition Binding="{Binding FlipFlag}" Value="true" />
+                        </MultiDataTrigger.Conditions>
+                        <MultiDataTrigger.Setters>
+                            <Setter TargetName="bd" Property="Background" Value="LightGreen"/>
+                        </MultiDataTrigger.Setters>
+                    </MultiDataTrigger>
+                    <MultiDataTrigger>
+                        <MultiDataTrigger.Conditions>
+                            <Condition Binding="{Binding SelectProcess}" Value="true" />
+                            <Condition Binding="{Binding FlipFlag}" Value="false" />
+                        </MultiDataTrigger.Conditions>
+                        <MultiDataTrigger.Setters>
+                            <Setter TargetName="bd" Property="Background" Value="LightGreen"/>
+                        </MultiDataTrigger.Setters>
+                    </MultiDataTrigger>
+                    <MultiDataTrigger>
+                        <MultiDataTrigger.Conditions>
+                            <Condition Binding="{Binding SelectProcess}" Value="false" />
+                            <Condition Binding="{Binding FlipFlag}" Value="true" />
+                        </MultiDataTrigger.Conditions>
+                        <MultiDataTrigger.Setters>
+                            <Setter TargetName="bd" Property="Background" Value="white"/>
+                        </MultiDataTrigger.Setters>
+                    </MultiDataTrigger>
+                    <MultiDataTrigger>
+                        <MultiDataTrigger.Conditions>
+                            <Condition Binding="{Binding SelectProcess}" Value="false" />
+                            <Condition Binding="{Binding FlipFlag}" Value="false" />
+                        </MultiDataTrigger.Conditions>
+                        <MultiDataTrigger.Setters>
+                            <Setter TargetName="bd" Property="Background" Value="LightCyan"/>
+                        </MultiDataTrigger.Setters>
+                    </MultiDataTrigger>-->
+                    <DataTrigger Binding="{Binding SelectProcess}" Value="true">
+                        <Setter TargetName="bd" Property="IsEnabled" Value="true"/>
+                        <Setter TargetName="bd" Property="Background" Value="SpringGreen"/>
+                    </DataTrigger>
+                    <DataTrigger Binding="{Binding SelectProcess}" Value="false">
+                        <Setter TargetName="bd" Property="IsEnabled" Value="false"/>
+                        <Setter TargetName="bd" Property="Background" Value="white"/>
+                        <Setter TargetName="bd" Property="Opacity" Value="0.7"/>
+                    </DataTrigger>
+                    <Trigger Property="IsMouseOver" Value="true">
+                        <Setter TargetName="bd" Property="Background" Value="Cyan"/>
+                    </Trigger>
+                </DataTemplate.Triggers>
+            </DataTemplate>
+            <DataTemplate DataType="{x:Type param:AxisItem}">
+                <RadioButton GroupName="1" Content="{Binding AxisName}" Click="{s:Action btnSelectAxis}" Style="{StaticResource RadioGroupItemDefault}"/>
+            </DataTemplate>
+        </ResourceDictionary>
+    </UserControl.Resources>
+    <Grid DataContext="{Binding Param}">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        <GroupBox Style="{StaticResource BaseStyle}" Margin="2" Grid.RowSpan="2" BorderBrush="LightGray">
+            <GroupBox.Header>
+                <Label Content="轴位置" FontSize="17" FontWeight="Bold" />
+            </GroupBox.Header>
+            <ItemsControl ItemsSource="{Binding PosItems}"/>
+        </GroupBox>
+        <GroupBox Style="{StaticResource BaseStyle}" Margin="2" Grid.Row="0" Grid.Column="1" BorderBrush="LightGray">
+            <GroupBox.Header>
+                <Label Content="轴控制" FontSize="17" FontWeight="Bold" />
+            </GroupBox.Header>
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="auto"/>
+                    <RowDefinition Height="*"/>
+                </Grid.RowDefinitions>
+                <s:ButtonGroup Orientation="Horizontal" ItemsSource="{Binding AxisItems}" Margin="1,1,0.5,0"/>
+                <ContentControl Grid.Row="1" DataContext="{Binding ElementName=rotView, Path=DataContext}" s:View.Model="{Binding ManualAxis}"/>
+            </Grid>
+        </GroupBox>
+        <GroupBox Style="{StaticResource BaseStyle}" Margin="2" Grid.Row="1" Grid.Column="1" BorderBrush="Black">
+            <GroupBox.Header>
+                <Label Content="子流程" FontSize="17" FontWeight="Bold" />
+            </GroupBox.Header>
+            <ListBox ItemsSource="{Binding ElementName=rotView, Path=DataContext.ProcessItems}" Background="Transparent" >
+                <ListBox.ItemContainerStyle>
+                    <Style TargetType="{x:Type ListBoxItem}">
+                        <Setter Property="Template">
+                            <Setter.Value>
+                                <ControlTemplate TargetType="{x:Type ListBoxItem}" >
+                                    <Border x:Name="border" MouseLeftButtonDown="{s:Action btnProcessChecck}" CornerRadius="0" Height="30" Margin="1,1,1,-1" BorderThickness="1" BorderBrush="LightGray">
+                                        <ContentPresenter x:Name="contentPresenter"
+                                                              HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
+                                                              VerticalAlignment="{TemplateBinding VerticalContentAlignment}"
+                                                              SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}"
+                                                              Margin="{TemplateBinding Padding}"
+                                                              RecognizesAccessKey="True" />
+                                    </Border>
+                                    <ControlTemplate.Triggers>
+                                        <Trigger Property="IsSelected" Value="True">
+                                            <Setter TargetName="border" Property="Background" Value="SpringGreen" />
+                                        </Trigger>
+                                        <Trigger Property="IsSelected" Value="False">
+                                            <Setter TargetName="border" Property="Background" Value="white" />
+                                        </Trigger>
+                                        <MultiTrigger>
+                                            <MultiTrigger.Conditions>
+                                                <Condition Property="IsMouseOver" Value="true"/>
+                                                <Condition Property="IsSelected"  Value="false"/>
+                                            </MultiTrigger.Conditions>
+                                            <MultiTrigger.Setters>
+                                                <Setter TargetName="border" Property="Background" Value="Cyan" />
+                                            </MultiTrigger.Setters>
+                                        </MultiTrigger>
+                                    </ControlTemplate.Triggers>
+                                </ControlTemplate>
+                            </Setter.Value>
+                        </Setter>
+                    </Style>
+                </ListBox.ItemContainerStyle>
+            </ListBox>
+        </GroupBox>
+    </Grid>

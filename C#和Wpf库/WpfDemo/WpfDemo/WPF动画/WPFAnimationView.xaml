@@ -1,0 +1,23 @@
+﻿<UserControl x:Class="WpfDemo.WPF动画.WPFAnimationView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:WpfDemo.WPF动画" xmlns:panel="clr-namespace:WpfDemo.WPF动画.FanBlade" xmlns:table="clr-namespace:WpfDemo.WPF动画.Table"
+             mc:Ignorable="d" 
+             d:DesignHeight="450" d:DesignWidth="800">
+    <TabControl>
+        <TabItem>
+            <TabItem.Header>
+                <Label Content="风扇动画" Height="35" VerticalContentAlignment="Center"/>
+            </TabItem.Header>
+            <panel:FanBladePanel/>
+        </TabItem>
+        <TabItem>
+            <TabItem.Header>
+                <Label Content="控件移动动画" Height="35" VerticalContentAlignment="Center"/>
+            </TabItem.Header>
+            <table:TableMovePanel/>
+        </TabItem>
+    </TabControl>
+</UserControl>

@@ -87,6 +87,7 @@
     <Compile Include="ComMath.cs" />
     <Compile Include="ComPort\ComSeriaPort.cs" />
     <Compile Include="ComPort\ISeriaPort.cs" />
+    <Compile Include="Converts\BoolVisibilityConvert.cs" />
     <Compile Include="Converts\ConverterBoolColor.cs" />
     <Compile Include="Csv\CvsHelper.cs" />
     <Compile Include="DelegateCommand.cs" />
@@ -117,6 +118,8 @@
     <Compile Include="Stylet\IRouter.cs" />
     <Compile Include="Stylet\Router.cs" />
     <Compile Include="TCP\ClientSocket.cs" />
+    <Compile Include="TCP\PureTcpClient.cs" />
+    <Compile Include="TCP\PureTcpServer.cs" />
     <Compile Include="TCP\ServerSocket.cs" />
     <Compile Include="TCP\TcpServerManager.cs" />
     <Compile Include="TCP\tcpSocketClient.cs" />

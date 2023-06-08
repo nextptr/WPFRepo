@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:SeriaPortDemo"
         xmlns:converts="clr-namespace:Common.Converts;assembly=Common"
-        mc:Ignorable="d"
+        mc:Ignorable="d" WindowStartupLocation="CenterScreen"
         Title="串口助手" Height="400" Width="525">
     <Window.Resources>
         <ResourceDictionary>
@@ -28,12 +28,13 @@
                         <RowDefinition />
                         <RowDefinition />
                         <RowDefinition />
+                        <RowDefinition />
                     </Grid.RowDefinitions>
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition/>
                         <ColumnDefinition/>
                     </Grid.ColumnDefinitions>
-                    <Label  Grid.Row="0" Grid.Column="0" FontSize="17" Content="串口号:" VerticalAlignment="Center" HorizontalAlignment="Right"/>
+                    <Label    Grid.Row="0" Grid.Column="0" FontSize="17" Content="串口号:" VerticalAlignment="Center" HorizontalAlignment="Right"/>
                     <ComboBox Grid.Row="0" Grid.Column="1" Name="ComPort" SelectedIndex="0" VerticalContentAlignment="Center" />
 
                     <Label  Grid.Row="1" Grid.Column="0" FontSize="17" Content="波特率:" VerticalAlignment="Center" HorizontalAlignment="Right"/>
@@ -52,32 +53,32 @@
                     <Ellipse Grid.Row="2" Grid.Column="0" Name="connectStatus" Height="25" Width="25" VerticalAlignment="Center" HorizontalAlignment="Center" Fill="{Binding ComConnected,Converter={StaticResource ConvertBool}}"/>
                     <ToggleButton  Grid.Row="2" Grid.Column="1" Name="btnConnect" FontSize="20" Content="连接" />
 
+                    <Label Grid.Row="3" Grid.Column="0" FontSize="17" Content="回车换行:" VerticalAlignment="Center" HorizontalAlignment="Right"/>
+                    <CheckBox Grid.Row="3" Grid.Column="1" x:Name="CheckCL" VerticalAlignment="Center" HorizontalAlignment="Center"/>
                 </Grid>
             </Border>
-            <Border Grid.Column="1" Margin="1" Name="bord_btn" IsEnabled="True" BorderThickness="5" BorderBrush="DarkGray" >
-                <Grid Background="LightGray">
-                    <Grid.RowDefinitions>
-                        <RowDefinition />
-                        <RowDefinition />
-                        <RowDefinition />
-                        <RowDefinition />
-                    </Grid.RowDefinitions>
-                    <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="3*"/>
-                        <ColumnDefinition/>
-                    </Grid.ColumnDefinitions>
+            <UniformGrid Grid.Column="1" Rows="2">
 
-                    <TextBox Grid.Row="0" Grid.Column="0" Margin="-1,0,0,1" Name="txt_AscCommand1" Grid.ColumnSpan="2" VerticalContentAlignment="Center"/>
-                    <Button Grid.Row="0" Grid.Column="1" Margin="0,0,0,1" Name="btn_AscSend" Content="ASCII发送"/>
-                    <TextBox Grid.Row="1" Grid.Column="0" Margin="-1,1,0,1" Name="txt_AscCommand2" Grid.ColumnSpan="2" VerticalContentAlignment="Center"/>
-                    <Button Grid.Row="1" Grid.Column="1" Margin="0,1,0,1" Name="btn_DeftSend" Content="Deft发送"/>
-
-                    <TextBox Grid.Row="2" Grid.Column="0" Margin="-1,0,0,1" Name="txt_StringCommand" Grid.ColumnSpan="2" VerticalContentAlignment="Center"/>
-                    <Button Grid.Row="2" Grid.Column="1" Margin="0,0,0,1" Name="btn_StringSend" Content="String发送"/>
-                    <TextBox Grid.Row="3" Grid.Column="0" Margin="-1,1,0,1" Name="txt_HexCommand2" Grid.ColumnSpan="2" VerticalContentAlignment="Center"/>
-                    <Button Grid.Row="3" Grid.Column="1" Margin="0,1,0,1" Name="btn_HexSend2" Content="HEX发送2"/>
-                </Grid>
-            </Border>
+                <Border Margin="-3,1,0,-3" IsEnabled="True" BorderThickness="5" BorderBrush="DarkGray" >
+                    <UniformGrid Rows="2" Background="LightGray">
+                        <TextBox Margin="-1,0,0,1" Name="txt_Command"   Grid.ColumnSpan="2" VerticalContentAlignment="Center"/>
+                        <UniformGrid Columns="4">
+                            <Button Margin="1" Click="Btn_Send_Click" Tag="AscSend"    Content="ASCII发送"/>
+                            <Button Margin="1" Click="Btn_Send_Click" Tag="DeftSend"   Content="Deft发送"/>
+                            <Button Margin="1" Click="Btn_Send_Click" Tag="StringSend" Content="String发送"/>
+                            <Button Margin="1" Click="Btn_Send_Click" Tag="HexSend"    Content="HEX发送2"/>
+                        </UniformGrid>
+                    </UniformGrid>
+                </Border>
+                <Border Margin="-3,-2.5,0,1" IsEnabled="True" BorderThickness="5" BorderBrush="DarkGray" >
+                    <UniformGrid Rows="2" Background="LightGray">
+                        <UniformGrid Columns="4">
+                            <Button Margin="1" Click="Btn_Send_Click" Tag="TestCom" Content="测试COM连接"/>
+                            <CheckBox x:Name="CheckHEX" Content="HEX显示" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+                        </UniformGrid>
+                    </UniformGrid>
+                </Border>
+            </UniformGrid>
         </Grid>
         <Grid Grid.Row="1" Margin="1">
             <ListView Name="list_text"/>

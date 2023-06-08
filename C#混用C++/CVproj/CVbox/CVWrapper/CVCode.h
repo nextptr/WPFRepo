@@ -168,6 +168,7 @@ public:
 	void DrawLine(Mat img, Point start, Point end);
 	void colorReduce(Mat& inputImage, Mat& outputImage, int div);
 	void ToolColorConvert(const Mat_CV& src, Mat_CV& dst);
+	void DrawMark(string pth,string txt);
 };
 
 extern "C" CVCode * _stdcall CreateCVHandle();

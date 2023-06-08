@@ -7,8 +7,16 @@
              xmlns:s="https://github.com/canton7/Stylet"
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800">
+    <UserControl.Resources>
+        <Style TargetType="Button">
+            <Setter Property="Margin" Value="5" />
+            <Setter Property="Height" Value="40"/>
+            <Setter Property="Width" Value="160"/>
+        </Style>
+    </UserControl.Resources>
     <WrapPanel>
-        <Button Command="{s:Action btnTest}" CommandParameter="1" Width="auto" HorizontalAlignment="Stretch" Height="30" Content="CPP与动态链接库分离测试"/>
-        <Button Command="{s:Action btnTest}" CommandParameter="2" Width="auto" HorizontalAlignment="Stretch" Height="30" Content="CPP与动态链接库混合测试"/>
+        <Button Command="{s:Action btnTest}" CommandParameter="1" Content="CPP与动态链接库分离测试"/>
+        <Button Command="{s:Action btnTest}" CommandParameter="2" Content="CPP与动态链接库混合测试"/>
+        <Button Command="{s:Action btnTest}" CommandParameter="3" Content="图片加水印"/>
     </WrapPanel>
 </UserControl>

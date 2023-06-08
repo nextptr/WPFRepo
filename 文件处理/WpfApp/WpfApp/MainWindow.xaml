@@ -8,9 +8,9 @@
         Title="MainWindow" Height="450" Width="800">
     <Window.Resources>
         <Style TargetType="Button">
-            <Setter Property="Margin" Value="5"/>
+            <Setter Property="Margin" Value="2"/>
             <Setter Property="Height" Value="35"/>
-            <Setter Property="Width" Value="80"/>
+            <Setter Property="Width" Value="120"/>
         </Style>
     </Window.Resources>
     <UniformGrid Columns="2">
@@ -18,12 +18,34 @@
             <ListBox Name="ls_box"/>
             <Button Command="{Binding ElementName=rot, Path=DataContext.ClickCommand}" CommandParameter="clear" Content="clear" VerticalAlignment="Bottom" HorizontalAlignment="Right"/>
         </Grid>
-        <WrapPanel Orientation="Vertical">
-            <Button Command="{Binding ElementName=rot, Path=DataContext.ClickCommand}" CommandParameter="t1" Content="打开文件"/>
-            <Button Command="{Binding ElementName=rot, Path=DataContext.ClickCommand}" CommandParameter="t2" Content="行长度修改" IsEnabled="{Binding HasFile}"/>
-            <Button Command="{Binding ElementName=rot, Path=DataContext.ClickCommand}" CommandParameter="t3" Content="流程数据清洗" IsEnabled="{Binding HasFile}"/>
-            <Button Command="{Binding ElementName=rot, Path=DataContext.ClickCommand}" CommandParameter="t4" Content="HTML数据清洗" IsEnabled="{Binding HasFile}"/>
-        </WrapPanel>
+        <UniformGrid Rows="2">
+            <GroupBox Header="txt">
+                <WrapPanel Orientation="Vertical">
+                    <Button Command="{Binding ElementName=rot, Path=DataContext.ClickCommand}" CommandParameter="t1" Content="打开文件"/>
+                    <Button Command="{Binding ElementName=rot, Path=DataContext.ClickCommand}" CommandParameter="t2" Content="行长度修改" IsEnabled="{Binding HasFile}"/>
+                    <Button Command="{Binding ElementName=rot, Path=DataContext.ClickCommand}" CommandParameter="t3" Content="流程数据清洗" IsEnabled="{Binding HasFile}"/>
+                    <Button Command="{Binding ElementName=rot, Path=DataContext.ClickCommand}" CommandParameter="t4" Content="HTML数据清洗" IsEnabled="{Binding HasFile}"/>
+                    <Button Command="{Binding ElementName=rot, Path=DataContext.ClickCommand}" CommandParameter="t5" Content="点位数据生成" IsEnabled="{Binding HasFile}"/>
+                </WrapPanel>
+            </GroupBox>
+            <UniformGrid Columns="2">
+                <GroupBox Header="plc">
+                    <StackPanel Orientation="Vertical">
+                        <Button Command="{Binding ElementName=rot, Path=DataContext.PlcClickCommand}" CommandParameter="t1" Content="生成PLCConfig.txt" HorizontalAlignment="Left"/>
+                        <DockPanel LastChildFill="True">
+                            <Button  DockPanel.Dock="Right" Command="{Binding ElementName=rot, Path=DataContext.PlcClickCommand}" CommandParameter="t2" Content="alrm.txt" HorizontalAlignment="Left"/>
+                            <TextBox DockPanel.Dock="Left" x:Name="CountLab" Height="35" VerticalAlignment="Center" VerticalContentAlignment="Center"/>
+                        </DockPanel>
+                    </StackPanel>
+                </GroupBox>
+                <GroupBox Header="数据库">
+                    <WrapPanel Orientation="Vertical">
+                        <Button Command="{Binding ElementName=rot, Path=DataContext.PlcClickCommand}" CommandParameter="t10" Content="修改PC报警数据库"/>
+                        <Button Command="{Binding ElementName=rot, Path=DataContext.PlcClickCommand}" CommandParameter="t11" Content="生成PLC报警数据库"/>
+                    </WrapPanel>
+                </GroupBox>
+            </UniformGrid>
+        </UniformGrid>
     </UniformGrid>
 
 </Window>

@@ -1,0 +1,7 @@
+https://www.cnblogs.com/summary-2017/p/7719713.html
+
+@echo off　　　　　　　　　　　不显示后续命令行及当前命令行 
+dir c:\*.* >a.txt　　　　　　　将c盘文件列表写入a.txt 
+call c:\ucdos\ucdos.bat　　　　调用ucdos 
+echo 你好 　　　　　　　　　　 显示"你好" 
+type a.txt                     显示文件

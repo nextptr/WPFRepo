@@ -11,7 +11,12 @@ void CVproxy::CVTest1(System::String^ pth)
 	char* chars = (char*)(Marshal::StringToHGlobalAnsi(pth).ToPointer());
 	instanceObj->CVTest1(chars);
 }
-
+void CVproxy::AttachPrint(System::String^ pth, System::String^ txt)
+{
+	char* chars = (char*)(Marshal::StringToHGlobalAnsi(pth).ToPointer());
+	char* text = (char*)(Marshal::StringToHGlobalAnsi(txt).ToPointer());
+	instanceObj->DrawMark(chars, text);
+}
 void CVproxy::ToolBGR2Gray(Mat_CPP^ src, Mat_CPP^% dst)
 {
 	/*Mat_CV matSrc = Mat_CV(src->Width, src->Height, src->Type);

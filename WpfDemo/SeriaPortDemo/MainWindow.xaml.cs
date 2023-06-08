@@ -1,4 +1,5 @@
-﻿using Common.ComPort;
+﻿using Common;
+using Common.ComPort;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -28,14 +29,17 @@ namespace SeriaPortDemo
             this.Loaded += MainWindow_Loaded;
             this.Closing += MainWindow_Closing;
             btnConnect.Click += BtnConnect_Click;
-            btn_AscSend.Click += Btn_AscSend_Click;
-            btn_DeftSend.Click += Btn_DeftSend_Click;
-            btn_StringSend.Click += Btn_StringSend_Click;
-            btn_HexSend2.Click += Btn_HexSend2_Click;
             btn_clean.Click += Btn_clean_Click;
 
             connectStatus.DataContext = comSeriaPort;
             comSeriaPort.ReceiveDataEvent += ComSeriaPort_ReceiveDataEvent;
+        }
+        private void msg(object obj)
+        {
+            this.Dispatcher.Invoke(new Action(() =>
+            {
+                list_text.Items.Insert(0, obj);
+            }));
         }
 
         private void MainWindow_Loaded(object sender, RoutedEventArgs e)
@@ -78,33 +82,86 @@ namespace SeriaPortDemo
                 }
             }
         }
-        private void ComSeriaPort_ReceiveDataEvent(object sender, object data)
+        private void ComSeriaPort_ReceiveDataEvent(object sender, byte[] data)
         {
             this.Dispatcher.Invoke(new Action(() =>
             {
-                list_text.Items.Insert(0, data);
+                string txt = "";
+                string tmp = "";
+
+                if (CheckHEX.IsChecked == true)
+                {
+                    txt = ComMath.ByteArryToHex16String(data);
+                  
+                }
+                else
+                {
+                    txt = ASCIIEncoding.ASCII.GetString(data);
+                }
+
+                for (int i = 0; i < txt.Length; i++)
+                {
+                    tmp += txt[i] + " ";
+                }
+                msg(tmp);
             }));
         }
 
 
-        private void Btn_AscSend_Click(object sender, RoutedEventArgs e)
+        public void Btn_Send_Click(object sender, RoutedEventArgs e)
         {
-            string cmd = txt_AscCommand1.Text + "\r\n";
-            comSeriaPort.SendASCIICommand(cmd);
+            Button btn = sender as Button;
+            if (btn == null)
+                return;
+
+            string cmd = txt_Command.Text;
+            if (CheckCL.IsChecked == true)
+            {
+                cmd += "\r\n";
+            }
+            switch (btn.Tag.ToString())
+            {
+                case "TestCom":
+                    TestConnect();
+                    break;
+                case "AscSend":
+                    comSeriaPort.SendASCIICommand(cmd);
+                    break;
+                case "DeftSend":
+                    comSeriaPort.SendDefaultCommand(cmd);
+                    break;
+                case "StringSend":
+                    comSeriaPort.SendStringCommand(cmd);
+                    break;
+                case "HexSend":
+                    comSeriaPort.SendHexCommand(cmd);
+                    break;
+                default:
+                    break;
+            }
+            if (cmd == "")
+                return;
+
         }
-        private void Btn_DeftSend_Click(object sender, RoutedEventArgs e)
+
+        private void TestConnect()
         {
-            string cmd = txt_AscCommand2.Text + "\r\n";
-            comSeriaPort.SendDefaultCommand(cmd);
+            List<string> lsTmp = new List<string>();
+            for (int i = 0; i < ComPort.Items.Count; i++)
+            {
+                if (comSeriaPort.TestComConnect(ComPort.Items[i].ToString()))
+                {
+                    lsTmp.Add(ComPort.Items[i].ToString());
+                }
+            }
+            ComPort.Items.Clear();
+            foreach (var item in lsTmp)
+            {
+                ComPort.Items.Add(item);
+            }
+            msg("测试com连接完成");
         }
-        private void Btn_StringSend_Click(object sender, RoutedEventArgs e)
-        {
-            string cmd = txt_StringCommand.Text;
-            comSeriaPort.SendStringCommand(cmd);
-        }
-        private void Btn_HexSend2_Click(object sender, RoutedEventArgs e)
-        {
-        }
+
         private void Btn_clean_Click(object sender, RoutedEventArgs e)
         {
             list_text.Items.Clear();
